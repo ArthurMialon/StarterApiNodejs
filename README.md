@@ -3,14 +3,16 @@ This a starter (not really a framework.. yet) to build api with nodeJs and mongo
 
 #How to use
  1. Clone the repo
- 2. Do it.
+ 2. Do it
  ```
-   $ cd /path/to/dir
+    $ cd /path/to/dir
  ```
+ 
  3.
  ```
     $ npm install
  ```
+ 
  4. 
  ```
     $ nodemon server.js
