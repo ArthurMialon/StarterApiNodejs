@@ -1,0 +1,21 @@
+{
+  "name": "node-todo",
+  "version": "0.0.1",
+  "description": "Simple todo application.",
+  "main": "server.js",
+  "author": "ArthurMialon",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "~1.5.2",
+    "express": "~4.7.2",
+    "ip": "^0.3.2",
+    "jsonwebtoken": "^5.0.0",
+    "method-override": "~2.1.2",
+    "mongoose": "~3.6.2",
+    "morgan": "~1.2.2",
+    "nodemon": "^1.3.7",
+    "object-merge": "^2.5.1",
+    "q": "^1.2.0",
+    "socket.io": "^1.3.5"
+  }
+}
