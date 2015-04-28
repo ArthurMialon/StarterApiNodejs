@@ -36,5 +36,5 @@ This a starter (not really a framework.. yet) to build api with nodeJs and mongo
 - Add configuration for request error
 - Cut Requester to be more scalable
 - Create a little doc
-- Find a name -> if you find it call me.
+- Find a name -> if you find -> arthurmialon@gmail.com
 
