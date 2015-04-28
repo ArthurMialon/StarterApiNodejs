@@ -2,9 +2,12 @@
 This a starter (not really a framework.. yet) to build api with nodeJs and mongoDB.
 
 #How to use
-Clone the repo
+ 1. Clone the repo
+2. 
+```
   $ cd /path/to/dir
   $ npm install
+```
   
 Documentation coming soon.
 
