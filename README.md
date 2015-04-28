@@ -3,11 +3,11 @@ This a starter (not really a framework.. yet) to build api with nodeJs and mongo
 
 #How to use
  1. Clone the repo
-2. 
-```
-  $ cd /path/to/dir
-  $ npm install
-```
+ 2. Do it.
+ ```
+   $ cd /path/to/dir
+   $ npm install
+ ```
   
 Documentation coming soon.
 
