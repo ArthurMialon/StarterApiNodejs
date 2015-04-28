@@ -7,8 +7,13 @@ This a starter (not really a framework.. yet) to build api with nodeJs and mongo
  ```
    $ cd /path/to/dir
  ```
+ 3.
  ```
     $ npm install
+ ```
+ 4. 
+ ```
+    $ nodemon server.js
  ```
   
 #Documentation coming soon.
