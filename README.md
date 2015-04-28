@@ -1,4 +1,3 @@
-#StarterApiNodejs
 This a starter (not really a framework.. yet) to build api with nodeJs and mongoDB.
 
 #How to use
@@ -34,16 +33,17 @@ In your files just require this configuration and you have access to then.
 ```
 
 ## Routing
+### Create a new route
 To configure your routes go in app/config/routes.js
 This is a simple object. Each route has his path and you can define options.
-- method --> http method (String - Default 'GET') 
-- controller -> controller use (String - Optional)
-- action -> action use (String || function - Required)
-- middlewares -> middlesware before action (Array - Optional)
-- parameters -> required parameter (Array - Optional)
-- auth -> Route nedd auth (Boolean - Optional - Default false)
-- socket -> Route emit socket ? (Boolean - Optional - Default false)
-- need -> whzt user need to be able to call the route (Object - Optional)
+- method       -> http method (String - Default 'GET') 
+- controller   -> controller use (String - Optional)
+- action       -> action use (String || function - Required)
+- middlewares  -> middlesware before action (Array - Optional)
+- parameters   -> required parameter (Array - Optional)
+- auth         -> Route nedd auth (Boolean - Optional - Default false)
+- socket       -> Route emit socket ? (Boolean - Optional - Default false)
+- need         -> whzt user need to be able to call the route (Object - Optional)
 
 ## Authentication
 ...
@@ -61,3 +61,9 @@ This is a simple object. Each route has his path and you can define options.
 - Cut Requester to be more scalable
 - Create a little doc
 - Find a name -> if you find -> arthurmialon@gmail.com
+
+
+
+
+
+
