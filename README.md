@@ -6,7 +6,9 @@ This a starter (not really a framework.. yet) to build api with nodeJs and mongo
  2. Do it.
  ```
    $ cd /path/to/dir
-   $ npm install
+ ```
+ ```
+    $ npm install
  ```
   
 Documentation coming soon.
