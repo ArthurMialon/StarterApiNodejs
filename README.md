@@ -1,6 +1,13 @@
 # StarterApiNodejs
 This a starter (not really a framework.. yet) to build api with nodeJs and mongoDB.
 
+#How to use
+Clone the repo
+  $ cd /path/to/dir
+  $ npm install
+  
+Documentation coming soon.
+
 # Todo 
 - Upgrading socket system
 - Add configuration for request error
