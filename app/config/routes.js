@@ -12,10 +12,7 @@ module.exports = {
     * You can specify is you want that this route render socket at the end.
     * You can spaecify necessary parameters
     **/
-
-    // TOKEN TEST 
-    // eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjU1M2UyZjFkOTRmMjIwNzc4MTAwMDAwMSIsImlhdCI6MTQzMDI5NDcxOH0.ILiqHZ3n6VGUgguNchBHyUzXS_i4KRwlWmQSKTqU7d8
-
+    
     // REST API ---------------------------------------------------------------------
     // BASE ROUTE ======================= 
     '/' : {
@@ -48,14 +45,14 @@ module.exports = {
     '/todos' : {
         controller : 'todoController',
         action : 'getAll',
-        socket : true,
+        socket : false,
         auth : true,
         need : {
             administrator : true,
-            created_at : '> 01/06/2015',
-            images : '>= 10',
+            created_at : '> date 01/06/2015',
+            images : '>= int 10',
             name : 'length > 10',
-            test : '= ma longue string'
+            test : '= string ma longue string'
         }
     },
 
