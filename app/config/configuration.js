@@ -40,6 +40,12 @@ module.exports = {
 
 
         /**
+        * Upload directory
+        * Where files will be upload
+        */
+        uploadDir : 'uploads',
+
+        /**
         * This is really important
         * This key will be use to crypt tokens
         * All requests could need to be authenticate with token 
