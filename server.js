@@ -2,13 +2,14 @@
 var configPath      = './app/config/';				
 var corePath        = './app/core/';		
 var configuration   = require(configPath + 'configuration');
-var app  			= require(corePath + 'expressConfig')(configuration); // Initial express configuration
+var app  			= require(corePath + 'expressConfig')(configuration);
 var router 			= require('express').Router();
+var requester 		= require(corePath + 'requester');
 var database 		= require(corePath + 'database');
 var prefix 			= (configuration.apiPrefix) ? configuration.apiPrefix : '/';
-var http 			= require('http');							// Need http module to use socket with express easly
-var pjson			= require('./package.json');				// Package.json to get some informations about the application
-var port     		= process.env.PORT || 8080;                 // Port using
+var http 			= require('http');			
+var pjson			= require('./package.json');		
+var port     		= process.env.PORT || 8080;          
 var io 				= require('socket.io');
 var server;
 
@@ -23,22 +24,25 @@ for(var i in configuration) { (typeof configuration[i] != 'function') ? app.set(
 // Create server http =========================================
 server = http.createServer(app).listen(port);
 
-// Add Socket.io ==========================================
+// Add Socket.io ==============================================
 io = io.listen(server);
+// Faire la connexion .on('connection') ici
+// Envoyer socket à router
 
 // Routing HTTP ===============================================
-require(corePath + 'requester')(router, io);
-function errorHandler(err, req, res, next) {
-  res.status(500);
-  res.json('error', { error: err });
-}
-// Adding prefix for the api
+requester(router, io);
+
+// // Error Handler ===========================================xs
+// function errorHandler(err, req, res, next) {
+//   res.status(500);
+//   res.json('error', { error: err });
+// }
+// app.use(errorHandler);
+
+// Adding prefix for the api ==================================
 app.use(prefix, router);
-app.use(errorHandler);
 
-
-
-// // Routing Socket.io ==========================================
+// Routing Socket.io =======================================
 // require(configPath + 'routesSockets')(io.listen(server));
 
 // Log when launch on the server ==============================

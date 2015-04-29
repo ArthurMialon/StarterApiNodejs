@@ -103,6 +103,24 @@ var requester = {
         return this.route.middlewares;
 	},
 
+	checkNeed : function(req, res, route) {
+		var need = route.need;
+		var user = req.user;
+
+		for(var n in need) {
+			if(typeof need[n] == 'boolean') {
+				if(user[n] != need[n]){
+					res.status(400).send({ status: 400, message: "You d'ont have permissions." });
+	        		return false;	
+				}
+			}else {
+				console.log(' c un string a décodée');
+			}
+		}
+
+		return true;
+	},
+
 	addAuth : function() {
 		this.route.middlewares.unshift(Middleware['auth']);
 	},	
@@ -135,6 +153,10 @@ var requester = {
 				var p = self.checkParameter(req, res, route);
 				if(!p) { return false; }
 
+				// Check need
+				var n = self.checkNeed(req, res, route);
+				if(!n) { return false; }
+
 				// Launch before route
 				self.callBeforeRoute();
 
@@ -157,4 +179,8 @@ module.exports = function(router, io) {
 	for(var r in routes) {
         requester.createRoute(router, r, routes[r], io);
     }
+
+    router.all('*', function(req, res, next) {
+    	res.status(404).send({ status: 404, message: 'No ressources find. Please read the doc.' });
+    });
 }

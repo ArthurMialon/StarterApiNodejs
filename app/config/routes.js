@@ -13,6 +13,9 @@ module.exports = {
     * You can spaecify necessary parameters
     **/
 
+    // TOKEN TEST 
+    // eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjU1M2UyZjFkOTRmMjIwNzc4MTAwMDAwMSIsImlhdCI6MTQzMDI5NDcxOH0.ILiqHZ3n6VGUgguNchBHyUzXS_i4KRwlWmQSKTqU7d8
+
     // REST API ---------------------------------------------------------------------
     // BASE ROUTE ======================= 
     '/' : {
@@ -40,12 +43,20 @@ module.exports = {
         parameters : ['username', 'password']
     },
 
-    // // TODO =======================  
+    // // TODOS =======================  
     // GET ALL
     '/todos' : {
         controller : 'todoController',
         action : 'getAll',
-        socket : true
+        socket : true,
+        auth : true,
+        need : {
+            administrator : true,
+            created_at : '> 01/06/2015',
+            images : '>= 10',
+            name : 'length > 10',
+            test : '= ma longue string'
+        }
     },
 
     // GET

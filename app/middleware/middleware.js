@@ -28,8 +28,12 @@ module.exports = {
 				}
 				else {
 					// Token decrypt save in the request
-					req.tokenInfos = decoded;  
-					next();  
+					req.tokenInfos = decoded;
+					// Save informations about the user in the requet object 
+					User.findOne({ _id : decoded.id }, function(err, user) {
+						req.user = user;
+						next();
+					}); 
 				}
 			});			   
 		}
@@ -74,7 +78,13 @@ module.exports = {
 		}
 	},
 
-
+	/**
+	* This function will be executing before route
+	* /!\ WARNING /!\
+	* -----
+	* Don't set header in this function
+	* -----
+	*/
 	beforeRoute : function(req, res, next) {
 		console.log("Before route");
 	},
