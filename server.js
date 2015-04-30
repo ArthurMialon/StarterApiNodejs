@@ -32,7 +32,7 @@ io = io.listen(server);
 // Routing HTTP ===============================================
 requester(router, io);
 
-// // Error Handler ===========================================xs
+// // Error Handler ===========================================
 // function errorHandler(err, req, res, next) {
 //   res.status(500);
 //   res.json('error', { error: err });
@@ -46,6 +46,7 @@ app.use(prefix, router);
 // require(configPath + 'routesSockets')(io.listen(server));
 
 // Log when launch on the server ==============================
+console.log('\x1b[34m%s\x1b[0m', "Server launch with StarterApiNodejs created by Arthur Mialon. :)");
 console.log('\x1b[32m%s\x1b[0m: ', "Your amazing app          :  " + pjson.name);
 console.log('\x1b[32m%s\x1b[0m: ', "Creating by               :  " + pjson.author);
 console.log('\x1b[32m%s\x1b[0m: ', "Runnig version            :  " + pjson.version);
