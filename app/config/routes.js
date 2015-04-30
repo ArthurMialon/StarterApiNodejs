@@ -46,14 +46,7 @@ module.exports = {
         controller : 'todoController',
         action : 'getAll',
         socket : false,
-        auth : true,
-        need : {
-            administrator : true,
-            created_at : '> date 01/06/2015',
-            images : '>= int 10',
-            name : 'length > 10',
-            test : '= string ma longue string'
-        }
+        auth : true
     },
 
     // GET
@@ -73,7 +66,14 @@ module.exports = {
     '/todo/:id' : {
         method : 'DELETE',
         controller : 'todoController',
-        action : 'delete'
+        action : 'delete',
+        need : {
+            administrator : true,
+            created_at : '> date 01/06/2015',
+            images : '>= int 10',
+            name : 'length > 10',
+            test : '= string ma longue string'
+        }
     }
 
     // Generate CRUD for these ressources
