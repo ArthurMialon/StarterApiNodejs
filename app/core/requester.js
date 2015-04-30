@@ -110,7 +110,7 @@ var requester = {
 		for(var n in need) {
 			if(typeof need[n] == 'boolean') {
 				// Is user can and if the variable exist
-				if(user[n] != need[n] && user[n]){
+				if(user[n] != need[n] || user[n]){
 					res.status(400).send({ status: 400, message: "You d'ont have permissions." });
 	        		return false;	
 				}
@@ -118,6 +118,11 @@ var requester = {
 				console.log(' c une string a décodée');
 				// Couper la string
 				// Récuperer les 2 premiers mots
+				// First time --> Just a simple string --> Use a module for next !!!
+				if(user[n] != need[n] || !user[n]){
+					res.status(400).send({ status: 400, message: "You d'ont have permissions." });
+	        		return false;	
+				}
 			}
 		}
 
