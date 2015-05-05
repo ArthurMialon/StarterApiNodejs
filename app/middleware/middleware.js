@@ -96,7 +96,7 @@ module.exports = {
 	* If you already wrote header in your route it will not be executing
 	* -----
 	*/
-	afterRoute : function(req, res, next) {
+	afterRoute : function(req, res) {
 		res.json({message : 'after route'});
 	}
 
