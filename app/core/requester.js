@@ -1,7 +1,6 @@
 // Load Middleware
 var Middleware    = require('../middleware/middleware');
 var routes        = require('../config/routes');
-var Crud          = require('./crud.js');
 
 var requester = {
 	createRoute : function(router, path, route, io) {
@@ -115,7 +114,6 @@ var requester = {
 	        		return false;	
 				}
 			}else {
-				console.log(' c une string a décodée');
 				// Couper la string
 				// Récuperer les 2 premiers mots
 				// First time --> Just a simple string --> Use a module for next !!!
@@ -137,8 +135,8 @@ var requester = {
 		Middleware.beforeRoute(req, res, next);
 	},
 
-	callAfterRoute : function(req, res, next) {
-		Middleware.afterRoute(req, res, next);
+	callAfterRoute : function(req, res) {
+		Middleware.afterRoute(req, res);
 	},
 
 	useSocket : function(route) {
@@ -146,8 +144,10 @@ var requester = {
 	},
 
 	sendSocket : function(io, route, req) {
-		var t = io.sockets.emit(route.method + ' ' + route.path);
+		io.sockets.emit(route.method + ' ' + route.path, req.socketData);
+		io.sockets.emit(route.method + ' ' + req.url, req.socketData);
 		console.log('Socket sur : (' + route.method + ' ' + route.path + ')');
+		console.log('Socket sur : (' + route.method + ' ' + req.url + ')');
 	},
 
 	initRouter : function() {
@@ -172,9 +172,17 @@ var requester = {
 				req.routeInfos = route;
 
 				// Launch the right method from the righr controller
-				(self.hasController(route)) ? route.controller[route.action](req, res) : route.action(req, res);
-
-				if(self.useSocket(route)) { self.sendSocket(self.io, route, req); }
+				if(self.hasController(route)) {
+					route.controller[route.action](req, res, function(req, res) {
+						if(!res.headersSent) { self.callAfterRoute(req, res); }
+						if(self.useSocket(route)) { self.sendSocket(self.io, route, req); }
+					});
+				}else {
+					route.action(req, res, function(req, res) {
+						if(!res.headersSent) { self.callAfterRoute(req, res); }
+						if(self.useSocket(route)) { self.sendSocket(self.io, route, req); }
+					});
+				}				
 
 			});			
 		}
@@ -184,8 +192,15 @@ var requester = {
 };
 
 module.exports = function(router, io) {
+
+	if(routes[default]) {
+		// Init Default 
+		// Requester.initDefautl();
+	}
 	for(var r in routes) {
-        requester.createRoute(router, r, routes[r], io);
+		if(r != 'default') {
+			requester.createRoute(router, r, routes[r], io);	
+		}		
     }
 
     router.all('*', function(req, res, next) {
