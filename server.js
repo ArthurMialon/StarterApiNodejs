@@ -32,13 +32,6 @@ io = io.listen(server);
 // Routing HTTP ===============================================
 requester(router, io);
 
-// // Error Handler ===========================================
-// function errorHandler(err, req, res, next) {
-//   res.status(500);
-//   res.json('error', { error: err });
-// }
-// app.use(errorHandler);
-
 // Adding prefix for the api ==================================
 app.use(prefix, router);
 
