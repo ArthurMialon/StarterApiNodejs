@@ -1,4 +1,4 @@
-module.exports = {
+ module.exports = {
 
     /**
     * Here your can configure your routes
@@ -15,6 +15,11 @@ module.exports = {
     
     // REST API ---------------------------------------------------------------------
     // BASE ROUTE ======================= 
+
+    default : {
+
+    },
+
     '/' : {
         action : function(req, res) {
             res.json({message: 'Welcome on our Api', status : 200});
@@ -45,35 +50,16 @@ module.exports = {
     '/todos' : {
         controller : 'todoController',
         action : 'getAll',
-        socket : false,
-        auth : true
+        socket : true,
+        auth : false
     },
 
     // GET
     '/todo/:id' : {
         controller : 'todoController',
-        action : 'get'
-    },
-
-    // POST
-    '/todo' : {
-        method : 'POST',
-        controller : 'todoController',
-        action : 'post'
-    },
-
-    // DELETE
-    '/todo/:id' : {
-        method : 'DELETE',
-        controller : 'todoController',
-        action : 'delete',
-        need : {
-            administrator : true,
-            created_at : '> date 01/06/2015',
-            images : '>= int 10',
-            name : 'length > 10',
-            test : '= string ma longue string'
-        }
+        action : 'getAll',
+        socket : true,
+        auth : false
     }
 
     // Generate CRUD for these ressources
