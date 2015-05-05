@@ -7,10 +7,12 @@ module.exports = {
 	/**
 	* Get All todos
 	*/
-	getAll : function(req, res) {
+	getAll : function(req, res, next) {
 		Todo.find(function(err, todos) {
             if (err) { res.send(err) }
             res.json(todos);
+        	req.socketData = 'data pour socket';
+        	next(req, res);
         });
 	},
 
