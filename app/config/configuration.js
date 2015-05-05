@@ -31,14 +31,6 @@ module.exports = {
         dbPassword : '',
 
 
-        /*        
-        You can add some configurationabout your API
-        For example the title or the domain
-        */
-        title : 'My website title',
-        domain : 'mydomain.com',
-
-
         /**
         * Upload directory
         * Where files will be upload
@@ -65,12 +57,6 @@ module.exports = {
         dev : true,
 
         /**        
-        * If you want to use socket.io
-        * You can specify this in your routes too
-        */
-        useSocket : true,
-
-        /**        
         * This is the prefix use to call the api
         * Example : 
         * if apiPrefix => /api
@@ -80,10 +66,5 @@ module.exports = {
         * You can just pass it to false
         */
         apiPrefix : '/api',
-
-        /**
-        * This is the version of your api
-        * Coming soon
-        */
-        apiVersion : '1'
+        
     };
