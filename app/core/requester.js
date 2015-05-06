@@ -36,29 +36,19 @@ var requester = {
 
 		switch(this.route.method) {
 		    case 'GET':
+		    case 'get':
 		        this.route.method = 'get';
 		        break;
 		    case 'POST':
-		        this.route.method = 'post';
-		        break;
-		    case 'PUT': 
-		    	this.route.method = 'put';
-		    	break;
-		   	case 'DELETE': 
-		    	this.route.method = 'delete';
-		    	break;
-		     case 'get':
-		        this.route.method = 'get';
-		        break;
 		    case 'post':
 		        this.route.method = 'post';
 		        break;
-		    case 'put': 
+		    case 'PUT': 
+		    case 'put':
 		    	this.route.method = 'put';
 		    	break;
+		   	case 'DELETE':
 		   	case 'delete': 
-		    	this.route.method = 'delete';
-		    	break;
 		    default:
 		        this.route.method = 'get';
 		}
@@ -193,7 +183,7 @@ var requester = {
 
 module.exports = function(router, io) {
 
-	if(routes[default]) {
+	if(routes['default']) {
 		// Init Default 
 		// Requester.initDefautl();
 	}
