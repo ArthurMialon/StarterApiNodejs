@@ -18,9 +18,6 @@ var server;
 // Database =================================================== 
 database(configuration);
 
-// Adding configuration in app object =========================
-for(var i in configuration) { (typeof configuration[i] != 'function') ? app.set(i, configuration[i]) : undefined; }
-
 // Create server http =========================================
 server = http.createServer(app).listen(port);
 

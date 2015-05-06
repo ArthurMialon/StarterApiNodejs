@@ -1,7 +1,7 @@
-var Middleware    = require('../middleware/middleware');
-var Parameters    = require('./parameters');
-var Need    	  = require('./need');
-var Socket    	  = require('./socket');
+var Middleware = require('../middleware/middleware');
+var Parameters = require('./parameters');
+var Need       = require('./need');
+var Socket     = require('./socket');
 
 module.exports = function(router, route, io) {
 
@@ -11,7 +11,7 @@ module.exports = function(router, route, io) {
 
 		// HERE Check need
 
-		// HERE Launch before route
+		// HERE Launch before route with callback
 
 		// Add route infos in the request
 		req.routeInfos = route;
@@ -33,3 +33,4 @@ module.exports = function(router, route, io) {
 
 	});	
 }
+
