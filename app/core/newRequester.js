@@ -142,7 +142,7 @@ module.exports = function(router, io) {
 	}
 	for(var r in routes) {
 		if(r != 'default') {
-			Rquester.createRoute(router, r, routes[r], io);	
+			Requester.createRoute(router, r, routes[r], io);	
 		}		
     }
 
