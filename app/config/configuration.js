@@ -5,14 +5,7 @@ module.exports = {
         * All these settings are required
         * You can easly add some configuration
 
-        * You can add every types but no function
-        * All your settings will be available in the app
-
-        * Example : 
-        * app.get('my_setting'); return configuration.my_setting
-
-        * If you don't have access to app variable
-        * Then you can require this file and get the object
+        * To get your configuration just require the file
 
         * Example : 
         * config = require('/path/to/configuration');
@@ -20,7 +13,7 @@ module.exports = {
         */
         
         /**        
-        * This is where you write your database parameter
+        * This is where you specify your database parameter
         * Only using mongoDB
         * You need a host, a database name, a user and a password
         */
@@ -29,7 +22,6 @@ module.exports = {
         dbName : 'todo',
         dbUser : '',
         dbPassword : '',
-
 
         /**
         * Upload directory
@@ -44,12 +36,10 @@ module.exports = {
         */
         secretKey : 'mysupersecretkey',
 
-
         /**        
         * A little message show when you start your server
         */
         messageOnConsole : 'Magic happen on port :',
-
 
         /**
         * If true, Morgan module will log every request to the console
