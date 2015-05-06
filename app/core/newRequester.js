@@ -19,16 +19,10 @@ var Requester = {
 	* @params io     Object Socket.io object	 
 	*/
 	createRoute : function(router, path, route, io) {
-		// Express Router
-		this.router = router;
-
-		// Socket object
-		this.io = io;		
-
 		// Init the route object
 		this.route = this.initRoute(path, route);
 
-		this.initRouter();
+		this.initRouter(router, this.route, io);
 	},
 
 	initRoute : function(path, route) {
@@ -129,8 +123,8 @@ var Requester = {
 	/**
 	* Create a new Express Router instance
 	*/
-	initRouter : function() {
-		Routing(this.router, this.route, this.io);
+	initRouter : function(router, route, io) {
+		Routing(router, route, io);
 	}
 
 }
