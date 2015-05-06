@@ -31,13 +31,13 @@ var Requester = {
 		route.path = path;
 
 		// Set the method
-		route.method = this.initMethod(this.route.method);
+		route.method = this.initMethod(route.method);
 
 		// Set controller
 		route.controller = this.initController(route.controller, route.action);
 
 		// Set middlewares
-		route.middlewares = this.initMiddleware(route.middlewares);
+		route.middlewares = this.initMiddleware(route.middlewares, route.auth);
 
 		return route;
 	},
@@ -53,10 +53,16 @@ var Requester = {
         }else { middlewares = []; }
 
         // Check auth middleware
-        if(auth) { middlewares.unshift(Middleware['auth']); }
+        if(auth) {
+        	middlewares.unshift(Middleware['auth']); 
+        }else {
+        	if(typeof auth == "undefined") {
+        		if(this.defaults.auth) { middlewares.unshift(Middleware['auth']);  }
+        	}
+        }
 
         return middlewares;
-	}
+	},
 
 	/**
 	* Set the controller 
@@ -109,7 +115,7 @@ var Requester = {
 		}else {
 			// Check the default method
 			if(this.defaults.method) { 
-				method = this.defaults.method; 
+				method = this.defaults.method.toLowerCase(); 
 			}
 			// Return get if no method
 			else { 
@@ -131,8 +137,9 @@ var Requester = {
 
 module.exports = function(router, io) {
 
+	// Check default
 	if(routes['default']) {
-		Requester.initDefautl();
+		Requester.initDefault(routes['default']);
 	}
 	for(var r in routes) {
 		if(r != 'default') {
