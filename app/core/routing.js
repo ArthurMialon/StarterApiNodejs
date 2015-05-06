@@ -1,3 +1,3 @@
-module.exports = function(router, route) {
+module.exports = function(router, requester, io) {
 	console.log(route);
 }
