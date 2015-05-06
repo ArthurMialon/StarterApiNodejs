@@ -9,18 +9,16 @@ module.exports = {
 	*/
 	getAll : function(req, res, next) {
 		Todo.find(function(err, todos) {
-            if (err) { res.send(err) }
+            if (err) { res.send(err); }
             res.json(todos);
-        	req.socketData = 'data pour socket';
-        	next(req, res);
         });
 	},
 
 	/**
 	* Get one todo by id
 	*/
-	get : function(req, res, id) {
-		Todo.findById(id, function(err, todo) {
+	get : function(req, res, next) {
+		Todo.findById(req.params.id, function(err, todo) {
             if (err) { res.send(err); }
             res.json(todo);
         });
@@ -29,30 +27,36 @@ module.exports = {
 	/**
 	* Create a new todo
 	*/
-	post : function(req, res, todo) {
-		Todo.create(todo, function(err, todo) {
-            if (err) { res.send(err); }   
+	post : function(req, res, next) {
+		var todo = req.body.todo;
 
-            Todo.find(function(err, todos) {
-                if (err) { res.send(err); }
-                res.json(todos);
-            });
+		Todo.create(todo, function(err, todo) {
+            if (err) { res.send(err); }  
+            res.json(todo);
+
+            // Send the new todo in socket
+            req.socketData = todo;
+        	next(req, res);
         });
 	},
 
 	/**
 	* Update todo by id
 	*/
-	put : function(req, res, id, data) {
-		Todo.findById(id, function(err, todo) {
+	put : function(req, res, next) {
+		Todo.findById(req.params.id, function(err, todo) {
             if (err) { res.send(err); }
 
-            todo.text = data.text || todo.text;
-            todo.text = data.done || todo.done;
+            todo.text = req.body.todo.text || todo.text;
+            todo.done = req.body.todo.done || todo.done;
 
             todo.save(function(err) {
                 if (err) { res.send(err); }
-                res.json({ message: 'Todo updated' });
+                res.json({ message: 'Todo updated', status : true});
+
+                // Send update in socket
+                req.socketData = todo;
+        		next(req, res);
             });
 
         });
@@ -61,16 +65,10 @@ module.exports = {
 	/**
 	* Delete todo by id
 	*/
-	delete : function(req, res, id) {
-		Todo.remove({
-            _id : id
-        }, function(err, todo) {
-            if (err) { res.send(err); }
-
-            Todo.find(function(err, todos) {
-                if (err) { res.send(err); }
-                res.json(todos);
-            });
+	delete : function(req, res) {
+		Todo.remove({ _id : req.params.id }, function(err, todo) {
+            if (err) { res.send(err) }; 
+            res.json({message : 'Todo deleted', status : true});
         });
 	}
 
