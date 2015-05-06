@@ -1,4 +1,6 @@
-// Besoin des routes
+var Middleware    = require('../middleware/middleware');
+var Routing 	  = require('./routing');
+var routes        = require('../config/routes');
 
 var Requester = {
 
@@ -26,9 +28,6 @@ var Requester = {
 		// Init the route object
 		this.route = this.initRoute(path, route);
 
-		// Middlewares
-		// DO STUFF
-
 		this.initRouter();
 	},
 
@@ -49,12 +48,20 @@ var Requester = {
 		return route;
 	},
 
-	initMiddleware : function(middlewares) {
+	initMiddleware : function(middlewares, auth) {
 
-		// Checker les middlewares de base
-		// Besoin des middleware
+		// If there is middlewares
+		if(middlewares) {
+			// Foreach middleware we push it in middlewares
+            for(m in middlewares) {
+                middlewares[m] = Middleware[middlewares[m]];
+            } 
+        }else { middlewares = []; }
 
-		return;
+        // Check auth middleware
+        if(auth) { middlewares.unshift(Middleware['auth']); }
+
+        return middlewares;
 	}
 
 	/**
@@ -123,8 +130,23 @@ var Requester = {
 	* Create a new Express Router instance
 	*/
 	initRouter : function() {
-		// Using Routing
-		// Routing : router, route, middleware
+		Routing(this.router, this.route, this.io);
 	}
 
+}
+
+module.exports = function(router, io) {
+
+	if(routes['default']) {
+		Requester.initDefautl();
+	}
+	for(var r in routes) {
+		if(r != 'default') {
+			Rquester.createRoute(router, r, routes[r], io);	
+		}		
+    }
+
+    router.all('*', function(req, res, next) {
+    	res.status(404).send({ status: 404, message: 'No ressources find. Please read the doc.' });
+    });
 }
