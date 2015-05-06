@@ -25,7 +25,10 @@ var Requester = {
 
 		// Init the route object
 		this.route = this.initRoute(path, route);
-	
+
+		// Middlewares
+		// DO STUFF
+
 		this.initRouter();
 	},
 
@@ -40,16 +43,42 @@ var Requester = {
 		// Set controller
 		route.controller = this.initController(route.controller, route.action);
 
+		// Set middlewares
+		route.middlewares = this.initMiddleware(route.middlewares);
+
 		return route;
 	},
 
+	initMiddleware : function(middlewares) {
+
+		// Checker les middlewares de base
+		// Besoin des middleware
+
+		return;
+	}
+
 	/**
 	* Set the controller 
-	* @return null || controllet object 
+	* @return null || controller object 
 	*/ 
 	initController : function(controller, action) {
-		// Verifier le controller par defaut
-		return (typeof action == 'function') ? null : require('../controllers/' + controller);
+		// If action is a function there is no controller
+		if(typeof action == 'function') {
+			return null;
+		}else {
+			// If there is a controller return the module
+			if(controller) {
+				return require('../controllers/' + controller);
+
+			// If there is a default controller
+			}else if(this.defaults.controller){
+				return require('../controllers/' + this.defaults.controller);
+
+			// No controller
+			}else {
+				return null;
+			}
+		}
 	},
 
 	/**
@@ -58,6 +87,7 @@ var Requester = {
 	*/ 
 	initMethod : function(method) {
 
+		// Switch the method
 		if(method) {
 			switch(method.toLowerCase()) {
 			    case 'get':
@@ -76,13 +106,22 @@ var Requester = {
 			        method = 'get';
 			}
 		}else {
-			if(this.defaults.method) { return this.defaults.method; }
-			else { return 'get'; }
+			// Check the default method
+			if(this.defaults.method) { 
+				method = this.defaults.method; 
+			}
+			// Return get if no method
+			else { 
+				method = 'get'; 
+			}
 		}
 
 		return method;
 	},
 
+	/**
+	* Create a new Express Router instance
+	*/
 	initRouter : function() {
 		// Using Routing
 		// Routing : router, route, middleware
