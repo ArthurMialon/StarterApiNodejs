@@ -17,6 +17,8 @@ module.exports = {
     /* Work In Progress */
     default : {
         method : 'GET',
+        controller : 'todoController',
+        action : 'get',
         auth : true,
         socket : true
     },
