@@ -6,7 +6,7 @@ var userSchema = mongoose.Schema({
     password   	    : String,
     updated_at      : Date,
     created_at      : Date,
-});
+}, { versionKey: false });
 
 
 userSchema.pre('save', function(next) {
