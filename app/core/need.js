@@ -1,4 +1,14 @@
 module.exports = function(req, route) {
+
+  // TODO
+  // =======
+  // TESTER FONCTION DU TYPE
+  // => BOOLEAN
+  // => STRING
+  // => INTEGER
+  // => FLOAT
+  // => DATE
+
   var need = route.need;
   var user = req.user;
 
@@ -8,9 +18,7 @@ module.exports = function(req, route) {
       if (user[n] != need[n] && user[n])
         return false;
     }else {
-      // Couper la string
-      // Récuperer les 2 premiers mots
-      // First time --> Just a simple string --> Use a module for next !!!
+      // It's a string
       if (user[n] != need[n] && user[n])
         return false;
     }
