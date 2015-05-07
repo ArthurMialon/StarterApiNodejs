@@ -7,7 +7,11 @@ module.exports = function(router, route, io) {
 
 	router[route.method](route.path, route.middlewares, function(req, res, next) {
 
-		// HERE Check necessary parameters 
+		// Check necessary parameters
+		if(!Parameters(req, route)) {
+			res.json({satus: 400, message: 'Bad request : missing parameters'});
+			return false;
+		}
 
 		// HERE Check need
 
