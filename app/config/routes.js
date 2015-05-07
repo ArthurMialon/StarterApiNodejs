@@ -14,16 +14,13 @@ module.exports = {
   * You can specify what the user should have to be able to call the route
   **/
 
-  /* Work In Progress */
-  default: {
-    method    : 'GET',
-    controller: 'todoController',
-    action    : 'get',
-    auth      : true,
-    socket    : true
-  },
-  /* Work In Progress */
 
+  default: {
+    auth   : true,
+    //  === WIP
+    socket : true,
+    //  === WIP
+  },
 
   // REST API ---------------------------------------------------------------------
   // BASE ROUTE =======================
