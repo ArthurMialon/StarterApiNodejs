@@ -16,10 +16,8 @@ module.exports = {
 
 
   default: {
+    method : 'GET',
     auth   : true,
-    //  === WIP
-    socket : true,
-    //  === WIP
   },
 
   // REST API ---------------------------------------------------------------------
@@ -33,42 +31,55 @@ module.exports = {
   // REQUEST AUTHENTCATION ROUTE =======================
   '/login': {
     method     : 'POST',
-    controller : 'authController',
-    action     : 'login',
+    uses : 'authController@login',
     middlewares: ['generateAuth'],
-    parameters : ['username', 'password']
+    parameters : ['username', 'password'],
+    auth : false
   },
 
   // // USER ======================
   // Sign Up
   '/users/signup': {
     method    : 'POST',
-    controller: 'userController',
-    action    : 'signup',
-    parameters: ['username', 'password']
+    uses      : 'userController@signup',
+    parameters: ['username', 'password'],
+    auth : false
   },
 
   '/users/:id': {
-    method    : 'GET',
-    controller: 'userController',
-    action    : 'get',
-    auth      : true
+    uses : 'userController@get',
+  },
+
+  '/me' : {
+    uses : 'userController@me',
   },
 
   // // TODOS =======================
   // GET ALL
   '/todos': {
-    method    : 'GET',
-    auth      : false,
-    uses      : 'todoController@getAll'
+    uses : 'todoController@getAll'
   },
 
   // GET
   '/todos/:id': {
-    method    : 'GET',
-    controller: 'todoController',
-    action    : 'get',
-    auth      : true
-  }
+    uses : 'todoController@get',
+  },
+
+  // POST
+  '/todos/create': {
+    method : 'POST',
+    uses   : 'todoController@post',
+  },
+
+  // DELETE
+  '/todos/:id/delete': {
+    method : 'DELETE',
+    uses   : 'todoController@delete',
+  },
+
+  // DONE
+  '/todos/:id/done': {
+    uses : 'todoController@done',
+  },
 
 };
