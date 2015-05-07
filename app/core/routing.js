@@ -7,13 +7,15 @@ module.exports = function(router, route, io) {
 
 	router[route.method](route.path, route.middlewares, function(req, res, next) {
 
-		// Check necessary parameters
 		if(!Parameters(req, route)) {
 			res.json({satus: 400, message: 'Bad request : missing parameters'});
 			return false;
 		}
 
-		// HERE Check need
+		if(!Need(req, res)) {
+			res.status(400).send({ status: 400, message: "You d'ont have permissions." });
+			return false;
+		}
 
 		// HERE Launch before route with callback
 
