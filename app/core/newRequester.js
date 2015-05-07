@@ -22,7 +22,7 @@ var Requester = {
     // Init the route object
     if (!this.defaults)
       this.defaults = {};
-    
+
     this.route = this.initRoute(path, route);
 
     this.initRouter(router, this.route, io);
@@ -40,7 +40,7 @@ var Requester = {
     route.controller = this.initController(route.controller, route.action);
 
     // Set middlewares
-    route.middlewares = this.initMiddleware(route.middlewares);
+    route.middlewares = this.initMiddleware(route.middlewares, route.auth);
 
     return route;
   },
@@ -53,7 +53,12 @@ var Requester = {
           middlewares[m] = Middleware[middlewares[m]];
       }
     }
-    else
+    else if (this.defaults.middlewares) {
+      var middlewares = [];
+      for (m in this.defaults.middlewares) {
+          middlewares[m] = Middleware[this.defaults.middlewares[m]];
+      }
+    }else 
       middlewares = [];
 
     // Check auth middleware

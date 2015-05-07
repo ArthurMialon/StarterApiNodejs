@@ -40,7 +40,7 @@ console.log('\x1b[34m%s\x1b[0m', "Server launch with StarterApiNodejs created by
 console.log('\x1b[32m%s\x1b[0m: ', "Your amazing app          :  " + pjson.name);
 console.log('\x1b[32m%s\x1b[0m: ', "Creating by               :  " + pjson.author);
 console.log('\x1b[32m%s\x1b[0m: ', "Runnig version            :  " + pjson.version);
-console.log('\x1b[32m%s\x1b[0m: ', app.get('messageOnConsole') + port);
+console.log('\x1b[32m%s\x1b[0m: ', configuration.messageOnConsole + port);
 
 
 
