@@ -20,6 +20,9 @@ var Requester = {
   */
   createRoute: function(router, path, route, io) {
     // Init the route object
+    if (!this.defaults)
+      this.defaults = {};
+    
     this.route = this.initRoute(path, route);
 
     this.initRouter(router, this.route, io);
@@ -31,7 +34,7 @@ var Requester = {
     route.path = path;
 
     // Set the method
-    route.method = this.initMethod(this.route.method);
+    route.method = this.initMethod(route.method);
 
     // Set controller
     route.controller = this.initController(route.controller, route.action);
@@ -58,7 +61,7 @@ var Requester = {
       middlewares.unshift(Middleware['auth']);
 
     return middlewares;
-  }
+  },
 
   /**
   * Set the controller
@@ -117,7 +120,7 @@ var Requester = {
 module.exports = function(router, io) {
 
   if (routes['default'])
-    Requester.initDefautl();
+    Requester.initDefault(routes['default']);
 
   for (var r in routes) {
     if (r != 'default') {
