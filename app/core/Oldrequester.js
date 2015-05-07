@@ -47,7 +47,7 @@ var requester = {
     var parameters = route.parameters;
 
     var missing = {
-      message:'Bad request : Missing parameters';
+      message:'Bad request : Missing parameters',
       status : 400;
     };
 
