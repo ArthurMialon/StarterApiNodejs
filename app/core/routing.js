@@ -13,11 +13,9 @@ module.exports = function(router, route, io) {
 		}
 
 		if(!Need.check(req, res)) {
-			res.status(400).send({ status: 400, message: "You d'ont have permissions." });
+			res.status(400).send({status: 400, message: "You don't have permissions."});
 			return false;
 		}
-
-		// HERE Launch before route with callback
 
 		// Add route infos in the request
 		req.routeInfos = route;
@@ -25,15 +23,17 @@ module.exports = function(router, route, io) {
 		// Launch the right method from the right controller
 		if(route.controller) {
 			route.controller[route.action](req, res, function(req, res) {
-				// Callback next
-				// HERE After route
-				// HERE Socket
+				// After route
+				Middleware.afterRoute(req, res);
+				// Emit socket
+				Socket.emit(req, io);
 			});
 		}else {
 			route.action(req, res, function(req, res) {
-				// Callback next
-				// HERE After route
-				// HERE Socket				
+				// After route
+				Middleware.afterRoute(req, res);
+				// Emit socket 
+				Socket.emit(req, io);			
 			});
 		}				
 
