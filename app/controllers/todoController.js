@@ -11,6 +11,7 @@ module.exports = {
     Todo.find(function(err, todos) {
       if (err) res.send(err);
       res.json(todos);
+      next(req, res);
     });
   },
 
@@ -68,6 +69,23 @@ module.exports = {
     Todo.remove({ _id: req.params.id }, function(err, todo) {
       if (err) res.send(err);
       res.json({message: 'Todo deleted', status : true});
+    });
+  },
+
+  done: function(req, res) {
+    Todo.findById(req.params.id, function(err, todo) {
+      if (err) res.send(err);
+
+      todo.done = true;
+
+      todo.save(function(err) {
+        if (err) res.send(err);
+        res.json({ message: 'Todo done', status : true});
+
+        // Send update in socket
+        req.socketData = todo;
+        next(req, res);
+      });
     });
   }
 };
