@@ -86,11 +86,11 @@ module.exports = {
   * This function will be executing before route
   * /!\ WARNING /!\
   * -----
-  * Don't set header in this function
+  * Don't set header before this function
   * -----
   */
   beforeRoute: function(req, res, next) {
-    console.log("Before route");
+    next();
   },
 
   /**
@@ -101,6 +101,14 @@ module.exports = {
   * -----
   */
   afterRoute: function(req, res) {
-    res.json({message: 'after route'});
+
+    // Do stuff
+    console.log('after route');
+
+    // Check if header already be send
+    if(!res.headersSent) { 
+      res.json({message: 'after route'});
+    }
+    
   }
 };
