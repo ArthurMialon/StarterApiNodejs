@@ -7,12 +7,12 @@ module.exports = function(router, route, io) {
 
 	router[route.method](route.path, route.middlewares, function(req, res, next) {
 
-		if(!Parameters(req, route)) {
+		if(!Parameters.check(req, route)) {
 			res.json({satus: 400, message: 'Bad request : missing parameters'});
 			return false;
 		}
 
-		if(!Need(req, res)) {
+		if(!Need.check(req, res)) {
 			res.status(400).send({ status: 400, message: "You d'ont have permissions." });
 			return false;
 		}
