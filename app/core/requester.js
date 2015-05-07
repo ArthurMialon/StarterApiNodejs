@@ -52,10 +52,25 @@ var Requester = {
     }else 
       route.controller = this.initController(route.controller, route.action);
 
+    // Set socket
+    route.socket = this.initSocket(route.socket);
+
     // Set middlewares
     route.middlewares = this.initMiddleware(route.middlewares, route.auth);
 
     return route;
+  },
+
+  /**
+  * Init socket 
+  * @params boolean route socket infos
+  * @return boolean 
+  */
+  initSocket: function(socket) {
+    if(socket || (this.defaults.socket && socket !== false))
+      return true;
+    else
+      return false;
   },
 
   /**
