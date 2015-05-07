@@ -19,12 +19,13 @@ module.exports = {
     var user = req.user;
 
     for(var n in need) {
+      // SWITCH
       if (typeof need[n] == 'boolean') {
         // Is user can and if the variable exist
         if (user[n] != need[n] && user[n])
           return false;
       }else {
-        // It's a string
+        // It's not a boolean string
         if (user[n] != need[n] && user[n])
           return false;
       }
@@ -34,24 +35,36 @@ module.exports = {
   },
 
   /**
-  * Check boolean
+  * Check Boolean
   */
   isBoolean: function() {
 
   },
 
+  /**
+  * Check Integer
+  */
   isInteger: function() {
 
   },
 
+  /**
+  * Check String
+  */
   isString: function() {
 
   },
 
+  /**
+  * Check Float
+  */
   isFloat: function() {
 
   },
 
+  /**
+  * Check Date
+  */
   isDate: function() {
 
   }
