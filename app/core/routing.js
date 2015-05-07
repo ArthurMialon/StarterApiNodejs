@@ -26,14 +26,16 @@ module.exports = function(router, route, io) {
 				// After route
 				Middleware.afterRoute(req, res);
 				// Emit socket
-				Socket.emit(req, io);
+				if(route.socket)
+					Socket.emit(req, io);
 			});
 		}else {
 			route.action(req, res, function(req, res) {
 				// After route
 				Middleware.afterRoute(req, res);
 				// Emit socket 
-				Socket.emit(req, io);			
+				if(route.socket)
+					Socket.emit(req, io);			
 			});
 		}				
 
