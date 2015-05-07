@@ -64,7 +64,9 @@ var Requester = {
     // Check auth middleware
     if(auth)
       middlewares.unshift(Middleware['auth']);
-
+    else if (this.defaults.auth === true && auth !== false)
+      middlewares.unshift(Middleware['auth']);
+    
     return middlewares;
   },
 
@@ -80,15 +82,13 @@ var Requester = {
     else {
       // If there is a controller return the module
       if (controller) {
-        return require('../controllers/' + controller);
-
+        return require('../controllers/' + controller);      
+      }
       // If there is a default controller
-      }
       else if (this.defaults.controller) {
-        return require('../controllers/' + this.defaults.controller);
-
-      // No controller
+        return require('../controllers/' + this.defaults.controller);      
       }
+      // No controller
       else {
         return null;
       }
@@ -109,7 +109,7 @@ var Requester = {
       return this.defaults.method.toLowerCase();
     }
 
-    // default
+    // Default
     return 'get';
 
   },
@@ -128,9 +128,8 @@ module.exports = function(router, io) {
     Requester.initDefault(routes['default']);
 
   for (var r in routes) {
-    if (r != 'default') {
+    if (r != 'default')
       Requester.createRoute(router, r, routes[r], io);
-    }
   }
 
   router.all('*', function(req, res, next) {
