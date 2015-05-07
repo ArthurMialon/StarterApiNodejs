@@ -59,9 +59,8 @@ module.exports = {
   // GET ALL
   '/todos': {
     method    : 'GET',
-    controller: 'todoController',
-    action    : 'getAll',
-    auth      : true
+    auth      : true,
+    uses : 'todoController@getAll'
   },
 
   // GET
