@@ -2,6 +2,8 @@ var express        = require('express');
 var morgan         = require('morgan');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
+var multer         = require('multer');
+var appPath        = __dirname + '/../';
 
 module.exports = function(configuration) {
   var app = express();
@@ -10,7 +12,7 @@ module.exports = function(configuration) {
   if (configuration.dev) app.use(morgan('dev'));
 
   // Set the static files location /public/img will be /img for users
-  app.use(express.static(__dirname + configuration.publicDir));
+  app.use(express.static(appPath + configuration.publicDir ));
 
   // Parse application/x-www-form-urlencoded
   app.use(bodyParser.urlencoded({'extended':'true'}));
@@ -20,9 +22,27 @@ module.exports = function(configuration) {
 
   // Parse application/vnd.api+json as json
   app.use(bodyParser.json({type: 'application/vnd.api+json'}));
-
-  // For Delete and Put method
+ 
+  // For Delete and Put method 
   app.use(methodOverride());
+
+  // Upload system multer
+  app.use(multer({
+    dest : './app/' + configuration.publicDir + '/' + configuration.upload.dir,
+    limits: {
+      fieldNameSize: configuration.upload.fieldNameSize,
+      files: configuration.upload.files,
+      fields: configuration.upload.fields,
+      fileSize: configuration.upload.fileSize
+    },
+    rename: function(fieldname, filename) {
+        return filename;
+    },
+    onFileUploadStart: function(file) {
+
+    },
+    inMemory: true
+  }));
 
   return app;
 };
