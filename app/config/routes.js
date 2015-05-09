@@ -1,3 +1,5 @@
+var uploads = require('../services/upload');
+
 module.exports = {
 
   /**
@@ -14,10 +16,10 @@ module.exports = {
   * You can specify what the user should have to be able to call the route
   **/
 
-
   default: {
     method : 'GET',
     auth   : true,
+    socket : false
   },
 
   // REST API ---------------------------------------------------------------------
@@ -26,6 +28,18 @@ module.exports = {
     action: function(req, res) {
       res.json({message: 'Welcome on our Api', status: 200});
     }
+  },
+
+  '/uploads': {
+    method : 'POST',
+    action: function(req, res) {
+      uploads(req.files, false, function(err, success) {
+        if (err) console.log(err);
+        else 
+          console.log('success upload :)');
+      });
+    },
+    auth : false
   },
 
   // REQUEST AUTHENTCATION ROUTE =======================
@@ -43,7 +57,7 @@ module.exports = {
     method    : 'POST',
     uses      : 'userController@signup',
     parameters: ['username', 'password'],
-    auth : false
+    auth      : false
   },
 
   '/users/:id': {
@@ -57,7 +71,9 @@ module.exports = {
   // // TODOS =======================
   // GET ALL
   '/todos': {
-    uses : 'todoController@getAll'
+    uses : 'todoController@getAll',
+    middlewares : ['custom.logFinger'],
+    auth : false
   },
 
   // GET
@@ -69,17 +85,21 @@ module.exports = {
   '/todos/create': {
     method : 'POST',
     uses   : 'todoController@post',
+    socket : true,
+    parameters : ['todo']
   },
 
   // DELETE
   '/todos/:id/delete': {
     method : 'DELETE',
     uses   : 'todoController@delete',
+    socket : true
   },
 
   // DONE
   '/todos/:id/done': {
-    uses : 'todoController@done',
+    uses  : 'todoController@done',
+    socket: true
   },
 
 };
