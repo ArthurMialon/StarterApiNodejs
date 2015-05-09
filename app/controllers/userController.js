@@ -7,19 +7,15 @@ module.exports = {
   */
   signup: function(req, res, next) {
 
-    if (!req.body.username) {
+    if (!req.body.username || !req.body.password) {
       res.json({message: 'Missing credentials username'});
-      return;
-    }
-    if (!req.body.password) {
-      res.json({message: 'Missing credentials password'});
       return;
     }
 
     var user_send =  {
       username: req.body.username,
       password: req.body.password
-    }
+    };
 
     User.findOne({username: user_send.username}, function(err, user) {
       if (err) throw err;
@@ -33,6 +29,13 @@ module.exports = {
         });
       }
     });
+  },
+
+  /**
+  * Send user infos 
+  */
+  me: function(req, res, next) {
+    res.json(req.user);
   }
 
 };
