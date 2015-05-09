@@ -24,10 +24,22 @@ module.exports = {
   dbPassword: '',
 
   /**
+  * Public directory
+  * Where files will accessible from url
+  */
+  publicDir : 'public',
+
+  /**
   * Upload directory
   * Where files will be upload
   */
-  uploadDir: 'uploads',
+  upload : {
+    dir : 'uploads',
+    fieldNameSize: 50,
+    files: 1,
+    fields: 5,
+    fileSize: 1024 * 1024
+  },
 
   /**
   * This is really important
@@ -39,7 +51,7 @@ module.exports = {
   /**
   * A little message show when you start your server
   */
-  messageOnConsole: 'Magic happen on port:',
+  messageOnConsole: 'Magic happen on port      :  ',
 
   /**
   * If true, Morgan module will log every request to the console
