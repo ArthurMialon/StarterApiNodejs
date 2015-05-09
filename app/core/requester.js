@@ -84,7 +84,12 @@ var Requester = {
     if (middlewares) {
       // Foreach middleware we push it in middlewares
       for (m in middlewares) {
-          middlewares[m] = Middleware[middlewares[m]];
+          var f = middlewares[m].split('.');
+
+          if (f.length == 1) 
+            middlewares[m] = Middleware[middlewares[m]];
+          else
+            middlewares[m] = require('../middleware/'+f[0])[f[1]];
       }
     }
     else if (this.defaults.middlewares) {
