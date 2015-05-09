@@ -5,7 +5,7 @@ var Socket     = require('./socket');
 
 module.exports = function(router, route, io) {
 
-	router[route.method](route.path, route.middlewares, function(req, res, next) {
+	router[route.method](route.path, route.middleware, function(req, res, next) {
 
 		if(!Parameters.check(req, route)) {
 			res.json({satus: 400, message: 'Bad request : missing parameters'});

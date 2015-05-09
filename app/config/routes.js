@@ -46,7 +46,7 @@ module.exports = {
   '/login': {
     method     : 'POST',
     uses : 'authController@login',
-    middlewares: ['generateAuth'],
+    middleware: ['generateAuth'],
     parameters : ['username', 'password'],
     auth : false
   },
@@ -72,7 +72,7 @@ module.exports = {
   // GET ALL
   '/todos': {
     uses : 'todoController@getAll',
-    middlewares : ['custom.logFinger'],
+    middleware : ['custom.logFinger'],
     auth : false
   },
 

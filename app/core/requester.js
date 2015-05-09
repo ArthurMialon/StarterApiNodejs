@@ -56,7 +56,7 @@ var Requester = {
     route.socket = this.initSocket(route.socket);
 
     // Set middlewares
-    route.middlewares = this.initMiddleware(route.middlewares, route.auth);
+    route.middleware = this.initMiddleware(route.middleware, route.auth);
 
     return route;
   },
@@ -79,34 +79,34 @@ var Requester = {
   * @params Boolean auth
   * @return Array   middlewares
   */
-  initMiddleware: function(middlewares, auth) {
+  initMiddleware: function(middleware, auth) {
     // If there is middlewares
-    if (middlewares) {
+    if (middleware) {
       // Foreach middleware we push it in middlewares
-      for (m in middlewares) {
-          var f = middlewares[m].split('.');
+      for (m in middleware) {
+          var f = middleware[m].split('.');
 
           if (f.length == 1) 
-            middlewares[m] = Middleware[middlewares[m]];
+            middleware[m] = Middleware[middleware[m]];
           else
-            middlewares[m] = require('../middleware/'+f[0])[f[1]];
+            middleware[m] = require('../middleware/'+f[0])[f[1]];
       }
     }
-    else if (this.defaults.middlewares) {
-      var middlewares = [];
-      for (m in this.defaults.middlewares) {
-          middlewares[m] = Middleware[this.defaults.middlewares[m]];
+    else if (this.defaults.middleware) {
+      var middleware = [];
+      for (m in this.defaults.middleware) {
+          middleware[m] = Middleware[this.defaults.middleware[m]];
       }
     }else 
-      middlewares = [];
+      middleware = [];
 
     // Check auth middleware
     if (auth)
-      middlewares.unshift(Middleware['auth']);
+      middleware.unshift(Middleware['auth']);
     else if (this.defaults.auth === true && auth !== false)
-      middlewares.unshift(Middleware['auth']);
+      middleware.unshift(Middleware['auth']);
 
-    return middlewares;
+    return middleware;
   },
 
   /**
