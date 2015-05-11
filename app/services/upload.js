@@ -10,10 +10,10 @@ module.exports = function(files, name, callback) {
   var stream = fs.createWriteStream(path + fileName);
   stream.write(buffer);
   stream.on('error', function(err) {
-      callback(err, false);
+    callback(err, false);
   });
   stream.on('finish', function() {
-      callback(false, true);
+    callback(false, file);
   });
   stream.end();
 }
