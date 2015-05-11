@@ -19,14 +19,14 @@ var server;
 database(configuration);
 
 // Create server http  // Add Socket.io // Routing HTTP ===============================================
-requester(router, io.listen(http.createServer(app).listen(port)));
+requester(router, io.listen(http.createServer(app).listen(port, logger())));
 
 // Adding prefix for the api ==================================
 app.use(prefix, router);
 
 // Routing Socket.io =======================================
 // require(configPath + 'routesSockets')(io.listen(server));
-logger();
+
 
 
 
