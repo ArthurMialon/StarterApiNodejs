@@ -1,7 +1,6 @@
 // Load Model
 var Todo = require('../models/todo');
 
-
 module.exports = {
 
   /**
@@ -41,6 +40,21 @@ module.exports = {
     });
   },
 
+    /**
+  * Update done todo
+  */
+  done: function(req, res, next) {
+   Todo.done(req.params.id, function(err, todo) {
+      res.json(todo);
+    });
+  },
+
+  undo: function(req, res, next) {
+   Todo.undo(req.params.id, function(err, todo) {
+      res.json(todo);
+    });
+  },
+
   /**
   * Update todo by id
   */
@@ -65,27 +79,10 @@ module.exports = {
   /**
   * Delete todo by id
   */
-  delete: function(req, res) {
+  delete: function(req, res, next) {
     Todo.remove({ _id: req.params.id }, function(err, todo) {
       if (err) res.send(err);
       res.json({message: 'Todo deleted', status : true});
-    });
-  },
-
-  done: function(req, res) {
-    Todo.findById(req.params.id, function(err, todo) {
-      if (err) res.send(err);
-
-      todo.done = true;
-
-      todo.save(function(err) {
-        if (err) res.send(err);
-        res.json({ message: 'Todo done', status : true});
-
-        // Send update in socket
-        req.socketData = todo;
-        next(req, res);
-      });
     });
   }
 };
