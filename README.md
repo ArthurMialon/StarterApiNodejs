@@ -28,8 +28,8 @@ This is a simple object. Some of variables are necessary but you can add everyth
 In your files just require this configuration and you have access to then.
 
 ```javascript
-	var configuration = require('/path/to/config/configuration');
-    var title = configuration.title;
+  var configuration = require('/path/to/config/configuration');
+  var title = configuration.title;
 ```
 
 ## Routing
@@ -44,6 +44,61 @@ This is a simple object. Each route has his path and you can define options.
 - auth         -> Route nedd auth (Boolean - Optional - Default false)
 - socket       -> Route emit socket ? (Boolean - Optional - Default false)
 - need         -> whzt user need to be able to call the route (Object - Optional)
+- uses		     -> controller@action instead of controller and action options
+
+```javascript
+  // app/config/routes.js
+  
+  // Default object for all routes
+  default: {
+    method : 'GET',
+    auth   : true,
+    socket : false
+  },
+  
+  // Action as a function
+  '/': {
+    action: function(req, res) {
+      res.json({message: 'Welcome on our Api', status: 200});
+    }
+  },
+  
+  // Classic routes to get all todos
+  // Define a controller ( will use app/controllers/todoController.js )
+  // Define a action ( will use todoController.getAll() ) 
+  // Define a custom middleware ( will use app/middleware/custom.js and logFinger action )
+  // If you want to use a middleware in middleware.js 
+  // just type ['myMiddleware'] 
+  // with the right function
+  '/todos': {
+    controller : 'todoController',
+    action     : 'getAll', 
+    middleware : ['custom.logFinger'],
+    auth : false
+  },
+
+  // Classic routes to get one todo by id
+  // Define a controller and an action with uses
+  '/todos/:id': {
+    uses       : 'todoController@get',
+    auth : false
+  },
+  
+  // Classic routes to post one new todo
+  // Define the method POST
+  // You can define necessary parameters in an array
+  // These parameters will be search req.body.X
+  // Else you will receive a error in JSON return
+  '/todos/create': {
+    method : 'POST',
+    uses   : 'todoController@post',
+    parameters : ['todo'],
+    socket : true,
+  },
+
+
+```
+
 
 ## Authentication
 ...
