@@ -18,7 +18,7 @@ module.exports = {
   * You need a host, a database name, a user and a password
   */
   dbType: 'mongodb',
-  dbHost: 'mongodb://127.0.0.1/',
+  dbHost: '127.0.0.1',
   dbName: 'todo',
   dbUser: '',
   dbPassword: '',
