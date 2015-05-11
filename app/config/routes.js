@@ -33,8 +33,9 @@ module.exports = {
   '/uploads': {
     method : 'POST',
     action: function(req, res) {
-      uploads(req.files, false, function(err, success) {
-        if (err) console.log(err);
+      uploads(req.files, false, function(err, file) {
+        if (err) 
+          console.log(err);
         else 
           console.log('success upload :)');
       });
@@ -79,14 +80,28 @@ module.exports = {
   // GET
   '/todos/:id': {
     uses : 'todoController@get',
+    auth : false
   },
 
   // POST
   '/todos/create': {
     method : 'POST',
     uses   : 'todoController@post',
+    parameters : ['todo'],
     socket : true,
-    parameters : ['todo']
+  },
+
+  // DONE
+  '/todos/:id/done': {
+    method : 'PUT',
+    uses  : 'todoController@done',
+    socket: true
+  },
+
+  '/todos/:id/undo': {
+    method : 'PUT',
+    uses  : 'todoController@undo',
+    socket: true
   },
 
   // DELETE
@@ -94,12 +109,6 @@ module.exports = {
     method : 'DELETE',
     uses   : 'todoController@delete',
     socket : true
-  },
-
-  // DONE
-  '/todos/:id/done': {
-    uses  : 'todoController@done',
-    socket: true
-  },
+  }
 
 };
