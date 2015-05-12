@@ -1,5 +1,3 @@
-var uploads = require('../services/upload');
-
 module.exports = {
 
   /**
@@ -18,8 +16,7 @@ module.exports = {
 
   default: {
     method : 'GET',
-    auth   : true,
-    socket : false
+    auth   : false
   },
 
   // REST API ---------------------------------------------------------------------
@@ -30,35 +27,20 @@ module.exports = {
     }
   },
 
-  '/uploads': {
-    method : 'POST',
-    action: function(req, res) {
-      uploads(req.files, false, function(err, file) {
-        if (err) 
-          console.log(err);
-        else 
-          console.log('success upload :)');
-      });
-    },
-    auth : false
-  },
-
   // REQUEST AUTHENTCATION ROUTE =======================
   '/login': {
     method     : 'POST',
-    uses : 'authController@login',
-    middleware: ['generateAuth'],
-    parameters : ['username', 'password'],
-    auth : false
+    uses       : 'authController@login',
+    middleware : ['generateAuth'],
+    parameters : ['username', 'password']
   },
 
   // // USER ======================
   // Sign Up
   '/users/signup': {
-    method    : 'POST',
-    uses      : 'userController@signup',
-    parameters: ['username', 'password'],
-    auth      : false
+    method     : 'POST',
+    uses       : 'userController@signup',
+    parameters : ['username', 'password']
   },
 
   '/users/:id': {
@@ -72,36 +54,33 @@ module.exports = {
   // // TODOS =======================
   // GET ALL
   '/todos': {
-    uses : 'todoController@getAll',
-    middleware : ['custom.logFinger'],
-    auth : false
+    uses       : 'todoController@getAll',
+    middleware : ['custom.logFinger']
   },
 
   // GET
   '/todos/:id': {
-    uses : 'todoController@get',
-    auth : false
+    uses : 'todoController@get'
   },
 
   // POST
   '/todos/create': {
-    method : 'POST',
-    uses   : 'todoController@post',
-    parameters : ['todo'],
-    socket : true,
+    method     : 'POST',
+    uses       : 'todoController@post',
+    socket     : true
   },
 
   // DONE
   '/todos/:id/done': {
     method : 'PUT',
-    uses  : 'todoController@done',
-    socket: true
+    uses   : 'todoController@done',
+    socket : true
   },
 
   '/todos/:id/undo': {
     method : 'PUT',
-    uses  : 'todoController@undo',
-    socket: true
+    uses   : 'todoController@undo',
+    socket : true
   },
 
   // DELETE
