@@ -20,7 +20,7 @@ module.exports = {
     User.findOne({username: user_send.username}, function(err, user) {
       if (err) throw err;
       if(user) {
-        res.status(400).send({status: 400, message: "Username already exist"});
+        res.sendError(400, 'Username already exist');
       }
       else {
         User.create(user_send, function(err, user) {

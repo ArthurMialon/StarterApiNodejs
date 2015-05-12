@@ -19,13 +19,13 @@ module.exports = {
     var token = req.body.token || req.param('token') || req.headers['x-access-token'];
 
     if (!token) {
-      return res.status(400).send({status: 400, message: 'Missing token'});
+      return res.sendError(400);
     }
     else {
       // Verify the token
       jwt.verify(token, configuration.secretKey, function(err, decoded) {
         if (err) {
-          return res.status(400).send({status: 400, message: 'Invalid token'});
+          return res.sendError(400);
         }
         else {
           // Token decrypt save in the request
@@ -63,16 +63,18 @@ module.exports = {
 
         if (!user) {
           // Invalid username
-          res.status(400).send({status: 400, message: "Invalid credentials"});
+          res.sendError(400, 'Invalid credentials');
         }
         else {
           if (!user.validPassword(req.body.password)) {
             // Invalid password
-            res.status(400).send({status: 400, message: "Invalid credentials"});
+            res.sendError(400, 'Invalid credentials');
           }
           else {
             // Generate a token signed and pass it in the request
-            req.token = jwt.sign({id: user.id, username: user.name}, configuration.secretKey, {});
+            req.token = jwt.sign({id: user.id, username: user.name}, configuration.secretKey, {
+              expiresInMinutes: 2880 // expires in 48 hours
+            });
             user.password = '';
             req.user = user;
             next();
