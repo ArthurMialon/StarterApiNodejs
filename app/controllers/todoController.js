@@ -28,7 +28,7 @@ module.exports = {
   * Create a new todo
   */
   post: function(req, res, next) {
-    var todo = req.body.todo;
+    var todo = req.body;
 
     Todo.create(todo, function(err, todo) {
       if (err) res.send(err);
@@ -46,12 +46,16 @@ module.exports = {
   done: function(req, res, next) {
    Todo.done(req.params.id, function(err, todo) {
       res.json(todo);
+      req.socketData = todo;
+      next(req, res);
     });
   },
 
   undo: function(req, res, next) {
    Todo.undo(req.params.id, function(err, todo) {
       res.json(todo);
+      req.socketData = todo;
+      next(req, res);
     });
   },
 
