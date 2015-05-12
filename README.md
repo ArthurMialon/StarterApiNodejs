@@ -1,4 +1,8 @@
-This a starter (not really a framework.. yet) to build api with nodeJs and mongoDB.
+Create your own ReST APi with Nodejs and MongoDB.
+
+XX-API give you an architecture and others system to create quicly your api.
+
+Simple or complex XX-API is a really good way to do it.
 
 #How to use
  1. Clone the repo
