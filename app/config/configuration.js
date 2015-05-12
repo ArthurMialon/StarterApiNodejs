@@ -8,7 +8,7 @@ module.exports = {
   * To get your configuration just require the file
 
   * Example:
-  * config = require('/path/to/configuration');
+  * var config = require('/path/to/configuration');
   * config.my_settings
   */
 
@@ -17,11 +17,14 @@ module.exports = {
   * Only using mongoDB
   * You need a host, a database name, a user and a password
   */
-  dbType: 'mongodb',
-  dbHost: '127.0.0.1',
-  dbName: 'todo',
-  dbUser: '',
-  dbPassword: '',
+  db : {
+    type     : 'mongodb',
+    host     : '127.0.0.1',
+    name     : 'todo',
+    user     : '',
+    password : ''
+  },
+  
 
   /**
   * Public directory
@@ -31,20 +34,20 @@ module.exports = {
 
   /**
   * Upload directory
-  * Where files will be upload
+  * Where files will be upload to
   */
   upload : {
-    dir : 'uploads',
-    fieldNameSize: 50,
-    files: 1,
-    fields: 5,
-    fileSize: 1024 * 1024
+    dir           : 'uploads',
+    fieldNameSize : 50,
+    files         : 1,
+    fields        : 5,
+    fileSize      : 1024 * 1024
   },
 
   /**
   * This is really important
   * This key will be use to crypt tokens
-  * All requests could need to be authenticate with token
+  * All requests could be authenticate with token
   */
   secretKey: 'mysupersecretkey',
 
@@ -67,5 +70,5 @@ module.exports = {
   * if you are using a subdomain like api.mydomain.com
   * You can just pass it to false
   */
-  apiPrefix: '/api',
+  apiPrefix: '/api'
 };
