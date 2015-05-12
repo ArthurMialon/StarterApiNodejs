@@ -1,5 +1,9 @@
 var mongoose = require('mongoose');
 
+/**
+* Mongoose Schema
+* Todo 
+*/
 var todoSchema = mongoose.Schema({
   text			: String,
   done			: Boolean,
@@ -7,11 +11,15 @@ var todoSchema = mongoose.Schema({
   created_at	: Date
 }, { versionKey: false });
 
+/**
+* Mongoose Middleware
+* Pre save 
+*/
 todoSchema.pre('save', function(next) {
   var todo = this;
   var now = new Date();
 
-  // Add created at
+  // Add created at and updated at
   todo.updated_at = now;
   if (!todo.created_at)
     todo.created_at = now;
@@ -19,33 +27,29 @@ todoSchema.pre('save', function(next) {
   next();
 });
 
+/**
+* Mongoose Method
+*/
+// Done todo
 todoSchema.statics.done = function done (id, cb) {
-  var self = this;
-  var conditions = { _id: id };
-  var update = { $set: { done: true }};
-  var options = {};
-
-  self.update(conditions, update, options, function(err, nb) {
-    if(err)
-      cb(err, false);
-    
-    self.findOne({_id : id}, function(err, todo) {
-      cb(err, todo);
-    });
-  });
+  archive(this, true, id, cb);
 };
 
+// Undo todo
 todoSchema.statics.undo = function undo(id, cb) {
-  var self = this;
-  var conditions = { _id: id };
-  var update = { $set: { done: false }};
-  var options = {};
+  archive(this, false, id, cb);
+}
 
-  self.update(conditions, update, options, function(err, nb) {
-    if(err)
-      cb(err, false);
-    
-    self.findOne({_id : id}, function(err, todo) {
+/**
+* Archive function for middleware
+*/ 
+function archive(model, done, id, cb) {
+  // Update the todo
+  model.update({ _id: id }, { $set: { done: done }}, {}, function(err, nb) {
+    if(err) cb(err, false);
+      
+    // Return the todo in the callback
+    model.findOne({_id : id}, function(err, todo) {
       cb(err, todo);
     });
   });
