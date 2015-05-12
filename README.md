@@ -1,8 +1,10 @@
-Create your own ReST APi with Nodejs and MongoDB.
+Create your own ReST API with Nodejs and MongoDB with realtime socket.
 
-XX-API give you an architecture and others system to create quicly your api.
+XX-API give you an architecture to create quickly your api.
 
 Simple or complex XX-API is a really good way to do it.
+
+REST : Authentication : Real-Time : Controller - Models
 
 #How to use
  1. Clone the repo
