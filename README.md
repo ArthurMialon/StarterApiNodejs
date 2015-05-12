@@ -89,6 +89,7 @@ This is a simple object. Each route has his path and you can define options.
   // You can define necessary parameters in an array
   // These parameters will be search req.body.X
   // Else you will receive a error in JSON return
+  // That will return a socket to know when a todo will be create
   '/todos/create': {
     method : 'POST',
     uses   : 'todoController@post',
