@@ -7,6 +7,8 @@ module.exports = function(configuration) {
     pass: configuration.dbPassword
   };
 
+  var db = configuration.db;
+
   mongoose.connection.on("open", function(ref) {
     console.log("");
     console.log('\x1b[34m%s\x1b[0m', "Connected to mongo server!");
@@ -18,10 +20,10 @@ module.exports = function(configuration) {
   });
 
   try {
-    mongoose.connect("mongodb://" + configuration.dbHost + "/" + configuration.dbName, o);
-    db = mongoose.connection;
-    console.log("Started connection on mongodb://" + configuration.dbHost + "/" + configuration.dbName);
-  } catch (err) {
-    console.log("Setting up failed to connect to " + configuration.dbHost + "/" + configuration.dbName);
+    mongoose.connect("mongodb://" + db.host + "/" + db.name, o);
+  }
+  catch (err) {
+    console.log("Setting up failed to connect to " + db.Host + "/" + db.name);
+    console.log("");
   }
 };
