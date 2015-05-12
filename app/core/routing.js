@@ -2,7 +2,6 @@ var Middleware = require('../middleware/middleware');
 var Parameters = require('./parameters');
 var Need       = require('./need');
 var Socket     = require('./socket');
-var Error 	   = require('./errors');
 
 module.exports = function(router, route, io) {
 

@@ -16,7 +16,7 @@ module.exports = {
 
   default: {
     method : 'GET',
-    auth   : false
+    auth   : true
   },
 
   // REST API ---------------------------------------------------------------------
@@ -24,7 +24,8 @@ module.exports = {
   '/': {
     action: function(req, res) {
       res.json({message: 'Welcome on our Api', status: 200});
-    }
+    },
+    auth : false
   },
 
   // REQUEST AUTHENTCATION ROUTE =======================
@@ -32,7 +33,8 @@ module.exports = {
     method     : 'POST',
     uses       : 'authController@login',
     middleware : ['generateAuth'],
-    parameters : ['username', 'password']
+    parameters : ['username', 'password'],
+    auth       : false
   },
 
   // // USER ======================
@@ -40,7 +42,8 @@ module.exports = {
   '/users/signup': {
     method     : 'POST',
     uses       : 'userController@signup',
-    parameters : ['username', 'password']
+    parameters : ['username', 'password'],
+    auth       : false
   },
 
   '/users/:id': {

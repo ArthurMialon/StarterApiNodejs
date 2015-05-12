@@ -1,12 +1,13 @@
-var errors = require('../config/errors');
+module.exports = function(req, res, next) {
 
-module.exports = {
-
-	sendError: function(code, message){
+	res.sendError = function(code, message){
+		var errors = require('../config/errors');
 		if (!message) 
 			this.status(code).send({status: code, message: errors[code].message});
 		else 
 			this.status(code).send({status: code, message: message});
 	}
+
+	next();
 
 }; 

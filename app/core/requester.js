@@ -1,6 +1,7 @@
 var Middleware = require('../middleware/middleware');
 var Routing    = require('./routing');
 var routes     = require('../config/routes');
+var Error      = require('./errors');
 
 var Requester = {
 
@@ -106,6 +107,9 @@ var Requester = {
     else if (this.defaults.auth === true && auth !== false)
       middleware.unshift(Middleware['auth']);
 
+    middleware.unshift(Error);
+
+
     return middleware;
   },
 
@@ -167,7 +171,6 @@ var Requester = {
 
     // Default
     return 'get';
-
   },
 
   /**
@@ -187,11 +190,11 @@ module.exports = function(router, io) {
     Requester.initDefault(routes['default']);
 
   for (var r in routes) {
-    if (r != 'default')
+    if (r != 'default' && r != "ressources")
       Requester.createRoute(router, r, routes[r], io);
   }
 
-  // In case of routing error
+  // In case of routing error 
   router.all('*', function(req, res, next) {
     res.status(404).send({status: 404, message: 'No ressources find. Please read the doc.'});
   });

@@ -9,7 +9,8 @@ module.exports = {
 
 	  if (parameters) {
 	    for(var p in parameters) {
-	      if(!req.body[parameters[p]]) { return false; }
+	      if(!req.body[parameters[p]])
+	      	return false;
 	    }
 	  }
 	  return true;
