@@ -50,7 +50,7 @@ var Requester = {
       var uses = this.initUses(route.uses);
       route.controller = this.initController(uses.controller, uses.action);
       route.action     = uses.action;
-    }else 
+    }else
       route.controller = this.initController(route.controller, route.action);
 
     // Set socket
@@ -63,9 +63,9 @@ var Requester = {
   },
 
   /**
-  * Init socket 
+  * Init socket
   * @params boolean route socket infos
-  * @return boolean 
+  * @return boolean
   */
   initSocket: function(socket) {
     if(socket || (this.defaults.socket && socket !== false))
@@ -87,7 +87,7 @@ var Requester = {
       for (m in middleware) {
           var f = middleware[m].split('.');
 
-          if (f.length == 1) 
+          if (f.length == 1)
             middleware[m] = Middleware[middleware[m]];
           else
             middleware[m] = require('../middleware/'+f[0])[f[1]];
@@ -98,7 +98,8 @@ var Requester = {
       for (m in this.defaults.middleware) {
           middleware[m] = Middleware[this.defaults.middleware[m]];
       }
-    }else 
+    }
+    else
       middleware = [];
 
     // Check auth middleware
@@ -121,8 +122,8 @@ var Requester = {
   initUses: function(uses) {
     uses = uses.split('@');
     return {
-      controller : uses[0],
-      action     : uses[1]
+      controller: uses[0],
+      action    : uses[1]
     };
 
   },
@@ -141,11 +142,11 @@ var Requester = {
     else {
       // If there is a controller return the module
       if (controller) {
-        return require('../controllers/' + controller);      
+        return require('../controllers/' + controller);
       }
       // If there is a default controller
       else if (this.defaults.controller) {
-        return require('../controllers/' + this.defaults.controller);      
+        return require('../controllers/' + this.defaults.controller);
       }
       // No controller
       else {
@@ -194,7 +195,7 @@ module.exports = function(router, io) {
       Requester.createRoute(router, r, routes[r], io);
   }
 
-  // In case of routing error 
+  // In case of routing error
   router.all('*', function(req, res, next) {
     res.status(404).send({status: 404, message: 'No ressources find. Please read the doc.'});
   });

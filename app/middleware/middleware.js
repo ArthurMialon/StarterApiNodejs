@@ -17,23 +17,25 @@ module.exports = {
   auth: function(req, res, next) {
 
     var token = req.body.token || req.param('token') || req.headers['x-access-token'];
-
-    if (!token) {
-      return res.sendError(400);
-    }
+    if (!token)
+      return res.sendError(401);
     else {
       // Verify the token
       jwt.verify(token, configuration.secretKey, function(err, decoded) {
-        if (err) {
-          return res.sendError(400);
-        }
+        if (err)
+          return res.sendError(401);
         else {
           // Token decrypt save in the request
           req.tokenInfos = decoded;
           // Save informations about the user in the requet object
           User.findOne({ _id: decoded.id }, function(err, user) {
-            req.user = user;
-            next();
+            if (err) throw err;
+            if (user) {
+              req.user = user;
+              next();
+            }
+            else
+              return res.sendError(401);
           });
         }
       });
@@ -108,9 +110,8 @@ module.exports = {
     console.log('after route');
 
     // Check if header already be send
-    if(!res.headersSent) { 
+    if(!res.headersSent)
       res.json({message: 'after route'});
-    }
-    
+
   }
 };
