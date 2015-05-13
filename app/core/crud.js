@@ -4,6 +4,62 @@ module.exports = {
 		this.model = require('../models/'+ model);
 	},
 
+	initRoute: function(ressource) {
+    var routes = new Array();
+
+		if(typeof ressource == 'string') {
+			// All functions
+      routes[0] = this.newRoute('all', ressource);
+      routes[1] = this.newRoute('read', ressource);
+      routes[2] = this.newRoute('create', ressource);
+      routes[3] = this.newRoute('update', ressource);
+      routes[4] = this.newRoute('delete', ressource);
+ 		}
+		else if(typeof ressource == 'object') {
+      for(var i = 0; i < ressource['endpoints'].length; i++) {
+        routes.push(this.newRoute(ressource['endpoints'][i], ressource.data));
+      }
+		}			
+
+		return routes;
+	},
+
+	newRoute: function(action, ressource) {
+    var r = {
+      controller : this,
+      middleware : [],
+      action : action
+    };
+
+    switch(action) {
+      case 'all':
+        r.path = '/' + ressource;
+        r.method = 'get'
+          break;
+      case 'read':
+        r.path = '/' + ressource + '/:id';
+        r.method = 'get'
+          break;
+      case 'create':
+        r.path = '/' + ressource + '/';
+        r.method = 'post'
+          break;
+      case 'update':
+        r.path = '/' + ressource + '/:id/';
+        r.method = 'put'
+          break;
+      case 'delete':
+        r.path = '/' + ressource + '/:id/delete';
+        r.method = 'delete'
+          break;
+      default:
+         r.path = '/' + ressource;
+         r.method = 'get'
+    }
+
+    return r;
+	},
+
 	create: function(req, res, next) {
 		var new_data = req.body;
 
@@ -33,7 +89,7 @@ module.exports = {
 	    });
 	},
 
-	getAll: function(req, res, next) {
+	all: function(req, res, next) {
 		this.model.find(function(err, data) {
 	      if (err) res.send(err);
 	      res.json(data);

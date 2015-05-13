@@ -20,16 +20,11 @@ module.exports = {
   },
 
   ressources: [
-    'todos', 
     {
-      ressource : 'example',
-      create : true,
-      read : true,
-      update: true,
-      delete : false,
-      all : true
+      data : 'todos', 
+      endpoints : ['create', 'read', 'all']
     }
-    ],
+  ],
 
   // REST API ---------------------------------------------------------------------
   // BASE ROUTE =======================

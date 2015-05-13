@@ -66,7 +66,7 @@ var Requester = {
 
   /**
   * Init socket 
-  * @params boolean route socket infos
+  * @params boolean route socket infos 
   * @return boolean 
   */
   initSocket: function(socket) {
@@ -186,59 +186,16 @@ var Requester = {
   },
 
   createCrud: function(router, ressource, io) {
-
-    if(typeof ressource == 'string') {
+    if(typeof ressource == 'string')
       CRUD.initModel(ressource);
+    else 
+      CRUD.initModel(ressource['data']);
 
-      var routes = { 
-        0 : {
-          method : 'get',
-          path : '/' + ressource,
-          controller : CRUD,
-          middleware : [],
-          action : 'getAll'
-        },
+    var routes = CRUD.initRoute(ressource);
 
-        1 : {
-          method : 'get',
-          path : '/' + ressource + '/:id',
-          controller : CRUD,
-          middleware : [],
-          action : 'read'
-        },
-
-        2 : {
-          method : 'post',
-          path : '/' + ressource + '/',
-          controller : CRUD,
-          middleware : [],
-          action : 'create'
-        },
-
-        3 : {
-          method : 'put',
-          path : '/' + ressource + '/:id/',
-          controller : CRUD,
-          middleware : [],
-          action : 'update'
-        },
-
-        4 : {
-          method : 'delete',
-          path : '/' + ressource + '/:id/delete',
-          controller : CRUD,
-          middleware : [],
-          action : 'delete'
-        },
-      };
-
-      for (var r in routes) {
-        console.log(routes[r]);
-        this.initRouter(router, routes[r], io);
-      }
-
+    for (var r in routes) {
+      this.initRouter(router, routes[r], io);
     }
-
 
   }
 };
