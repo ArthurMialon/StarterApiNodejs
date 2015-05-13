@@ -21,7 +21,7 @@ REST : Authentication : Real-Time : Controller - Models
 
 ## Architecture
 
-```
+```javascript
    - app
     |-- config/ <!-- Configuration -->
     |  -- configuration.js <!-- File where everything is specify -->
