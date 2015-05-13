@@ -187,53 +187,56 @@ var Requester = {
 
   createCrud: function(router, ressource, io) {
 
-    CRUD.initModel(ressource);
+    if(typeof ressource == 'string') {
+      CRUD.initModel(ressource);
 
-    var routes = { 
-      0 : {
-        method : 'get',
-        path : '/' + ressource,
-        controller : CRUD,
-        middleware : [],
-        action : 'getAll'
-      },
+      var routes = { 
+        0 : {
+          method : 'get',
+          path : '/' + ressource,
+          controller : CRUD,
+          middleware : [],
+          action : 'getAll'
+        },
 
-      1 : {
-        method : 'get',
-        path : '/' + ressource + '/:id',
-        controller : CRUD,
-        middleware : [],
-        action : 'read'
-      },
+        1 : {
+          method : 'get',
+          path : '/' + ressource + '/:id',
+          controller : CRUD,
+          middleware : [],
+          action : 'read'
+        },
 
-      2 : {
-        method : 'post',
-        path : '/' + ressource + '/',
-        controller : CRUD,
-        middleware : [],
-        action : 'create'
-      },
+        2 : {
+          method : 'post',
+          path : '/' + ressource + '/',
+          controller : CRUD,
+          middleware : [],
+          action : 'create'
+        },
 
-      3 : {
-        method : 'put',
-        path : '/' + ressource + '/:id/',
-        controller : CRUD,
-        middleware : [],
-        action : 'update'
-      },
+        3 : {
+          method : 'put',
+          path : '/' + ressource + '/:id/',
+          controller : CRUD,
+          middleware : [],
+          action : 'update'
+        },
 
-      4 : {
-        method : 'delete',
-        path : '/' + ressource + '/:id/delete',
-        controller : CRUD,
-        middleware : [],
-        action : 'delete'
-      },
-    };
+        4 : {
+          method : 'delete',
+          path : '/' + ressource + '/:id/delete',
+          controller : CRUD,
+          middleware : [],
+          action : 'delete'
+        },
+      };
 
-    for (var r in routes) {
-      console.log(routes[r]);
-      this.initRouter(router, routes[r], io);
+      for (var r in routes) {
+        console.log(routes[r]);
+        this.initRouter(router, routes[r], io);
+      }
+
     }
 
 
