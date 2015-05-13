@@ -159,8 +159,6 @@ describe('Todos Unauthorized', function() {
     it('should respond with status 401', function(done) {
       request(url+'/todos', function(err, resp, body) {
         assert.equal(resp.statusCode, 401);
-        body = JSON.parse(body);
-        assert.equal(is.json(body), true);
         done();
       });
     });
@@ -170,8 +168,6 @@ describe('Todos Unauthorized', function() {
     it('should respond with status 401', function(done) {
       request(url+'/todos/1', function(err, resp, body) {
         assert.equal(resp.statusCode, 401);
-        body = JSON.parse(body);
-        assert.equal(is.json(body), true);
         done();
       });
     });
@@ -185,8 +181,6 @@ describe('Todos Unauthorized', function() {
       };
       request(options, function(err, resp, body) {
         assert.equal(resp.statusCode, 401);
-        body = JSON.parse(body);
-        assert.equal(is.json(body), true);
         done();
       });
     });
@@ -195,13 +189,24 @@ describe('Todos Unauthorized', function() {
   describe('DELETE /todos/:id without token', function() {
     it('should respond with status 401', function(done) {
       var options = {
-        uri: url+'/todos/1/done',
+        uri: url+'/todos/1',
         method: 'DELETE'
       };
       request(options, function(err, resp, body) {
         assert.equal(resp.statusCode, 401);
-        body = JSON.parse(body);
-        assert.equal(is.json(body), true);
+        done();
+      });
+    });
+  });
+
+  describe('POST /todos without token', function() {
+    it('should respond with status 401', function(done) {
+      var options = {
+        uri: url+'/todos',
+        method: 'POST'
+      };
+      request(options, function(err, resp, body) {
+        assert.equal(resp.statusCode, 401);
         done();
       });
     });
