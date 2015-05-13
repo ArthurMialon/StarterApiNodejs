@@ -2,11 +2,13 @@ var Middleware = require('../middleware/middleware');
 var Routing    = require('./routing');
 var routes     = require('../config/routes');
 var Error      = require('./errors');
+var CRUD       = require('./crud');
 
 var Requester = {
 
   /**
   * Init Default object for routing
+  * @params Object defaults options
   */
   initDefault: function(defaults) {
     this.defaults = defaults;
@@ -182,6 +184,20 @@ var Requester = {
   */
   initRouter: function(router, route, io) {
     Routing(router, route, io);
+  },
+
+  createCrud: function(router, ressource, io) {
+    if(typeof ressource == 'string')
+      CRUD.initModel(ressource);
+    else
+      CRUD.initModel(ressource['data']);
+
+    var routes = CRUD.initRoute(ressource);
+
+    for (var r in routes) {
+      this.initRouter(router, routes[r], io);
+    }
+
   }
 };
 
@@ -193,6 +209,13 @@ module.exports = function(router, io) {
   for (var r in routes) {
     if (r != 'default' && r != "ressources")
       Requester.createRoute(router, r, routes[r], io);
+  }
+
+  if(routes['ressources']) {
+    for (var r in routes['ressources']) {
+      if (r != 'default' && r != "ressources")
+        Requester.createCrud(router, routes['ressources'][r], io);
+    }
   }
 
   // In case of routing error

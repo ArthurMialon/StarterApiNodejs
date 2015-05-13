@@ -55,9 +55,8 @@ module.exports = {
   generateAuth: function(req, res, next) {
 
     // Check credentials in the request
-    if (!req.body.username || !req.body.password) {
+    if (!req.body.username || !req.body.password)
       res.status(400).send({status: 400, message: "Missing credentials"});
-    }
     else {
       // Find user with the username
       User.findOne({username: req.body.username}, function(err, user) {
@@ -112,6 +111,5 @@ module.exports = {
     // Check if header already be send
     if(!res.headersSent)
       res.json({message: 'after route'});
-
   }
 };

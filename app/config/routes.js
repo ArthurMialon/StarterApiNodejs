@@ -19,6 +19,13 @@ module.exports = {
     auth  : true
   },
 
+  ressources: [
+    {
+      data : 'todos',
+      endpoints : ['create', 'read', 'all']
+    }
+  ],
+
   // REST API ---------------------------------------------------------------------
   // BASE ROUTE =======================
   '/': {
@@ -83,6 +90,7 @@ module.exports = {
     socket: true
   },
 
+  // UNDO
   '/todos/:id/undo': {
     method: 'PUT',
     uses  : 'todoController@undo',

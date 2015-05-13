@@ -1,46 +1,10 @@
 // Load Model
-var Todo = require('../models/todo');
+var Todo = require('../models/todos');
 
 module.exports = {
 
-  /**
-  * Get All todos
-  */
-  getAll: function(req, res, next) {
-    Todo.find(function(err, todos) {
-      if (err) res.send(err);
-      res.json(todos);
-      next(req, res);
-    });
-  },
 
   /**
-  * Get one todo by id
-  */
-  get: function(req, res, next) {
-    Todo.findById(req.params.id, function(err, todo) {
-      if (err) res.send(err);
-      res.json(todo);
-    });
-  },
-
-  /**
-  * Create a new todo
-  */
-  post: function(req, res, next) {
-    var todo = req.body;
-
-    Todo.create(todo, function(err, todo) {
-      if (err) res.send(err);
-      res.json(todo);
-
-      // Send the new todo in socket
-      req.socketData = todo;
-      next(req, res);
-    });
-  },
-
-    /**
   * Update done todo
   */
   done: function(req, res, next) {
@@ -77,16 +41,6 @@ module.exports = {
         req.socketData = todo;
         next(req, res);
       });
-    });
-  },
-
-  /**
-  * Delete todo by id
-  */
-  delete: function(req, res, next) {
-    Todo.remove({ _id: req.params.id }, function(err, todo) {
-      if (err) res.send(err);
-      res.json({message: 'Todo deleted', status : true});
     });
   }
 };

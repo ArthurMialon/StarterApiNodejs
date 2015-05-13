@@ -10,10 +10,24 @@ module.exports = {
     // =======
     // TESTER FONCTION DU TYPE AVEC IS_JS
     // => BOOLEAN
+    // Exemple -> 'false'
+
     // => STRING
+    // Exemple -> 'lenth > 10'
+    // Exemple -> 'un chaine de caractere'
+
     // => INTEGER
+    // Exemple -> '> 10'
+    // Exemple -> '< 10'
+    // Exemple -> '10'
+
     // => FLOAT
+    // Comme Integer
+
     // => DATE
+    // Exemple -> 'date = 10/30/2016'
+    // Exemple -> 'date > 10/30/2016'
+    // Exemple -> 'date < 10/30/2016'
 
     var need = route.need;
     var user = req.user;
