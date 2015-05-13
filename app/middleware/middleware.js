@@ -16,17 +16,15 @@ module.exports = {
   */
   auth: function(req, res, next) {
 
-    var token = req.body.token || req.param('token') || req.headers['x-access-token'];
+    var token = req.body.token || req.param('token') || req.headers['X-Access-Token'];
 
-    if (!token) {
+    if (!token)
       return res.sendError(400);
-    }
     else {
       // Verify the token
       jwt.verify(token, configuration.secretKey, function(err, decoded) {
-        if (err) {
+        if (err)
           return res.sendError(400);
-        }
         else {
           // Token decrypt save in the request
           req.tokenInfos = decoded;
@@ -53,9 +51,8 @@ module.exports = {
   generateAuth: function(req, res, next) {
 
     // Check credentials in the request
-    if (!req.body.username || !req.body.password) {
+    if (!req.body.username || !req.body.password)
       res.status(400).send({status: 400, message: "Missing credentials"});
-    }
     else {
       // Find user with the username
       User.findOne({username: req.body.username}, function(err, user) {
@@ -108,9 +105,7 @@ module.exports = {
     console.log('after route');
 
     // Check if header already be send
-    if(!res.headersSent) { 
-      res.json({message: 'after route'});
-    }
-    
+    if(!res.headersSent) 
+      res.json({message: 'after route'});    
   }
 };

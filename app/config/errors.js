@@ -24,5 +24,5 @@ module.exports = {
 		code 	  : 201,
 		message : 'Created'
 	}
-
-}
+ 
+}  

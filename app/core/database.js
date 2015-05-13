@@ -23,7 +23,7 @@ module.exports = function(configuration) {
     mongoose.connect("mongodb://" + db.host + "/" + db.name, o);
   }
   catch (err) {
-    console.log("Setting up failed to connect to " + db.Host + "/" + db.name);
+    console.log("Setting up failed to connect to " + db.host + "/" + db.name);
     console.log("");
   }
 };
