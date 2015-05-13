@@ -147,7 +147,7 @@ The unit tests made with Mocha are only here to test the general purpose of this
 
 It tests Authentication, users and /todos routes as an example.
 
-### Run the test
+### Run the tests
 ```
   $ cd StarterApiNodejs
   $ npm i
