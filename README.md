@@ -26,7 +26,27 @@ REST : Authentication : Real-Time : Controller - Models
 #Documentation
 
 ## Architecture
-...
+
+```javascript
+   - app
+    ---- config/ <!-- Configuration -->
+      ----- configuration.js <!-- File where everything is specify -->
+      ----- errors.js <!-- Config each error code and message -->
+      ----- routes.js <!-- Create your routes -->
+    ---- controllers/ <!-- Your controller -->
+    ---- core/ <!-- Framework core useless for you -->
+    ---- middleware/ <!-- Middleware for route -->
+      ----- middleware.js <!-- Some initial middleware -->
+      ----- custom.js <!-- your custom middleware-->
+    ---- models/ <!-- Your mongoose schema --> 
+    ---- public/ <!-- Public directory accessible from url -->
+    ---- services/  <!-- Helpers-->
+      ----- upload.js
+    - package.json <!-- Tells npm which packages we need -->
+    - server.js <!-- Server launch -->
+
+```
+
 ## Configuration
 You can specify a lot of configurations. 
 All configurations are in app/config/configuration.js
