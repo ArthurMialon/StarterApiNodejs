@@ -57,43 +57,18 @@ module.exports = {
   },
 
   // // TODOS =======================
-  // GET ALL
-  // '/todos': {
-  //   uses       : 'todoController@getAll',
-  //   middleware : ['custom.logFinger']
-  // },
+  // DONE
+  '/todos/:id/done': {
+    method : 'PUT',
+    uses   : 'todoController@done',
+    socket : true
+  },
 
-  // // GET
-  // '/todos/:id': {
-  //   uses : 'todoController@get'
-  // },
-
-  // // POST
-  // '/todos/': {
-  //   method     : 'POST',
-  //   uses       : 'todoController@post',
-  //   socket     : true
-  // },
-
-  // // DONE
-  // '/todos/:id/done': {
-  //   method : 'PUT',
-  //   uses   : 'todoController@done',
-  //   socket : true
-  // },
-
-  // // UNDO
-  // '/todos/:id/undo': {
-  //   method : 'PUT',
-  //   uses   : 'todoController@undo',
-  //   socket : true
-  // },
-
-  // // DELETE
-  // '/todos/:id/': {
-  //   method : 'DELETE',
-  //   uses   : 'todoController@delete',
-  //   socket : true
-  // }
+  // UNDO
+  '/todos/:id/undo': {
+    method : 'PUT',
+    uses   : 'todoController@undo',
+    socket : true
+  }
 
 };
