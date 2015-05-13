@@ -27,6 +27,7 @@ REST : Authentication : Real-Time : Controller - Models
 
 ## Architecture
 
+```
    - app
     |-- config/ <!-- Configuration -->
     |  -- configuration.js <!-- File where everything is specify -->
@@ -50,6 +51,7 @@ REST : Authentication : Real-Time : Controller - Models
     
     - package.json <!-- Tells npm which packages we need -->
     - server.js <!-- Server launch -->
+```
 
 
 ## Configuration
