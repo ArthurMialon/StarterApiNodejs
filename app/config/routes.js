@@ -25,7 +25,10 @@ module.exports = {
   // BASE ROUTE =======================
   '/': {
     action: function(req, res) {
-      res.json({message: 'Welcome on our Api', status: 200});
+      var json = {
+        message: 'Welcome on our Api'
+      };
+      res.json(json);
     },
     auth : false
   },
