@@ -1,3 +1,5 @@
+# StarterApiNodejs
+
 Create your own ReST API with Nodejs and MongoDB with realtime socket.
 
 XX-API give you an architecture to create quickly your api.
@@ -16,7 +18,7 @@ REST : Authentication : Real-Time : Controller - Models
 
     $ nodemon server.js
 ```
-  
+
 #Documentation
 
 ## Architecture
@@ -29,20 +31,20 @@ REST : Authentication : Real-Time : Controller - Models
     |  -- routes.js <!-- Create your routes -->
 
     |-- controllers/ <!-- Your controller -->
-    
+
     |-- core/ <!-- Framework core useless for you -->
-   
+
     |-- middleware/ <!-- Middleware for route -->
     |  -- middleware.js <!-- Some initial middleware -->
     |  -- custom.js <!-- your custom middleware-->
-   
-    |-- models/ <!-- Your mongoose schema --> 
-    
+
+    |-- models/ <!-- Your mongoose schema -->
+
     |-- public/ <!-- Public directory accessible from url -->
-    
+
     |-- services/  <!-- Helpers-->
     |  -- upload.js
-    
+
     - package.json <!-- Tells npm which packages we need -->
     - server.js <!-- Server launch -->
 
@@ -50,7 +52,7 @@ REST : Authentication : Real-Time : Controller - Models
 
 
 ## Configuration
-You can specify a lot of configurations. 
+You can specify a lot of configurations.
 All configurations are in app/config/configuration.js
 This is a simple object. Some of variables are necessary but you can add everything you want
 In your files just require this configuration and you have access to then.
@@ -64,7 +66,7 @@ In your files just require this configuration and you have access to then.
 ### Create a new route
 To configure your routes go in app/config/routes.js
 This is a simple object. Each route has his path and you can define options.
-- method       -> http method (String - Default 'GET') 
+- method       -> http method (String - Default 'GET')
 - controller   -> controller use (String - Optional)
 - action       -> action use (String || function - Required)
 - middlewares  -> middlesware before action (Array - Optional)
@@ -76,31 +78,31 @@ This is a simple object. Each route has his path and you can define options.
 
 ```javascript
   // app/config/routes.js
-  
+
   // Default object for all routes
   default: {
     method : 'GET',
     auth   : true,
     socket : false
   },
-  
+
   // Action as a function
   '/': {
     action: function(req, res) {
       res.json({message: 'Welcome on our Api', status: 200});
     }
   },
-  
+
   // Classic routes to get all todos
   // Define a controller ( will use app/controllers/todoController.js )
-  // Define a action ( will use todoController.getAll() ) 
+  // Define a action ( will use todoController.getAll() )
   // Define a custom middleware ( will use app/middleware/custom.js and logFinger action )
-  // If you want to use a middleware in middleware.js 
-  // just type ['myMiddleware'] 
+  // If you want to use a middleware in middleware.js
+  // just type ['myMiddleware']
   // with the right function
   '/todos': {
     controller : 'todoController',
-    action     : 'getAll', 
+    action     : 'getAll',
     middleware : ['custom.logFinger'],
     auth : false
   },
@@ -111,7 +113,7 @@ This is a simple object. Each route has his path and you can define options.
     uses       : 'todoController@get',
     auth : false
   },
-  
+
   // Classic routes to post one new todo
   // Define the method POST
   // You can define necessary parameters in an array
@@ -138,10 +140,30 @@ This is a simple object. Each route has his path and you can define options.
 ## Middleware
 ...
 
+## Unit testing
+The unit tests made with Mocha are only here to test the general purpose of this Starter.
+- They are mainly meant to test the core.
+- They are not meant to test your API once you changed it.
 
-# Todo 
+It tests Authentication, users and /todos routes as an example.
+
+### Run the test
+```
+  $ cd StarterApiNodejs
+  $ npm i
+  $ npm start
+```
+And in an other tab
+```
+  $ npm i -g mocha
+  $ npm test
+```
+
+
+# Todo
+- Unit test [WIP]
+- Automatic CRUD [WIP]
 - Clean everything and add features
-- Unit test
 - Find a name -> if you find -> arthurmialon@gmail.com
 
 
