@@ -190,7 +190,7 @@ var Requester = {
     CRUD.initModel(ressource);
 
     var routes = { 
-      1 : {
+      0 : {
         method : 'get',
         path : '/' + ressource,
         controller : CRUD,
@@ -198,7 +198,7 @@ var Requester = {
         action : 'getAll'
       },
 
-      2 : {
+      1 : {
         method : 'get',
         path : '/' + ressource + '/:id',
         controller : CRUD,
@@ -206,7 +206,7 @@ var Requester = {
         action : 'read'
       },
 
-      3 : {
+      2 : {
         method : 'post',
         path : '/' + ressource + '/',
         controller : CRUD,
@@ -222,7 +222,7 @@ var Requester = {
         action : 'update'
       },
 
-      3 : {
+      4 : {
         method : 'delete',
         path : '/' + ressource + '/:id/delete',
         controller : CRUD,
@@ -232,6 +232,7 @@ var Requester = {
     };
 
     for (var r in routes) {
+      console.log(routes[r]);
       this.initRouter(router, routes[r], io);
     }
 
@@ -257,7 +258,7 @@ module.exports = function(router, io) {
   }
 
   // In case of routing error 
-  // router.all('*', function(req, res, next) {
-  //   res.status(404).send({status: 404, message: 'No ressources find. Please read the doc.'});
-  // });
+  router.all('*', function(req, res, next) {
+    res.status(404).send({status: 404, message: 'No ressources find. Please read the doc.'});
+  });
 };
