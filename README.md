@@ -9,7 +9,7 @@ REST : Authentication : Real-Time : Controller - Models
 #How to use
  * Clone the repo
 
-```
+```shell
     $ cd /path/to/dir
 
     $ npm install
