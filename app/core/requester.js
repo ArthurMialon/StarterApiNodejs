@@ -2,11 +2,13 @@ var Middleware = require('../middleware/middleware');
 var Routing    = require('./routing');
 var routes     = require('../config/routes');
 var Error      = require('./errors');
+var CRUD       = require('./crud');
 
 var Requester = {
 
   /**
   * Init Default object for routing
+  * @params Object defaults options
   */
   initDefault: function(defaults) {
     this.defaults = defaults;
@@ -181,6 +183,59 @@ var Requester = {
   */
   initRouter: function(router, route, io) {
     Routing(router, route, io);
+  },
+
+  createCrud: function(router, ressource, io) {
+
+    CRUD.initModel(ressource);
+
+    var routes = { 
+      1 : {
+        method : 'get',
+        path : '/' + ressource,
+        controller : CRUD,
+        middleware : [],
+        action : 'getAll'
+      },
+
+      2 : {
+        method : 'get',
+        path : '/' + ressource + '/:id',
+        controller : CRUD,
+        middleware : [],
+        action : 'read'
+      },
+
+      3 : {
+        method : 'post',
+        path : '/' + ressource + '/',
+        controller : CRUD,
+        middleware : [],
+        action : 'create'
+      },
+
+      3 : {
+        method : 'put',
+        path : '/' + ressource + '/:id/',
+        controller : CRUD,
+        middleware : [],
+        action : 'update'
+      },
+
+      3 : {
+        method : 'delete',
+        path : '/' + ressource + '/:id/delete',
+        controller : CRUD,
+        middleware : [],
+        action : 'delete'
+      },
+    };
+
+    for (var r in routes) {
+      this.initRouter(router, routes[r], io);
+    }
+
+
   }
 };
 
@@ -194,8 +249,15 @@ module.exports = function(router, io) {
       Requester.createRoute(router, r, routes[r], io);
   }
 
+  if(routes['ressources']) {
+    for (var r in routes['ressources']) {
+      if (r != 'default' && r != "ressources")
+        Requester.createCrud(router, routes['ressources'][r], io);
+    }
+  }
+
   // In case of routing error 
-  router.all('*', function(req, res, next) {
-    res.status(404).send({status: 404, message: 'No ressources find. Please read the doc.'});
-  });
+  // router.all('*', function(req, res, next) {
+  //   res.status(404).send({status: 404, message: 'No ressources find. Please read the doc.'});
+  // });
 };

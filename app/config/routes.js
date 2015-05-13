@@ -16,8 +16,10 @@ module.exports = {
 
   default: {
     method : 'GET',
-    auth   : true
+    auth   : false
   },
+
+  ressources: ['todos'],
 
   // REST API ---------------------------------------------------------------------
   // BASE ROUTE =======================
@@ -56,41 +58,42 @@ module.exports = {
 
   // // TODOS =======================
   // GET ALL
-  '/todos': {
-    uses       : 'todoController@getAll',
-    middleware : ['custom.logFinger']
-  },
+  // '/todos': {
+  //   uses       : 'todoController@getAll',
+  //   middleware : ['custom.logFinger']
+  // },
 
-  // GET
-  '/todos/:id': {
-    uses : 'todoController@get'
-  },
+  // // GET
+  // '/todos/:id': {
+  //   uses : 'todoController@get'
+  // },
 
-  // POST
-  '/todos/create': {
-    method     : 'POST',
-    uses       : 'todoController@post',
-    socket     : true
-  },
+  // // POST
+  // '/todos/': {
+  //   method     : 'POST',
+  //   uses       : 'todoController@post',
+  //   socket     : true
+  // },
 
-  // DONE
-  '/todos/:id/done': {
-    method : 'PUT',
-    uses   : 'todoController@done',
-    socket : true
-  },
+  // // DONE
+  // '/todos/:id/done': {
+  //   method : 'PUT',
+  //   uses   : 'todoController@done',
+  //   socket : true
+  // },
 
-  '/todos/:id/undo': {
-    method : 'PUT',
-    uses   : 'todoController@undo',
-    socket : true
-  },
+  // // UNDO
+  // '/todos/:id/undo': {
+  //   method : 'PUT',
+  //   uses   : 'todoController@undo',
+  //   socket : true
+  // },
 
-  // DELETE
-  '/todos/:id/delete': {
-    method : 'DELETE',
-    uses   : 'todoController@delete',
-    socket : true
-  }
+  // // DELETE
+  // '/todos/:id/': {
+  //   method : 'DELETE',
+  //   uses   : 'todoController@delete',
+  //   socket : true
+  // }
 
 };
