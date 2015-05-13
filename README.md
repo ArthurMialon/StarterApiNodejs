@@ -8,7 +8,7 @@ REST : Authentication : Real-Time : Controller - Models
 
 #How to use
  1. Clone the repo
- 2. Do it
+ 2.
  ```
     $ cd /path/to/dir
  ```
