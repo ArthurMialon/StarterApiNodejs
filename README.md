@@ -7,18 +7,18 @@ Simple or complex XX-API is a really good way to do it.
 REST : Authentication : Real-Time : Controller - Models
 
 #How to use
- 1. Clone the repo
- 2.
+ * Clone the repo
+ *
  ```
     $ cd /path/to/dir
  ```
  
- 3.
+ *
  ```
     $ npm install
  ```
  
- 4.
+ *
  ```
     $ nodemon server.js
  ```
