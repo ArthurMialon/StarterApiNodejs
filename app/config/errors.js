@@ -27,7 +27,7 @@ module.exports = {
 
   '200': {
     code   : 200,
-    message: 'OK'
+    message: 'Success'
   }
 
 }

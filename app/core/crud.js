@@ -1,100 +1,100 @@
 module.exports = {
 
-	initModel: function(model) {
-		this.model = require('../models/'+ model);
-	},
+  initModel: function(model) {
+    this.model = require('../models/'+ model);
+  },
 
-	initRoute: function(ressource) {
+  initRoute: function(ressource) {
     var routes = new Array();
 
-		if(typeof ressource == 'string') {
-			// All functions
+    if (typeof ressource == 'string') {
+      // All functions
       routes[0] = this.newRoute('all', ressource);
       routes[1] = this.newRoute('read', ressource);
       routes[2] = this.newRoute('create', ressource);
       routes[3] = this.newRoute('update', ressource);
       routes[4] = this.newRoute('delete', ressource);
- 		}
-		else if(typeof ressource == 'object') {
-      for(var i = 0; i < ressource['endpoints'].length; i++) {
+    }
+    else if (typeof ressource == 'object') {
+      for (var i = 0; i < ressource['endpoints'].length; i++) {
         routes.push(this.newRoute(ressource['endpoints'][i], ressource.data));
       }
-		}			
+    }
 
-		return routes;
-	},
+    return routes;
+  },
 
-	newRoute: function(action, ressource) {
+  newRoute: function(action, ressource) {
     var r = {
-      controller : this,
-      middleware : [],
-      action : action
+      controller: this,
+      middleware: [],
+      action    : action
     };
 
     switch(action) {
       case 'all':
         r.path = '/' + ressource;
-        r.method = 'get'
-          break;
+        r.method = 'get';
+        break;
       case 'read':
         r.path = '/' + ressource + '/:id';
-        r.method = 'get'
-          break;
+        r.method = 'get';
+        break;
       case 'create':
         r.path = '/' + ressource + '/';
-        r.method = 'post'
-          break;
+        r.method = 'post';
+        break;
       case 'update':
         r.path = '/' + ressource + '/:id/';
-        r.method = 'put'
-          break;
+        r.method = 'put';
+        break;
       case 'delete':
         r.path = '/' + ressource + '/:id/delete';
-        r.method = 'delete'
-          break;
+        r.method = 'delete';
+        break;
       default:
-         r.path = '/' + ressource;
+         r.path = '/' + ress;ource;
          r.method = 'get'
     }
 
     return r;
-	},
+  },
 
-	create: function(req, res, next) {
-		var new_data = req.body;
+  create: function(req, res, next) {
+    var new_data = req.body;
 
-	    this.model.create(new_data, function(err, data) {
-	      if (err) res.send(err);
-	      res.json(data);
-	      next(req, res);
-	    });
-	},
+    this.model.create(new_data, function(err, data) {
+      if (err) res.send(err);
+      res.json(data);
+      next(req, res);
+    });
+  },
 
-	read: function(req, res, next) {
-		this.model.findById(req.params.id, function(err, data) {
-	      if (err) res.send(err);
-	      if(!data) res.json({message : 'No data found'});
-	      res.json(data);
-	    });
-	},
+  read: function(req, res, next) {
+    this.model.findById(req.params.id, function(err, data) {
+      if (err) res.send(err);
+      if (!data) res.status(404).json({message : 'No data found'});
+      res.json(data);
+    });
+  },
 
-	update: function(req, res, next) {
+  update: function(req, res, next) {
 
-	},
+  },
 
-	delete: function(req, res, next) {
-		this.model.remove({ _id: req.params.id }, function(err, data) {
-	      if (err) res.send(err);
-	      res.json({message: 'Data deleted', status : true});
-	    });
-	},
+  delete: function(req, res, next) {
+    this.model.remove({ _id: req.params.id }, function(err, data) {
+      if (err) res.send(err);
+      res.json({message: 'Data deleted', status : true});
+    });
+  },
 
-	all: function(req, res, next) {
-		this.model.find(function(err, data) {
-	      if (err) res.send(err);
-	      res.json(data);
-	      next(req, res);
-	    });
-	}
+  all: function(req, res, next) {
+    this.model.find(function(err, data) {
+      if (err) res.send(err);
+      res.json(data);
+      next(req, res);
+    });
+  }
 
 };

@@ -52,7 +52,8 @@ var Requester = {
       var uses = this.initUses(route.uses);
       route.controller = this.initController(uses.controller, uses.action);
       route.action     = uses.action;
-    }else
+    }
+    else
       route.controller = this.initController(route.controller, route.action);
 
     // Set socket
