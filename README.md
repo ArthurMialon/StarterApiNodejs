@@ -51,6 +51,7 @@ REST : Authentication : Real-Time : Controller - Models
     
     - package.json <!-- Tells npm which packages we need -->
     - server.js <!-- Server launch -->
+
 ```
 
 
@@ -145,10 +146,8 @@ This is a simple object. Each route has his path and you can define options.
 
 
 # Todo 
-- Upgrading socket system
-- Add configuration for request error
-- Cut Requester to be more scalable
-- Create a little doc
+- Clean everything and add features
+- Unit test
 - Find a name -> if you find -> arthurmialon@gmail.com
 
 
