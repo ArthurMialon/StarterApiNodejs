@@ -8,20 +8,14 @@ REST : Authentication : Real-Time : Controller - Models
 
 #How to use
  * Clone the repo
- *
- ```
+
+```
     $ cd /path/to/dir
- ```
- 
- *
- ```
+
     $ npm install
- ```
- 
- *
- ```
+
     $ nodemon server.js
- ```
+```
   
 #Documentation
 
