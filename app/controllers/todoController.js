@@ -1,5 +1,5 @@
 // Load Model
-var Todo = require('../models/todo');
+var Todo = require('../models/todos');
 
 module.exports = {
 
@@ -20,6 +20,7 @@ module.exports = {
   get: function(req, res, next) {
     Todo.findById(req.params.id, function(err, todo) {
       if (err) res.send(err);
+      if(!todo) res.json({message : 'No todo found'});
       res.json(todo);
     });
   },
