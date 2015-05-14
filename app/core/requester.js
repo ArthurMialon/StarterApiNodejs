@@ -1,7 +1,6 @@
 var Middleware = require('../middleware/middleware');
 var Routing    = require('./routing');
 var routes     = require('../config/routes');
-var Error      = require('./errors');
 var CRUD       = require('./crud');
 
 var Requester = {
@@ -110,9 +109,6 @@ var Requester = {
       middleware.unshift(Middleware['auth']);
     else if (this.defaults.auth === true && auth !== false)
       middleware.unshift(Middleware['auth']);
-
-    middleware.unshift(Error);
-
 
     return middleware;
   },

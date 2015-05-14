@@ -18,12 +18,12 @@ module.exports = {
 
     var token = req.body.token || req.param('token') || req.headers['x-access-token'];
     if (!token)
-      return res.sendError(401);
+      return res.status(401).send({status: 401, message: 'Unauthorized'});
     else {
       // Verify the token
       jwt.verify(token, configuration.secretKey, function(err, decoded) {
         if (err)
-          return res.sendError(401);
+          return res.status(401).send({status: 401, message: 'Unauthorized'});
         else {
           // Token decrypt save in the request
           req.tokenInfos = decoded;
@@ -35,7 +35,7 @@ module.exports = {
               next();
             }
             else
-              return res.sendError(401);
+              return res.status(401).send({status: 401, message: 'Unauthorized'});
           });
         }
       });
@@ -64,12 +64,12 @@ module.exports = {
 
         if (!user) {
           // Invalid username
-          res.sendError(400, 'Invalid credentials');
+          res.status(400).send({status: 400, message: 'Invalid credentials'});
         }
         else {
           if (!user.validPassword(req.body.password)) {
             // Invalid password
-            res.sendError(400, 'Invalid credentials');
+            res.status(400).send({status: 400, message: 'Invalid credentials'});
           }
           else {
             // Generate a token signed and pass it in the request
