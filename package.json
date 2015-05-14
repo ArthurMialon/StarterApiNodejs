@@ -5,12 +5,12 @@
   "main": "server.js",
   "repository": "https://github.com/ArthurMialon/StarterApiNodejs",
   "author": {
-    "name" : "ArthurMialon",
-    "email" : "b@rubble.com",
-    "url" : "http://www.arthurmialon.fr"
+    "name": "ArthurMialon",
+    "email": "b@rubble.com",
+    "url": "http://www.arthurmialon.fr"
   },
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "test": "mocha"
   },
   "dependencies": {
@@ -26,7 +26,6 @@
     "morgan": "~1.2.2",
     "multer": "^0.1.8",
     "nodemon": "^1.3.7",
-    "q": "^1.2.0",
     "socket.io": "^1.3.5"
   },
   "devDependencies": {
