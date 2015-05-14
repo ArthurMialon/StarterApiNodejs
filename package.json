@@ -9,6 +9,10 @@
     "email": "arthurmialon@gmail.com",
     "url": "http://www.arthurmialon.fr"
   },
+  "contributors": [{
+    "name": "hugocaillard",
+    "email": "c.hugo.188@gmail.com"
+  }],
   "scripts": {
     "start": "node server.js",
     "test": "mocha"
