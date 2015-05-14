@@ -80,6 +80,7 @@ module.exports = {
 
 	update: function(req, res, next) {
     var self = this;
+
     delete req.body.id;
     delete req.body._id;
 

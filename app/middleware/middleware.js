@@ -100,7 +100,7 @@ module.exports = {
   * This function will be executing after route
   * /!\ WARNING /!\
   * -----
-  * If you already wrote header in your route it will not be executing
+  * If you already wrote header in your route you will set can't one other
   * -----
   */
   afterRoute: function(req, res) {
