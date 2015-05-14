@@ -1,10 +1,14 @@
 {
-  "name": "node-todo",
+  "name": "starter-api-nodejs",
   "version": "0.0.1",
   "description": "Starter to create Rest API with nodejs and mongodb",
   "main": "server.js",
   "repository": "https://github.com/ArthurMialon/StarterApiNodejs",
-  "author": "ArthurMialon",
+  "author": {
+    "name" : "ArthurMialon",
+    "email" : "b@rubble.com",
+    "url" : "http://www.arthurmialon.fr"
+  },
   "scripts": {
     "start": "nodemon server.js",
     "test": "mocha"
@@ -22,7 +26,6 @@
     "morgan": "~1.2.2",
     "multer": "^0.1.8",
     "nodemon": "^1.3.7",
-    "object-merge": "^2.5.1",
     "q": "^1.2.0",
     "socket.io": "^1.3.5"
   },
