@@ -19,14 +19,13 @@ module.exports = {
     auth  : true
   },
 
-  // TODOS GERER L'AUTH
-  // UPDATE CRUD -> UPDATE
-  ressources: [
-    {
-      data : 'todos', 
-      endpoints : ['create', 'read', 'update', 'delete', 'all']
-    }
-  ],
+  // TODO = GERER L'AUTH
+  // ressources: [
+  //   {
+  //     data : 'todos',
+  //     endpoints : ['create', 'read', 'update', 'delete', 'all']
+  //   }
+  // ],
 
   // REST API ---------------------------------------------------------------------
   // BASE ROUTE =======================

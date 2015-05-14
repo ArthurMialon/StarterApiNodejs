@@ -79,7 +79,16 @@ module.exports = {
 	},
 
 	update: function(req, res, next) {
-    // TODO UPDATE GENERIC FUNCTION
+    var self = this;
+    delete req.body.id;
+    delete req.body._id;
+
+    self.model.update({ _id: req.params.id }, req.body, { multi: true }, function(err, data) {
+      if(err) throw err;
+      self.model.find({ _id: req.params.id}, function(err, data) {
+        res.json(data);
+      });
+    });
 	},
 
 	delete: function(req, res, next) {
