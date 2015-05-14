@@ -68,33 +68,33 @@ module.exports = {
       res.json(data);
       next(req, res);
     });
-  },
+	},
 
-  read: function(req, res, next) {
-    this.model.findById(req.params.id, function(err, data) {
+	read: function(req, res, next) {
+		this.model.findById(req.params.id, function(err, data) {
       if (err) res.send(err);
-      if (!data) res.status(404).json({message : 'No data found'});
+      if(!data) res.json({message : 'No data found'});
       res.json(data);
     });
-  },
+	},
 
-  update: function(req, res, next) {
+	update: function(req, res, next) {
+    // TODO UPDATE GENERIC FUNCTION
+	},
 
-  },
-
-  delete: function(req, res, next) {
-    this.model.remove({ _id: req.params.id }, function(err, data) {
+	delete: function(req, res, next) {
+		this.model.remove({ _id: req.params.id }, function(err, data) {
       if (err) res.send(err);
       res.json({message: 'Data deleted', status : true});
     });
-  },
+	},
 
-  all: function(req, res, next) {
-    this.model.find(function(err, data) {
+	all: function(req, res, next) {
+		this.model.find(function(err, data) {
       if (err) res.send(err);
       res.json(data);
       next(req, res);
     });
-  }
+	}
 
 };

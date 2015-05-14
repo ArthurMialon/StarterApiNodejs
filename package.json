@@ -1,12 +1,12 @@
 {
   "name": "node-todo",
   "version": "0.0.1",
-  "description": "Simple todo application.",
+  "description": "Starter to create Rest API with nodejs and mongodb",
   "main": "server.js",
   "repository": "https://github.com/ArthurMialon/StarterApiNodejs",
   "author": "ArthurMialon",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "test": "mocha"
   },
   "dependencies": {

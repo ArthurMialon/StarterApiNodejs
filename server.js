@@ -26,7 +26,3 @@ app.use(prefix, router);
 
 // Routing Socket.io =======================================
 // require(configPath + 'routesSockets')(io.listen(server));
-
-
-
-

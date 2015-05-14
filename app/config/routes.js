@@ -19,10 +19,12 @@ module.exports = {
     auth  : true
   },
 
+  // TODOS GERER L'AUTH
+  // UPDATE CRUD -> UPDATE
   ressources: [
     {
-      data : 'todos',
-      endpoints : ['create', 'read', 'all']
+      data : 'todos', 
+      endpoints : ['create', 'read', 'update', 'delete', 'all']
     }
   ],
 
@@ -57,7 +59,7 @@ module.exports = {
   },
 
   '/users/:id': {
-    uses: 'userController@get',
+    uses: 'userController@get'
   },
 
   '/me' : {
