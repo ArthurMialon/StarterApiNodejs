@@ -24,7 +24,6 @@ module.exports = {
     user     : '',
     password : ''
   },
-  
 
   /**
   * Public directory

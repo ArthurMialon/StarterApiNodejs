@@ -16,16 +16,15 @@ module.exports = {
 
   default: {
     method: 'GET',
-    auth  : true
+    auth  : false
   },
 
-  // TODO = GERER L'AUTH
-  // ressources: [
-  //   {
-  //     data : 'todos',
-  //     endpoints : ['create', 'read', 'update', 'delete', 'all']
-  //   }
-  // ],
+  ressources: [
+    {
+      data : 'todos',
+      endpoints : ['create', 'read', 'update', 'delete', 'all']
+    }
+  ],
 
   // REST API ---------------------------------------------------------------------
   // BASE ROUTE =======================
@@ -48,6 +47,10 @@ module.exports = {
     auth      : false
   },
 
+  '/me' : {
+    uses: 'userController@me'
+  },
+
   // // USER ======================
   // Sign Up
   '/users/signup': {
@@ -61,29 +64,7 @@ module.exports = {
     uses: 'userController@get'
   },
 
-  '/me' : {
-    uses: 'userController@me'
-  },
-
   // // TODOS =======================
-  // GET ALL
-  '/todos': {
-    uses      : 'todoController@getAll',
-    middleware: ['custom.logFinger']
-  },
-
-  // GET
-  '/todos/:id': {
-    uses: 'todoController@get'
-  },
-
-  // POST
-  '/todos/create': {
-    method: 'POST',
-    uses  : 'todoController@post',
-    socket: true
-  },
-
   // DONE
   '/todos/:id/done': {
     method: 'PUT',
@@ -95,13 +76,6 @@ module.exports = {
   '/todos/:id/undo': {
     method: 'PUT',
     uses  : 'todoController@undo',
-    socket: true
-  },
-
-  // DELETE
-  '/todos/:id': {
-    method: 'DELETE',
-    uses  : 'todoController@delete',
     socket: true
   }
 

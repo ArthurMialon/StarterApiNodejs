@@ -10,8 +10,8 @@ module.exports = function(configuration) {
   var db = configuration.db;
 
   mongoose.connection.on("open", function(ref) {
-    console.log("");
-    console.log('\x1b[34m%s\x1b[0m', "Connected to mongo server!");
+    if (!configuration.dev)
+      console.log('\x1b[34m%s\x1b[0m', "Connected to mongo server!");
   });
 
   mongoose.connection.on("error", function(err) {

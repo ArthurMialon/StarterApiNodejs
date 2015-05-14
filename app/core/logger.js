@@ -3,7 +3,7 @@ var pjson         = require('../../package.json');
 var port          = process.env.PORT || 8080;
 
 module.exports = function() {
-	// Log when launch on the server ==============================  
+	// Log when launch on the server ==============================
 	console.log('\x1b[34m%s\x1b[0m', "     ___");
 	console.log('\x1b[34m%s\x1b[0m',"    (   \\ ");
 	console.log('\x1b[34m%s\x1b[0m',"     \\  =\\     LEVEL UP YOUR ReST API ! :)");
@@ -14,8 +14,7 @@ module.exports = function() {
 	console.log('\x1b[34m%s\x1b[0m',"  (____))____/----");
 	console.log('\x1b[34m%s\x1b[0m'," ______________________");
 	console.log("");
-	console.log('\x1b[32m%s\x1b[0m: ', "Your amazing app          :  " + pjson.name);
-	console.log('\x1b[32m%s\x1b[0m: ', "Creating by               :  " + pjson.author);
+	console.log('\x1b[32m%s\x1b[0m: ', "Your amazing app          :  " + pjson.name + " is launching !");
 	console.log('\x1b[32m%s\x1b[0m: ', "Runnig version            :  " + pjson.version);
 	console.log('\x1b[32m%s\x1b[0m: ', configuration.messageOnConsole + port);
 }
