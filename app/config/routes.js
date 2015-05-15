@@ -19,12 +19,10 @@ module.exports = {
     auth  : false
   },
 
-  ressources: [
-    {
+  ressources: [{
       data : 'todos',
       endpoints : ['create', 'read', 'update', 'delete', 'all']
-    }
-  ],
+  }],
 
   // REST API ---------------------------------------------------------------------
   // BASE ROUTE =======================

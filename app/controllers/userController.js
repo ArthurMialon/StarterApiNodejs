@@ -34,7 +34,6 @@ module.exports = {
   * Send user infos
   */
   me: function(req, res, next) {
-    //console.log(req);
     res.json(req.user);
   }
 

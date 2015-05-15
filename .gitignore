@@ -31,3 +31,9 @@ node_modules
 *.jpg
 *.png
 *.gif
+
+# Bin
+/bin
+
+# Lib
+/lib
