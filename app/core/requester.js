@@ -192,6 +192,7 @@ var Requester = {
     var routes = CRUD.initRoute(ressource);
 
     for (var r in routes) {
+      routes[r].middleware = this.initMiddleware(routes[r].middleware, routes[r].auth);
       this.initRouter(router, routes[r], io);
     }
 

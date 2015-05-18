@@ -1,35 +1,55 @@
 module.exports = {
 
+  /**
+  * Init the model for the ressource
+  * @params String model name
+  */
   initModel: function(model) {
     this.model = require('../models/'+ model);
   },
 
+  /**
+  * Create a new crud route
+  * @params String || Object
+  * @return Array routes object
+  */
   initRoute: function(ressource) {
     var routes = new Array();
 
     if (typeof ressource == 'string') {
-      // All functions
-      routes[0] = this.newRoute('all', ressource);
-      routes[1] = this.newRoute('read', ressource);
-      routes[2] = this.newRoute('create', ressource);
-      routes[3] = this.newRoute('update', ressource);
-      routes[4] = this.newRoute('delete', ressource);
+      // All functions && no auth
+      routes[0] = this.newRoute('all', ressource, false);
+      routes[1] = this.newRoute('read', ressource, false);
+      routes[2] = this.newRoute('create', ressource, false);
+      routes[3] = this.newRoute('update', ressource, false);
+      routes[4] = this.newRoute('delete', ressource, false);
     }
     else if (typeof ressource == 'object') {
+      // Just choose function
       for (var i = 0; i < ressource['endpoints'].length; i++) {
-        routes.push(this.newRoute(ressource['endpoints'][i], ressource.data));
+        routes.push(this.newRoute(ressource['endpoints'][i], ressource.data, ressource['auth']));
       }
     }
 
     return routes;
   },
 
-  newRoute: function(action, ressource) {
+  /**
+  * Create route object for requester
+  * @params String the action
+  * @params String the name of the ressources
+  * @params Array || Boolean is authenticate
+  * @return route object
+  */
+  newRoute: function(action, ressource, auth) {
     var r = {
       controller: this,
       middleware: [],
-      action    : action
+      action    : action,
     };
+
+    if(auth)
+      r.middleware = (auth.indexOf(action) != -1) ? ['auth'] : [];
 
     switch(action) {
       case 'all':
@@ -60,6 +80,9 @@ module.exports = {
     return r;
   },
 
+  /**
+  * Create - Crud
+  */
   create: function(req, res, next) {
     var new_data = req.body;
 
@@ -70,6 +93,9 @@ module.exports = {
     });
 	},
 
+  /**
+  * Read - Crud
+  */
 	read: function(req, res, next) {
 		this.model.findById(req.params.id, function(err, data) {
       if (err) res.send(err);
@@ -78,6 +104,9 @@ module.exports = {
     });
 	},
 
+  /**
+  * Update - Crud
+  */
 	update: function(req, res, next) {
     var self = this;
 
@@ -92,6 +121,9 @@ module.exports = {
     });
 	},
 
+  /**
+  * Delete - Crud
+  */
 	delete: function(req, res, next) {
 		this.model.remove({ _id: req.params.id }, function(err, data) {
       if (err) res.send(err);
@@ -99,6 +131,9 @@ module.exports = {
     });
 	},
 
+  /**
+  * Get all - Crud
+  */
 	all: function(req, res, next) {
 		this.model.find(function(err, data) {
       if (err) res.send(err);

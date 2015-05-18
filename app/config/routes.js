@@ -21,7 +21,8 @@ module.exports = {
 
   ressources: [{
       data : 'todos',
-      endpoints : ['create', 'read', 'update', 'delete', 'all']
+      endpoints : ['create', 'read', 'update', 'delete', 'all'],
+      auth : ['create', 'read', 'update', 'delete', 'all']
   }],
 
   // REST API ---------------------------------------------------------------------
