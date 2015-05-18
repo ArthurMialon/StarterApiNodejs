@@ -1,15 +1,12 @@
 module.exports = {
-	
+
 	/**
 	* Check necessary parameters
 	*/
 	check: function(req, route) {
-	  var parameters = route.parameters;
-	  var params = [];
-
-	  if (parameters) {
-	    for(var p in parameters) {
-	      if(!req.body[parameters[p]])
+	  if (route.parameters) {
+	    for(var p in route.parameters) {
+	      if(!req.body[route.parameters[p]])
 	      	return false;
 	    }
 	  }
