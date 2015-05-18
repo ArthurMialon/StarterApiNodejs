@@ -130,6 +130,34 @@ This is a simple object. Each route has his path and you can define options.
 
 ```
 
+You can create ressources object. Then your ressource will automaticly have a CRUD.
+You just have to create you model in app/models/<ressources>.js.
+
+```javascript
+
+ressources: ['todos', 'fruits']
+
+// Here you will have 5 new routes with autmoatic crud
+// GET /todos     -> All todos
+// GET /todos/:id -> Only one todo
+// POST /todos -> Create new todo
+// PUT /todos/:id -> Update one todo
+// Delete /todos/:id ->delete todo
+
+```
+
+You can specify what route will be accessible and if you need authenticate
+
+```javascript
+
+// Here my todos will be accessible by anyone but to create, update or delete 
+// you will need to be authenticate
+ressources: [{
+      data : 'todos',
+      endpoints : ['create', 'read', 'update', 'delete', 'all'],
+      auth : ['create', 'update', 'delete']
+  }]
+```
 
 ## Authentication
 ...
