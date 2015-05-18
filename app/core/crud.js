@@ -24,12 +24,9 @@ module.exports = {
       routes[3] = this.newRoute('update', ressource, false);
       routes[4] = this.newRoute('delete', ressource, false);
     }
-    else if (typeof ressource == 'object') {
-      // Just choose function
-      for (var i = 0; i < ressource['endpoints'].length; i++) {
+    else if (typeof ressource == 'object')
+      for (var i = 0; i < ressource['endpoints'].length; i++)
         routes.push(this.newRoute(ressource['endpoints'][i], ressource.data, ressource['auth']));
-      }
-    }
 
     return routes;
   },
