@@ -135,23 +135,18 @@ var Requester = {
   */
   initController: function(controller, action) {
     // If action is a function there is no controller
-    if (typeof action == 'function') {
+    if (typeof action == 'function')
       return null;
-    }
     else {
       // If there is a controller return the module
-      if (controller) {
+      if (controller)
         return require('../controllers/' + controller);
-      }
       // If there is a default controller
-      else if (this.defaults.controller) {
+      else if (this.defaults.controller)
         return require('../controllers/' + this.defaults.controller);
-      }
-      // No controller
-      else {
-        return null;
-      }
     }
+
+    return null;
   },
 
   /**
@@ -165,9 +160,8 @@ var Requester = {
       if (['get', 'post', 'put', 'delete'].indexOf(method) > -1)
         return method;
     }
-    else if (this.defaults.method) {
+    else if (this.defaults.method)
       return this.defaults.method.toLowerCase();
-    }
 
     // Default
     return 'get';
@@ -211,17 +205,14 @@ module.exports = function(router, io) {
   if (routes['default'])
     Requester.initDefault(routes['default']);
 
-  for (var r in routes) {
+  for (var r in routes)
     if (r != 'default' && r != "ressources")
       Requester.createRoute(router, r, routes[r], io);
-  }
 
-  if(routes['ressources']) {
-    for (var r in routes['ressources']) {
+  if(routes['ressources'])
+    for (var r in routes['ressources'])
       if (r != 'default' && r != "ressources")
         Requester.createCrud(router, routes['ressources'][r], io);
-    }
-  }
 
   // In case of routing error
   router.all('*', function(req, res, next) {
