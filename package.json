@@ -9,10 +9,12 @@
     "email": "arthurmialon@gmail.com",
     "url": "http://www.arthurmialon.fr"
   },
-  "contributors": [{
-    "name": "hugocaillard",
-    "email": "c.hugo.188@gmail.com"
-  }],
+  "contributors": [
+    {
+      "name": "hugocaillard",
+      "email": "c.hugo.188@gmail.com"
+    }
+  ],
   "scripts": {
     "start": "node server.js",
     "test": "mocha"
@@ -21,6 +23,7 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.5.2",
     "express": "~4.7.2",
+    "express-cors-options": "0.0.4",
     "ip": "^0.3.2",
     "is_js": "^0.7.3",
     "jsonwebtoken": "^5.0.0",
