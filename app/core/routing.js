@@ -12,7 +12,7 @@ module.exports = function(router, route, io) {
       return false;
     }
 
-    if (!Need.check(req, res)) {
+    if (!Need.check(req, route)) {
       res.status(400).send({status: 400, message: "You don't have permissions."});
       return false;
     }

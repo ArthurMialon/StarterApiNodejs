@@ -174,15 +174,11 @@ var Requester = {
   },
 
   /**
-  * Create a new Express Router instance
+  * Init crud for a ressource
   * @params Function express router
-  * @params Object   route infos
+  * @params Object || String   resource
   * @Params Object   Socket
   */
-  initRouter: function(router, route, io) {
-    Routing(router, route, io);
-  },
-
   createCrud: function(router, ressource, io) {
     if(typeof ressource == 'string')
       CRUD.initModel(ressource);
@@ -195,8 +191,19 @@ var Requester = {
       routes[r].middleware = this.initMiddleware(routes[r].middleware, routes[r].auth);
       this.initRouter(router, routes[r], io);
     }
+  },
 
-  }
+  /**
+  * Create a new Express Router instance
+  * @params Function express router
+  * @params Object   route infos
+  * @Params Object   Socket
+  */
+  initRouter: function(router, route, io) {
+    Routing(router, route, io);
+  },
+
+
 };
 
 module.exports = function(router, io) {
