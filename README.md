@@ -146,7 +146,7 @@ ressources: ['todos', 'fruits']
 
 ```
 
-You can specify what route will be accessible and if you need authenticate
+You can specify accessible routes and if you need authenticate
 
 ```javascript
 
