@@ -48,8 +48,11 @@ module.exports = {
       action    : action,
     };
 
-    if(auth)
-      r.middleware = (auth.indexOf(action) != -1) ? ['auth'] : [];
+    if (auth)
+      if (auth === true)
+        r.middleware = ['auth'];
+      else
+        r.middleware = (auth.indexOf(action) != -1) ? ['auth'] : [];
 
     switch(action) {
       case 'all':
