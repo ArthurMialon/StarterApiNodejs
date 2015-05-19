@@ -1,0 +1,5 @@
+{
+  "data" : "<%= ressource %>",
+  "endpoints" : ["create", "read", "update", "delete", "all"],
+  "auth" : ["create", "read", "update", "delete", "all"]
+}

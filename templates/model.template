@@ -6,7 +6,6 @@ var mongoose = require('mongoose');
 */
 var <%= ressource %>Schema = mongoose.Schema({
   text      : String,
-  done      : Boolean,
   updated_at: Date,
   created_at: Date
 }, { versionKey: false });

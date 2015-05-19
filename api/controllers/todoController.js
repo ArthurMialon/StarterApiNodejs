@@ -1,5 +1,5 @@
 // Load Model
-var Todo = require('../models/todo');
+var Todo = require('../models/todos');
 
 module.exports = {
 
