@@ -53,7 +53,7 @@ REST : Authentication : Real-Time : Controller - Models
 
 ## Configuration
 You can specify a lot of configurations.
-All configurations are in app/config/configuration.js
+All configurations are in lib/config/configuration.js
 This is a simple object. Some of variables are necessary but you can add everything you want
 In your files just require this configuration and you have access to then.
 
@@ -64,7 +64,7 @@ In your files just require this configuration and you have access to then.
 
 ## Routing
 ### Create a new route
-To configure your routes go in app/config/routes.js
+To configure your routes go in lib/config/routes.js
 This is a simple object. Each route has his path and you can define options.
 - method       -> http method (String - Default 'GET')
 - controller   -> controller use (String - Optional)
@@ -74,10 +74,10 @@ This is a simple object. Each route has his path and you can define options.
 - auth         -> Route nedd auth (Boolean - Optional - Default false)
 - socket       -> Route emit socket ? (Boolean - Optional - Default false)
 - need         -> whzt user need to be able to call the route (Object - Optional)
-- uses		     -> controller@action instead of controller and action options
+- uses         -> controller@action instead of controller and action options
 
 ```javascript
-  // app/config/routes.js
+  // lib/config/routes.js
 
   // Default object for all routes
   default: {
@@ -94,9 +94,9 @@ This is a simple object. Each route has his path and you can define options.
   },
 
   // Classic routes to get all todos
-  // Define a controller ( will use app/controllers/todoController.js )
+  // Define a controller ( will use api/controllers/todoController.js )
   // Define a action ( will use todoController.getAll() )
-  // Define a custom middleware ( will use app/middleware/custom.js and logFinger action )
+  // Define a custom middleware ( will use lib/middleware/custom.js and logFinger action )
   // If you want to use a middleware in middleware.js
   // just type ['myMiddleware']
   // with the right function
@@ -131,7 +131,7 @@ This is a simple object. Each route has his path and you can define options.
 ```
 
 You can create ressources object. Then your ressource will automaticly have a CRUD.
-You just have to create you model in app/models/<ressources>.js.
+You just have to create you model in api/models/<ressources>.js.
 
 ```javascript
 
@@ -150,7 +150,7 @@ You can specify accessible routes and if you need authenticate
 
 ```javascript
 
-// Here my todos will be accessible by anyone but to create, update or delete 
+// Here my todos will be accessible by anyone but to create, update or delete
 // you will need to be authenticate
 ressources: [{
       data : 'todos',
@@ -194,9 +194,3 @@ And in an other tab
 - Unit test [WIP]
 - Clean everything and add features
 - Find a name -> if you find -> arthurmialon@gmail.com
-
-
-
-
-
-

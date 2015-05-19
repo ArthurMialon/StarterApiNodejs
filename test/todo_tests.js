@@ -6,7 +6,7 @@ var assert   = require('assert');
 var mongoose = require('mongoose');
 var is       = require('is_js');
 
-var conf = require('../app/config/configuration');
+var conf = require('../lib/config/configuration');
 
 var db     = conf.db;
 var prefix = (conf.apiPrefix) ? conf.apiPrefix : '/';

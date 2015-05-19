@@ -1,6 +1,6 @@
 // Set up ======================================================
-var configPath    = './app/config/';
-var corePath      = './app/core/';
+var configPath    = './lib/config/';
+var corePath      = './lib/core/';
 var configuration = require(configPath + 'configuration');
 var app           = require(corePath + 'expressConfig')(configuration);
 var router        = require('express').Router();
