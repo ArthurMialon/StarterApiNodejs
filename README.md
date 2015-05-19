@@ -192,7 +192,6 @@ And in an other tab
 
 # Todo
 - Unit test [WIP]
-- Automatic CRUD [WIP]
 - Clean everything and add features
 - Find a name -> if you find -> arthurmialon@gmail.com
 
