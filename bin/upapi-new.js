@@ -37,7 +37,7 @@ module.exports = {
     fs.copySync(path.join(root, 'test'), path.join(appRoot, 'test'));
     fs.copySync(path.join(root, 'api'), path.join(appRoot, 'api'));
 
-    // Todo : copy as if there was no Todo ressources and without the tests
+    // TODO : copy as if there was no Todo ressources and without the tests
     //        add an option so we can create an app with the todo and the tests
   }
 };

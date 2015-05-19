@@ -5,14 +5,14 @@ var mongoose = require('mongoose');
 * Todo
 */
 var todoSchema = mongoose.Schema({
-  text			: String,
-  done			: Boolean,
-  updated_at	: Date,
-  created_at	: Date
+  text      : String,
+  done      : Boolean,
+  updated_at: Date,
+  created_at: Date
 }, { versionKey: false });
 
 /**
-* Mongoose Midlleware
+* Mongoose Middleware
 */
 todoSchema.pre('save', function(next) {
   var todo = this;
