@@ -168,7 +168,23 @@ ressources: [{
 ## Middleware
 ...
 ## CLI
-...
+_Upapi is a temporary name and it is not on npm yet._
+```
+  $ npm i -g upapi
+  $ upapi new blog
+  $ cd blog
+  $ upapi generate post
+  $ npm start
+```
+
+#### For developers working on the CLI:
+- Clone this repo anywhere you want
+- Run:
+```
+  $ cd StartApiNodejs
+  $ npm link
+```
+You can now modify the CLI and use it was if it was installed globally.
 
 ## Unit testing
 The unit tests made with Mocha are only here to test the general purpose of this Starter.
@@ -192,5 +208,6 @@ And in an other tab
 
 # Todo
 - Unit test [WIP]
+- CLI [WIP]
 - Clean everything and add features
 - Find a name -> if you find -> arthurmialon@gmail.com
