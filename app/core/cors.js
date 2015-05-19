@@ -1,7 +1,9 @@
+var cors = require('../config/configuration').cors;
+
 module.exports = function(req, res, next) {
-	res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With, X-Access-Token');
+	res.header('Access-Control-Allow-Origin', cors.origin);
+  res.header('Access-Control-Allow-Methods', cors.methods);
+  res.header('Access-Control-Allow-Headers', cors.headers);
 
   // Intercept OPTIONS method
   if ('OPTIONS' == req.method)

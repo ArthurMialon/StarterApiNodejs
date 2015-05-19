@@ -60,6 +60,12 @@ module.exports = {
   */
   dev: true,
 
+  cors: {
+    origin  : '*',
+    methods : 'GET,PUT,POST,DELETE,OPTIONS',
+    header  : 'Content-Type, Authorization, Content-Length, X-Requested-With, X-Access-Token'
+  },
+
   /**
   * This is the prefix use to call the api
   * Example:

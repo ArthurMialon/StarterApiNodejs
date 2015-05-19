@@ -4,6 +4,7 @@ var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var multer         = require('multer');
 var appPath        = __dirname + '/../';
+var cors           = require('./cors');
 
 module.exports = function(configuration) {
   var app = express();
@@ -22,9 +23,12 @@ module.exports = function(configuration) {
 
   // Parse application/vnd.api+json as json
   app.use(bodyParser.json({type: 'application/vnd.api+json'}));
- 
-  // For Delete and Put method 
+
+  // For Delete and Put method
   app.use(methodOverride());
+
+  // CORS
+  app.use(cors);
 
   // Upload system multer
   app.use(multer({
