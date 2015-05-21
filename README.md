@@ -1,5 +1,9 @@
 # StarterApiNodejs
 
+Create your own ReST API with Nodejs and MongoDB with realtime socket.
+Upapi give you an architecture to create quickly your api.
+Simple or complex Upapi is a really good way to do it.
+
 # Table of Contents
  
 * [Getting startrd](#getting-started)
@@ -11,15 +15,7 @@
 * [Models](#models)
 * [Middleware](#middleware)
 * [Testing](#testing)
- 
 
-Create your own ReST API with Nodejs and MongoDB with realtime socket.
-
-Upapi give you an architecture to create quickly your api.
-
-Simple or complex Upapi is a really good way to do it.
-
-REST : Authentication : Real-Time : Controller - Models
 
 ## <a name="getting-started"></a>Getting started || How to use
  * Clone the repo
