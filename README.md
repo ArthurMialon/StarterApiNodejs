@@ -33,7 +33,7 @@ Simple or complex Upapi is a really good way to do it.
 
 ##  <a name="architecture"></a>Architecture
 
-This the projet architecture after an [ $ upapi new blog ]
+This is the project architecture after an `$ upapi new blog` 
 
 ```
 blog
@@ -90,15 +90,19 @@ In your files just require this configuration and you have access to then.
 ### Create a new route
 To configure your routes go in lib/config/routes.js
 This is a simple object. Each route has his path and you can define options.
-- method       -> http method (String - Default 'GET')
-- controller   -> controller use (String - Optional)
-- action       -> action use (String || function - Required)
-- middlewares  -> middlesware before action (Array - Optional)
-- parameters   -> required parameter (Array - Optional)
-- auth         -> Route nedd auth (Boolean - Optional - Default false)
-- socket       -> Route emit socket ? (Boolean - Optional - Default false)
-- need         -> whzt user need to be able to call the route (Object - Optional)
-- uses         -> controller@action instead of controller and action options
+
+| Name             |   Type   |    Infos                           |
+| ---------------- |:---------|:-----------------------------------|
+| method           | String   | http method                        |
+| controller       | String   | ctrl name                          |
+| action           | String   | action name                        |
+| parameter        | Array    | required parameter                 |
+| auth             | Boolean  | route need auth                    | 
+| socket           | Boolean  | route send socket                  |
+| need             | Boolean  | what user need to be               |
+| uses             | String   | controller@action instead of both  |
+
+Here some examples.
 
 ```javascript
   // lib/config/routes.js
