@@ -34,6 +34,8 @@ Simple or complex Upapi is a really good way to do it.
 ##  <a name="architecture"></a>Architecture
 
 ```
+Project Name
+|
 ├───api
 |    └───controllers
 |           |  authController.js
