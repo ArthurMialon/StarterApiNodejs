@@ -1,5 +1,5 @@
 // Load Model
-var Todo = require('../models/<%= ressource %>');
+var <% print(_.capitalize( ressource )) %> = require('../models/<%= ressource %>');
 
 module.exports = {
   // You can overwrite default crud methods
