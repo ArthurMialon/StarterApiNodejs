@@ -1,5 +1,5 @@
 module.exports = {
-	
+
   /**
   * Send the token and the user authenticate infos
   */
