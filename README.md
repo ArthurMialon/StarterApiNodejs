@@ -14,6 +14,7 @@ Simple or complex Upapi is a really good way to do it.
 * [Controllers](#controllers)
 * [Models](#models)
 * [Middleware](#middleware)
+* [CLI](#cli)
 * [Testing](#testing)
 
 # Documentation
