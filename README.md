@@ -75,7 +75,7 @@ blog
 
 ```
 
-## <a name="configuration"></a>Configuration
+## <img src="http://www.google.fr/url?source=imglanding&ct=img&q=http://cdns2.freepik.com/photos-libre/_318-9479.jpg&sa=X&ei=FfVdVdCOH4LXUeacgKgM&ved=0CAkQ8wc&usg=AFQjCNFgtRMT18Jrm7StZeyoj-_IkblHcw" width="50">  <a name="configuration"></a>Configuration
 You can specify a lot of configurations.
 All configurations are in lib/config/configuration.js
 This is a simple object. Some of variables are necessary but you can add everything you want
@@ -86,7 +86,7 @@ In your files just require this configuration and you have access to then.
   var title = configuration.title;
 ```
 
-## <a name="routing"></a>Routing
+## <img src="http://www.google.fr/url?source=imglanding&ct=img&q=https://www.neustar.biz/base/img/icon-routing-big-gry.png&sa=X&ei=TfVdVe7JBMiuU_6egYAD&ved=0CAkQ8wc&usg=AFQjCNFtPItDfyVkHaO3cor6gYg-sZ58LQ" width="50"><a name="routing"></a>Routing
 ### Create a new route
 To configure your routes go in lib/config/routes.js
 This is a simple object. Each route has his path and you can define options.
@@ -188,7 +188,7 @@ ressources: [{
   }]
 ```
 
-## <a name="authentication"></a>Authentication
+## <img src="http://icons.iconarchive.com/icons/custom-icon-design/mono-general-4/512/padlock-lock-icon.png" width="50"> <a name="authentication"></a>Authentication
 ...
 ## <a name="controllers"></a>Controllers
 ...
@@ -196,7 +196,7 @@ ressources: [{
 ...
 ## <a name="middleware"></a>Middleware
 ...
-## <a name="cli"></a>CLI
+## <img src="http://png-3.findicons.com/files/icons/2711/free_icons_for_windows8_metro/512/command_line.png" width="50"><a name="cli"></a>CLI
 _Upapi is a temporary name and it is not on npm yet._
 ```
   $ npm i -g upapi
