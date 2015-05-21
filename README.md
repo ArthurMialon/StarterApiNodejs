@@ -158,7 +158,7 @@ Here some examples.
 
 
 ```
-
+### Ressources
 You can create ressources object. Then your ressource will automaticly have a CRUD.
 You just have to create you model in api/models/<ressources>.js.
 
@@ -174,7 +174,7 @@ ressources: ['todos', 'fruits']
 // Delete /todos/:id ->delete todo
 
 ```
-
+### Ressources ++
 You can specify accessible routes and if you need authenticate
 
 ```javascript
