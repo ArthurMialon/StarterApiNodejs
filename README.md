@@ -196,7 +196,7 @@ ressources: [{
 ...
 ## <a name="middleware"></a>Middleware
 ...
-## <img src="http://png-3.findicons.com/files/icons/2711/free_icons_for_windows8_metro/512/command_line.png" width="50"><a name="cli"></a>CLI
+## <img src="http://png-3.findicons.com/files/icons/2711/free_icons_for_windows8_metro/512/command_line.png" width="50">  <a name="cli"></a>CLI
 _Upapi is a temporary name and it is not on npm yet._
 ```
   $ npm i -g upapi
