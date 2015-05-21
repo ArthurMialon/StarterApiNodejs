@@ -38,10 +38,10 @@ Project Name
 |
 ├───api
 |    └───controllers
-|           |  authController.js
-|           |  todoController.js
-|           |  userController.js
-|           // Here your controllers
+|    |      |  authController.js
+|    |      |  todoController.js
+|    |      |  userController.js
+|    |      // Here your controllers
 |    └───models
 |           |  users.js
 |           |  todos.js
@@ -49,15 +49,15 @@ Project Name
 |
 ├───lib
 |    └───config
-|           |  configuration.js
-|           |  errors.js
-|           |  ressources.json
-|           |  routes.js
+|    |      |  configuration.js
+|    |      |  errors.js
+|    |      |  ressources.json
+|    |      |  routes.js
 |    └───core
-|        ... The core system
+|    |   ... The core system
 |    └───middleware
-|           |  custom.js
-|           |  middleware.js
+|    |      |  custom.js
+|    |      |  middleware.js
 |    └───services
 |           // Here your Services / Helpers
 |
