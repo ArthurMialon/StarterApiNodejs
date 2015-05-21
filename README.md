@@ -31,7 +31,7 @@ Simple or complex Upapi is a really good way to do it.
 
 * Soon Upapi will be accessible from an npm package.
 
-##  <a name="architecture"></a>Architecture
+## <img src="http://www.google.fr/url?source=imglanding&ct=img&q=http://www.vector15.com/img/icons/128/Folder%20Structure%20128x128%20vCharc.png&sa=X&ei=ofRdVYJkhapT2PeA-As&ved=0CAkQ8wc&usg=AFQjCNHmKsQUUzN3txKOdfOFxzS5rsdFWw" width="50"> <a name="architecture"></a>Architecture
 
 This is the project architecture after an `$ upapi new blog` 
 
