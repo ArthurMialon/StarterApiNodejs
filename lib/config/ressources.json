@@ -1,7 +1,19 @@
 [
   {
-    "data" : "todos",
-    "endpoints" : ["create", "read", "update", "delete", "all"],
-    "auth" : ["create", "read", "update", "delete", "all"]
+    "data": "todos",
+    "endpoints": [
+      "create",
+      "read",
+      "update",
+      "delete",
+      "all"
+    ],
+    "auth": [
+      "create",
+      "read",
+      "update",
+      "delete",
+      "all"
+    ]
   }
 ]
