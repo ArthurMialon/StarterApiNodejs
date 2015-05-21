@@ -1,4 +1,4 @@
-# StarterApiNodejs
+# <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEASWyqZ07TYXnQs76ulBj1ppt8ogpVPFr926PMzL7ragdMJwjA" width="50"> StarterApiNodejs
 
 Create your own ReST API with Nodejs and MongoDB with realtime socket.
 Upapi give you an architecture to create quickly your api.
@@ -14,9 +14,10 @@ Simple or complex Upapi is a really good way to do it.
 * [Controllers](#controllers)
 * [Models](#models)
 * [Middleware](#middleware)
+* [CLI](#cli)
 * [Testing](#testing)
 
-
+# Documentation
 ## <a name="getting-started"></a>Getting started || How to use
  * Clone the repo
 
@@ -30,10 +31,51 @@ Simple or complex Upapi is a really good way to do it.
 
 * Soon Upapi will be accessible from an npm package.
 
-##  <a name="architecture"></a>Architecture
-...
+## <img src="http://www.google.fr/url?source=imglanding&ct=img&q=http://www.vector15.com/img/icons/128/Folder%20Structure%20128x128%20vCharc.png&sa=X&ei=ofRdVYJkhapT2PeA-As&ved=0CAkQ8wc&usg=AFQjCNHmKsQUUzN3txKOdfOFxzS5rsdFWw" width="50"> <a name="architecture"></a>Architecture
 
-## <a name="configuration"></a>Configuration
+This is the project architecture after an `$ upapi new blog` 
+
+```
+blog
+|
+├───api
+|    └───controllers
+|    |      |  authController.js
+|    |      |  todoController.js
+|    |      |  userController.js
+|    |      // Here your controllers
+|    |
+|    └───models
+|           |  users.js
+|           |  todos.js
+|           // Here your models
+|
+├───lib
+|    └───config
+|    |      |  configuration.js
+|    |      |  errors.js
+|    |      |  ressources.json
+|    |      |  routes.js
+|    |
+|    └───core
+|    |   ... The core system
+|    |
+|    └───middleware
+|    |      |  custom.js
+|    |      |  middleware.js
+|    |
+|    └───services
+|           // Here your Services / Helpers
+|
+├───test
+|    |  todo_tests.js
+|
+|  package.json
+|  server.js
+
+```
+
+## <img src="http://www.google.fr/url?source=imglanding&ct=img&q=http://cdns2.freepik.com/photos-libre/_318-9479.jpg&sa=X&ei=FfVdVdCOH4LXUeacgKgM&ved=0CAkQ8wc&usg=AFQjCNFgtRMT18Jrm7StZeyoj-_IkblHcw" width="50">  <a name="configuration"></a>Configuration
 You can specify a lot of configurations.
 All configurations are in lib/config/configuration.js
 This is a simple object. Some of variables are necessary but you can add everything you want
@@ -44,19 +86,24 @@ In your files just require this configuration and you have access to then.
   var title = configuration.title;
 ```
 
-## <a name="routing"></a>Routing
+## <img src="http://www.google.fr/url?source=imglanding&ct=img&q=https://www.neustar.biz/base/img/icon-routing-big-gry.png&sa=X&ei=TfVdVe7JBMiuU_6egYAD&ved=0CAkQ8wc&usg=AFQjCNFtPItDfyVkHaO3cor6gYg-sZ58LQ" width="50"><a name="routing"></a>Routing
 ### Create a new route
 To configure your routes go in lib/config/routes.js
 This is a simple object. Each route has his path and you can define options.
-- method       -> http method (String - Default 'GET')
-- controller   -> controller use (String - Optional)
-- action       -> action use (String || function - Required)
-- middlewares  -> middlesware before action (Array - Optional)
-- parameters   -> required parameter (Array - Optional)
-- auth         -> Route nedd auth (Boolean - Optional - Default false)
-- socket       -> Route emit socket ? (Boolean - Optional - Default false)
-- need         -> whzt user need to be able to call the route (Object - Optional)
-- uses         -> controller@action instead of controller and action options
+You can add a default object to your routes.
+
+| Name             |   Type               |    Infos                           |
+| ---------------- |:---------------------|:-----------------------------------|
+| method           | String               | http method                        |
+| controller       | String               | controller name                    |
+| action           | String or function   | action name                        |
+| parameter        | Array                | required parameter                 |
+| auth             | Boolean              | route need auth                    | 
+| socket           | Boolean              | route send socket                  |
+| need             | Boolean              | what user need to be               |
+| uses             | String               | controller@action instead of both  |
+
+Here some examples.
 
 ```javascript
   // lib/config/routes.js
@@ -141,7 +188,7 @@ ressources: [{
   }]
 ```
 
-## <a name="authentication"></a>Authentication
+## <img src="http://icons.iconarchive.com/icons/custom-icon-design/mono-general-4/512/padlock-lock-icon.png" width="50"> <a name="authentication"></a>Authentication
 ...
 ## <a name="controllers"></a>Controllers
 ...
@@ -149,7 +196,7 @@ ressources: [{
 ...
 ## <a name="middleware"></a>Middleware
 ...
-## <a name="cli"></a>CLI
+## <img src="http://png-3.findicons.com/files/icons/2711/free_icons_for_windows8_metro/512/command_line.png" width="50">  <a name="cli"></a>CLI
 _Upapi is a temporary name and it is not on npm yet._
 ```
   $ npm i -g upapi
