@@ -2,13 +2,13 @@
 
 Create your own ReST API with Nodejs and MongoDB with realtime socket.
 
-XX-API give you an architecture to create quickly your api.
+Upapi give you an architecture to create quickly your api.
 
-Simple or complex XX-API is a really good way to do it.
+Simple or complex Upapi is a really good way to do it.
 
 REST : Authentication : Real-Time : Controller - Models
 
-#How to use
+#How to use || Getting started
  * Clone the repo
 
 ```shell
@@ -19,37 +19,12 @@ REST : Authentication : Real-Time : Controller - Models
     $ nodemon server.js
 ```
 
+* Soon Upapi will be accessible from an npm package.
+
 #Documentation
 
 ## Architecture
-
-```javascript
-   - app
-    |-- config/ <!-- Configuration -->
-    |  -- configuration.js <!-- File where everything is specify -->
-    |  -- errors.js <!-- Config each error code and message -->
-    |  -- routes.js <!-- Create your routes -->
-
-    |-- controllers/ <!-- Your controller -->
-
-    |-- core/ <!-- Framework core useless for you -->
-
-    |-- middleware/ <!-- Middleware for route -->
-    |  -- middleware.js <!-- Some initial middleware -->
-    |  -- custom.js <!-- your custom middleware-->
-
-    |-- models/ <!-- Your mongoose schema -->
-
-    |-- public/ <!-- Public directory accessible from url -->
-
-    |-- services/  <!-- Helpers-->
-    |  -- upload.js
-
-    - package.json <!-- Tells npm which packages we need -->
-    - server.js <!-- Server launch -->
-
-```
-
+...
 
 ## Configuration
 You can specify a lot of configurations.
@@ -210,4 +185,4 @@ And in an other tab
 - Unit test [WIP]
 - CLI [WIP]
 - Clean everything and add features
-- Find a name -> if you find -> arthurmialon@gmail.com
+- Find a name -> have an idea ? -> arthurmialon@gmail.com
