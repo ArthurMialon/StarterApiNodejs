@@ -90,17 +90,18 @@ In your files just require this configuration and you have access to then.
 ### Create a new route
 To configure your routes go in lib/config/routes.js
 This is a simple object. Each route has his path and you can define options.
+You can add a default object to your routes.
 
-| Name             |   Type   |    Infos                           |
-| ---------------- |:---------|:-----------------------------------|
-| method           | String   | http method                        |
-| controller       | String   | ctrl name                          |
-| action           | String   | action name                        |
-| parameter        | Array    | required parameter                 |
-| auth             | Boolean  | route need auth                    | 
-| socket           | Boolean  | route send socket                  |
-| need             | Boolean  | what user need to be               |
-| uses             | String   | controller@action instead of both  |
+| Name             |   Type               |    Infos                           |
+| ---------------- |:---------------------|:-----------------------------------|
+| method           | String               | http method                        |
+| controller       | String               | controller name                    |
+| action           | String or function   | action name                        |
+| parameter        | Array                | required parameter                 |
+| auth             | Boolean              | route need auth                    | 
+| socket           | Boolean              | route send socket                  |
+| need             | Boolean              | what user need to be               |
+| uses             | String               | controller@action instead of both  |
 
 Here some examples.
 
