@@ -5,7 +5,7 @@ Upapi give you an architecture to create quickly your api.
 Simple or complex Upapi is a really good way to do it.
 
 # Table of Contents
- 
+
 * [Getting started](#getting-started)
 * [Architecture](#architecture)
 * [Configuration](#configuration)
@@ -33,7 +33,7 @@ Simple or complex Upapi is a really good way to do it.
 
 ## <img src="http://www.google.fr/url?source=imglanding&ct=img&q=http://www.vector15.com/img/icons/128/Folder%20Structure%20128x128%20vCharc.png&sa=X&ei=ofRdVYJkhapT2PeA-As&ved=0CAkQ8wc&usg=AFQjCNHmKsQUUzN3txKOdfOFxzS5rsdFWw" width="50"> <a name="architecture"></a>Architecture
 
-This is the project architecture after an `$ upapi new blog` 
+This is the project architecture after an `$ upapi new blog`
 
 ```
 blog
@@ -98,7 +98,7 @@ You can add a default object to your routes.
 | controller       | String               | controller name                    |
 | action           | String or function   | action name                        |
 | parameter        | Array                | required parameter                 |
-| auth             | Boolean              | route need auth                    | 
+| auth             | Boolean              | route need auth                    |
 | socket           | Boolean              | route send socket                  |
 | need             | Boolean              | what user need to be               |
 | uses             | String               | controller@action instead of both  |
@@ -198,7 +198,7 @@ ressources: [{
 ...
 ## <img src="http://png-3.findicons.com/files/icons/2711/free_icons_for_windows8_metro/512/command_line.png" width="50">  <a name="cli"></a>CLI
 _Upapi is a temporary name and it is not on npm yet._
-```
+```shell
   $ npm i -g upapi
   $ upapi new blog
   $ cd blog
@@ -209,7 +209,7 @@ _Upapi is a temporary name and it is not on npm yet._
 #### For developers working on the CLI:
 - Clone this repo anywhere you want
 - Run:
-```
+```shell
   $ cd StartApiNodejs
   $ npm link
 ```
@@ -223,13 +223,13 @@ The unit tests made with Mocha are only here to test the general purpose of this
 It tests Authentication, users and /todos routes as an example.
 
 ### Run the tests
-```
+```shell
   $ cd StarterApiNodejs
   $ npm i
   $ npm start
 ```
 And in an other tab
-```
+```shell
   $ npm i -g mocha
   $ npm test
 ```
