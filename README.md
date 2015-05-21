@@ -42,6 +42,7 @@ Project Name
 |    |      |  todoController.js
 |    |      |  userController.js
 |    |      // Here your controllers
+|    |
 |    └───models
 |           |  users.js
 |           |  todos.js
@@ -53,11 +54,14 @@ Project Name
 |    |      |  errors.js
 |    |      |  ressources.json
 |    |      |  routes.js
+|    |
 |    └───core
 |    |   ... The core system
+|    |
 |    └───middleware
 |    |      |  custom.js
 |    |      |  middleware.js
+|    |
 |    └───services
 |           // Here your Services / Helpers
 |
