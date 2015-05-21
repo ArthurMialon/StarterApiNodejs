@@ -1,5 +1,6 @@
-var mongoose = require('mongoose');
-var bcrypt   = require('bcrypt-nodejs');
+var mongoose         = require('mongoose');
+var mongoosePaginate = require('mongoose-paginate');
+var bcrypt           = require('bcrypt-nodejs');
 
 var userSchema = mongoose.Schema({
   username  : String,
@@ -29,5 +30,10 @@ userSchema.pre('save', function(next) {
 userSchema.methods.validPassword = function(password) {
   return bcrypt.compareSync(password, this.password);
 };
+
+/**
+* Plugin
+*/
+userSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model('User', userSchema);

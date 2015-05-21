@@ -1,4 +1,5 @@
-var mongoose = require('mongoose');
+var mongoose         = require('mongoose');
+var mongoosePaginate = require('mongoose-paginate');
 
 /**
 * Mongoose Schema
@@ -51,5 +52,10 @@ function archive(model, done, id, cb) {
     });
   });
 }
+
+/**
+* Plugin
+*/
+todoSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model('Todo', todoSchema);
