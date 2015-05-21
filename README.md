@@ -1,5 +1,13 @@
 # StarterApiNodejs
 
+# Table of Contents
+ 
+* [Getting startrd](#getting-started)
+* [Architecture](#architecture)
+* [Configuration](#configuration)
+* [Routing](#routing)
+ 
+
 Create your own ReST API with Nodejs and MongoDB with realtime socket.
 
 Upapi give you an architecture to create quickly your api.
@@ -8,7 +16,7 @@ Simple or complex Upapi is a really good way to do it.
 
 REST : Authentication : Real-Time : Controller - Models
 
-#How to use || Getting started
+## <a name="getting-started"></a>Getting started || How to use
  * Clone the repo
 
 ```shell
@@ -21,12 +29,10 @@ REST : Authentication : Real-Time : Controller - Models
 
 * Soon Upapi will be accessible from an npm package.
 
-#Documentation
-
-## Architecture
+##  <a name="architecture"></a>Architecture
 ...
 
-## Configuration
+## <a name="configuration"></a>Configuration
 You can specify a lot of configurations.
 All configurations are in lib/config/configuration.js
 This is a simple object. Some of variables are necessary but you can add everything you want
@@ -37,7 +43,7 @@ In your files just require this configuration and you have access to then.
   var title = configuration.title;
 ```
 
-## Routing
+## <a name="routing"></a>Routing
 ### Create a new route
 To configure your routes go in lib/config/routes.js
 This is a simple object. Each route has his path and you can define options.
