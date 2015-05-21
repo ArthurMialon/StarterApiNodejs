@@ -176,7 +176,7 @@ describe('Todos Unauthorized', function() {
   describe('POST /todos/create without token', function() {
     it('should respond with status 401', function(done) {
       var options = {
-        uri: url+'/todos/create',
+        uri: url+'/todos/',
         method: 'POST'
       };
       request(options, function(err, resp, body) {
@@ -189,7 +189,7 @@ describe('Todos Unauthorized', function() {
   describe('DELETE /todos/:id without token', function() {
     it('should respond with status 401', function(done) {
       var options = {
-        uri: url+'/todos/1',
+        uri: url+'/todos/1/delete',
         method: 'DELETE'
       };
       request(options, function(err, resp, body) {
