@@ -2,9 +2,9 @@
 
 Create your own ReST API with Nodejs and MongoDB with realtime socket.
 
-XX-API give you an architecture to create quickly your api.
+Upapi give you an architecture to create quickly your api.
 
-Simple or complex XX-API is a really good way to do it.
+Simple or complex Upapi is a really good way to do it.
 
 REST : Authentication : Real-Time : Controller - Models
 
