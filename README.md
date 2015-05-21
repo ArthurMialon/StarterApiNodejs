@@ -33,8 +33,10 @@ Simple or complex Upapi is a really good way to do it.
 
 ##  <a name="architecture"></a>Architecture
 
+### This the projet architecture after an [ $ upapi new blog ]
+
 ```
-Project Name
+blog
 |
 ├───api
 |    └───controllers
