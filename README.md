@@ -6,7 +6,7 @@ Simple or complex Upapi is a really good way to do it.
 
 # Table of Contents
  
-* [Getting startrd](#getting-started)
+* [Getting started](#getting-started)
 * [Architecture](#architecture)
 * [Configuration](#configuration)
 * [Routing](#routing)
