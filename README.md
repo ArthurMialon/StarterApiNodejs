@@ -8,7 +8,7 @@ Simple or complex Upapi is a really good way to do it.
 
 REST : Authentication : Real-Time : Controller - Models
 
-#How to use
+#How to use || Getting started
  * Clone the repo
 
 ```shell
@@ -18,6 +18,8 @@ REST : Authentication : Real-Time : Controller - Models
 
     $ nodemon server.js
 ```
+
+* Soon Upapi will be accessible from an npm package.
 
 #Documentation
 
@@ -183,4 +185,4 @@ And in an other tab
 - Unit test [WIP]
 - CLI [WIP]
 - Clean everything and add features
-- Find a name -> if you find -> arthurmialon@gmail.com
+- Find a name -> have an idea ? -> arthurmialon@gmail.com
