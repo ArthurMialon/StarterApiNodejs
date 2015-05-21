@@ -6,6 +6,11 @@
 * [Architecture](#architecture)
 * [Configuration](#configuration)
 * [Routing](#routing)
+* [Authentication](#authentication)
+* [Controllers](#controllers)
+* [Models](#models)
+* [Middleware](#middleware)
+* [Testing](#testing)
  
 
 Create your own ReST API with Nodejs and MongoDB with realtime socket.
@@ -140,15 +145,15 @@ ressources: [{
   }]
 ```
 
-## Authentication
+## <a name="authentication"></a>Authentication
 ...
-## Controllers
+## <a name="controllers"></a>Controllers
 ...
-## Models
+## <a name="models"></a> Models
 ...
-## Middleware
+## <a name="middleware"></a>Middleware
 ...
-## CLI
+## <a name="cli"></a>CLI
 _Upapi is a temporary name and it is not on npm yet._
 ```
   $ npm i -g upapi
@@ -167,7 +172,7 @@ _Upapi is a temporary name and it is not on npm yet._
 ```
 You can now modify the CLI and use it was if it was installed globally.
 
-## Unit testing
+## <a name="testing"></a>Unit testing
 The unit tests made with Mocha are only here to test the general purpose of this Starter.
 - They are mainly meant to test the core.
 - They are not meant to test your API once you changed it.
