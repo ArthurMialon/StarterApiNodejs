@@ -32,7 +32,40 @@ Simple or complex Upapi is a really good way to do it.
 * Soon Upapi will be accessible from an npm package.
 
 ##  <a name="architecture"></a>Architecture
-...
+
+```
+├───api
+|    └───controllers
+|           |  authController.js
+|           |  todoController.js
+|           |  userController.js
+|           // Here your controllers
+|    └───models
+|           |  users.js
+|           |  todos.js
+|           // Here your models
+|
+├───lib
+|    └───config
+|           |  configuration.js
+|           |  errors.js
+|           |  ressources.json
+|           |  routes.js
+|    └───core
+|        ... The core system
+|    └───middleware
+|           |  custom.js
+|           |  middleware.js
+|    └───services
+|           // Here your Services / Helpers
+|
+├───test
+|    |  todo_tests.js
+|
+|  package.json
+|  server.js
+
+```
 
 ## <a name="configuration"></a>Configuration
 You can specify a lot of configurations.
