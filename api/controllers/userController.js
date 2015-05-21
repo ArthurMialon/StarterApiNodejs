@@ -34,7 +34,6 @@ module.exports = {
   * Send user infos
   */
   me: function(req, res, next) {
-    req.user.password = "You will never know";
     res.json(req.user);
   }
 
