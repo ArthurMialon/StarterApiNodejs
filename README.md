@@ -14,6 +14,7 @@ Simple or complex Upapi is a really good way to do it.
 * [Controllers](#controllers)
 * [Models](#models)
 * [Middleware](#middleware)
+* [Socket](#socket)
 * [CLI](#cli)
 * [Testing](#testing)
 
@@ -195,6 +196,8 @@ ressources: [{
 ## <a name="models"></a> Models
 ...
 ## <a name="middleware"></a>Middleware
+...
+## <a name="socket"></a>Socket
 ...
 ## <img src="http://png-3.findicons.com/files/icons/2711/free_icons_for_windows8_metro/512/command_line.png" width="50">  <a name="cli"></a>CLI
 _Upapi is a temporary name and it is not on npm yet._
