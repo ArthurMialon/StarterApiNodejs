@@ -17,7 +17,7 @@ var todoSchema = mongoose.Schema({
 */
 todoSchema.pre('save', function(next) {
   var todo = this;
-  var now = new Date();
+  var now  = new Date();
 
   // Add created at
   todo.updated_at = now;
