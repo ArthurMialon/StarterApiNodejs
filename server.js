@@ -18,7 +18,7 @@ var server;
 // Database ===================================================
 database(configuration);
 
-// Create server http  // Add Socket.io // Routing HTTP ===============================================
+// Create server http  // Add Socket.io // Routing HTTP ================================================
 requester(router, io.listen(http.createServer(app).listen(port, logger())));
 
 // Adding prefix for the api ==================================
