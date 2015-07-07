@@ -1,6 +1,6 @@
 {
   "name": "starter-api-nodejs",
-  "version": "0.0.1",
+  "version": "0.5.0",
   "description": "Starter to create ReST API with nodejs and mongodb",
   "main": "server.js",
   "repository": "https://github.com/ArthurMialon/StarterApiNodejs",
