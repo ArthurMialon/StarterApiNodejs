@@ -1,7 +1,7 @@
 {
   "name": "starter-api-nodejs",
   "version": "0.0.1",
-  "description": "Starter to create Rest API with nodejs and mongodb",
+  "description": "Starter to create ReST API with nodejs and mongodb",
   "main": "server.js",
   "repository": "https://github.com/ArthurMialon/StarterApiNodejs",
   "author": {
@@ -24,7 +24,6 @@
     "body-parser": "~1.5.2",
     "express": "~4.7.2",
     "fs-extra": "^0.18.3",
-    "ip": "^0.3.2",
     "is_js": "^0.7.3",
     "jsonwebtoken": "^5.0.0",
     "lodash": "^3.8.0",
