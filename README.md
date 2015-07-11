@@ -56,9 +56,13 @@ blog
 ├───lib
 |    └───config
 |    |      |  configuration.js
-|    |      |  errors.js
 |    |      |  ressources.json
-|    |      |  routes.js
+|    |      └───routes
+|    |            |  default.js
+|    |            |  auth.js
+|    |            |  users.js
+|    |            |  todos.js
+|    |            // You own routes
 |    |
 |    └───core
 |    |   ... The core system
@@ -91,9 +95,12 @@ In your files just require this configuration and you have access to then.
 
 ## <img src="http://www.google.fr/url?source=imglanding&ct=img&q=https://www.neustar.biz/base/img/icon-routing-big-gry.png&sa=X&ei=TfVdVe7JBMiuU_6egYAD&ved=0CAkQ8wc&usg=AFQjCNFtPItDfyVkHaO3cor6gYg-sZ58LQ" width="50"><a name="routing"></a>Routing
 ### Create a new route
-To configure your routes go in lib/config/routes.js
-This is a simple object. Each route has his path and you can define options.
-You can add a default object to your routes.
+To configure your routes go in folder lib/config/routes
+You will find multiple module where you can define you routes.
+
+##### In routes/default.js
+You can add defaults configurations to your routes.
+Create new routes module in the folder then add them to default.js  
 
 | Name             |   Type               |    Infos                           |
 | ---------------- |:---------------------|:-----------------------------------|
@@ -108,8 +115,9 @@ You can add a default object to your routes.
 
 Here some examples.
 
+#### Default
 ```javascript
-  // lib/config/routes.js
+  // lib/config/routes/default.js
 
   // Default object for all routes
   default: {
@@ -118,12 +126,31 @@ Here some examples.
     socket : false
   },
 
+  // Your ressources from ressources.json
+  ressources : require('../ressources.json'),
+
+  // Import your own routes
+  'base'  : require('./base'),
+  'auth'  : require('./auth'),
+  'todos' : require('./todos'),
+  'users' : require('./users')
+
+```
+
+#### You own routes
+```javascript
+
+  // routes/base.js
+
   // Action as a function
   '/': {
     action: function(req, res) {
       res.json({message: 'Welcome on our Api', status: 200});
     }
   },
+
+
+  // routes/todos.js
 
   // Classic routes to get all todos
   // Define a controller ( will use api/controllers/todoController.js )
@@ -250,4 +277,5 @@ And in an other tab
 - Multiple authentication strategies
 - Automatic documentation system
 - Need (policies) system
+- Better upload system
 - Find a name -> have an idea ? -> arthurmialon@gmail.com

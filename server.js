@@ -26,13 +26,3 @@ app.use(prefix, router);
 
 // Routing Socket.io =======================================
 // require(configPath + 'routesSockets')(io.listen(server));
-
-
-// AWESOME !
-// BE ABLE TO DO THIS
-//  ==> var app = require('upapi');
-// Add some config
-// app.config({
-// });
-// Launch the server with
-//  ===> app.launch();
