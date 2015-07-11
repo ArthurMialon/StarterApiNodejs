@@ -272,14 +272,9 @@ And in an other tab
 # Todos
 - Unit test [WIP]
 - CLI [WIP]
-- Clean everything and add features
-- Add more informations in base /  (example version)
-- Add Description in a routes
-- In case of missing parameters show them in the json response
-- Best socket options
+- Add more options in parameter array
 - Multiple authentication strategies
-- Multiple Database type (mysql, mariaDB, etc..)
 - Automatic documentation system
-- Need (policies) system
 - Better upload system
-- Find a name -> have an idea ? -> arthurmialon@gmail.com
+- Best socket options
+- Multiple Database type (mysql, mariaDB, etc..)
