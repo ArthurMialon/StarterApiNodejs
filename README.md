@@ -270,9 +270,7 @@ And in an other tab
 # Todos
 - Unit test [WIP]
 - CLI [WIP]
-- Use git branch (dev, coffe, etc...)
 - Clean everything and add features
-- Multiple routes files (in folder lib/config/routes/)
 - Best socket options
 - Multiple authentication strategies
 - Automatic documentation system
