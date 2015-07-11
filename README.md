@@ -273,9 +273,12 @@ And in an other tab
 - Unit test [WIP]
 - CLI [WIP]
 - Clean everything and add features
+- Add more informations in base /  (example version)
+- Add Description in a routes
+- In case of missing parameters show them in the json response
 - Best socket options
 - Multiple authentication strategies
-- Multiple Database type (mysql, mariaDB, etc..) 
+- Multiple Database type (mysql, mariaDB, etc..)
 - Automatic documentation system
 - Need (policies) system
 - Better upload system
