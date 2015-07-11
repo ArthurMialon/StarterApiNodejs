@@ -275,6 +275,7 @@ And in an other tab
 - Clean everything and add features
 - Best socket options
 - Multiple authentication strategies
+- Multiple Database type (mysql, mariaDB, etc..) 
 - Automatic documentation system
 - Need (policies) system
 - Better upload system
