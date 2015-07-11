@@ -3,8 +3,19 @@
   "version": "0.5.0",
   "description": "Starter to create ReST API with nodejs and mongodb",
   "homepage": "http://arthurmialon.github.io/StarterApiNodejs",
+  "keywords": [
+    "nodejs",
+    "api",
+    "rest",
+    "mongodb",
+    "express",
+    "starter"
+  ],
   "main": "server.js",
   "repository": "https://github.com/ArthurMialon/StarterApiNodejs",
+  "bugs": {
+   "url": "https://github.com/ArthurMialon/StarterApiNodejs/issues"
+  },
   "author": {
     "name": "ArthurMialon",
     "email": "arthurmialon@gmail.com",
