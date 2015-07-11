@@ -73,7 +73,8 @@ describe('Users & Authentication', function() {
       password: 'test'
     }
   };
-  // Be carefull !
+  // /!\ Be carefull !
+  // if you comment DROP DATABSE test
   // if you've got already a user in the databse with these credentials
   // That will failed
   describe('POST /users/signup', function() {
@@ -186,22 +187,6 @@ describe('Todos Unauthorized', function() {
     });
   });
 
-  describe('DELETE /todos/:id with token', function() {
-    it('should respond with status 200', function(done) {
-      var options = {
-        uri: url+'/todos/1/delete',
-        method: 'DELETE',
-        headers: {
-          'x-access-token': token
-        }
-      };
-      request(options, function(err, resp, body) {
-        assert.equal(resp.statusCode, 200);
-        done();
-      });
-    });
-  });
-
   describe('DELETE /todos/:id without token', function() {
     it('should respond with status 401', function(done) {
       var options = {
@@ -227,5 +212,48 @@ describe('Todos Unauthorized', function() {
       });
     });
   });
+
+});
+
+describe('Todos Authorized', function() {
+
+  describe('DELETE /todos/:id with token', function() {
+    it('should respond with status 200', function(done) {
+      var options = {
+        uri: url+'/todos/1/delete',
+        method: 'DELETE',
+        headers: {
+          'x-access-token': token
+        }
+      };
+      request(options, function(err, resp, body) {
+        assert.equal(resp.statusCode, 200);
+        done();
+      });
+    });
+  });
+
+  describe('GET /todos/:id with token', function() {
+    it('should respond with status 200', function(done) {
+      var options = {
+        uri: url+'/todos/1',
+        method: 'GET',
+        headers: {
+          'x-access-token': token
+        }
+      };
+      request(options, function(err, resp, body) {
+        assert.equal(resp.statusCode, 200);
+        // body = JSON.parse(body);
+        // assert.equal(is.json(body), true);
+        done();
+      });
+    });
+  });
+
+  // TODO
+  // Add GET /todos
+  // Add POST /todos
+  // Add PUT /todos/;id
 
 });
