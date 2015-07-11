@@ -55,9 +55,6 @@ describe('Home', function() {
     it('should respond with status 404', function(done) {
       request(url+'/unknown', function(err, resp, body) {
         assert.equal(resp.statusCode, 404);
-        // Why do we have to JSON.parse(body) ??
-        // assert.equal(is.json(body), true);
-        // assert.equal(body.message, 'Welcome on our Api');
         done();
       });
     });
@@ -76,6 +73,9 @@ describe('Users & Authentication', function() {
       password: 'test'
     }
   };
+  // Be carefull !
+  // if you've got already a user in the databse with these credentials
+  // That will failed
   describe('POST /users/signup', function() {
     it('should respond JSON with status 200', function(done) {
       request(options, function(err, resp, body) {
@@ -181,6 +181,22 @@ describe('Todos Unauthorized', function() {
       };
       request(options, function(err, resp, body) {
         assert.equal(resp.statusCode, 401);
+        done();
+      });
+    });
+  });
+
+  describe('DELETE /todos/:id with token', function() {
+    it('should respond with status 200', function(done) {
+      var options = {
+        uri: url+'/todos/1/delete',
+        method: 'DELETE',
+        headers: {
+          'x-access-token': token
+        }
+      };
+      request(options, function(err, resp, body) {
+        assert.equal(resp.statusCode, 200);
         done();
       });
     });
