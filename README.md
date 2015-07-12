@@ -270,6 +270,7 @@ And in an other tab
 
 
 # Todos
+- Continu the documentation
 - Unit test - clean [WIP]
 - CLI - clean [WIP]
 - Add more options in parameter array
