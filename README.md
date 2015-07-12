@@ -270,11 +270,12 @@ And in an other tab
 
 
 # Todos
-- Unit test [WIP]
-- CLI [WIP]
+- Unit test - clean [WIP]
+- CLI - clean [WIP]
 - Add more options in parameter array
 - Multiple authentication strategies
 - Automatic documentation system
 - Better upload system
 - Best socket options
 - Multiple Database type (mysql, mariaDB, etc..)
+- Add the package on npm :)
