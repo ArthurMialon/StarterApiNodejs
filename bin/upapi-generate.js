@@ -89,7 +89,7 @@ module.exports = {
   generateRessource: function(root, userRoot) {
     console.log('Generating ressource ' + this.name);
 
-    var ressources = require('../lib/config/ressources.json');
+    var ressources = require(userRoot +'/lib/config/ressources.json');
     var content = fs.readFileSync(res(root, 'templates/ressource.template'));
     content = _.template(content)({'ressource': this.namePlural});
 
@@ -99,4 +99,3 @@ module.exports = {
     fs.writeJSONSync(fileName, ressources);
   }
 };
-
