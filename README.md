@@ -212,7 +212,7 @@ ressources: ['todos', 'fruits']
 
 ```
 ### Ressources ++
-You can specify accessible routes and if you need authenticate
+You can specify accessible routes and if you need authentication
 
 ```javascript
 
@@ -226,7 +226,23 @@ ressources: [{
 ```
 
 ## <a name="authentication"></a>Authentication
-Docs comming soon...
+This starter come with an JWT (JsonWebToken) authentication.
+How it works.
+All reoutes with that
+```javascript
+  auth: true
+```
+will use a middleware that will check a token in the request.
+This token contain multiple information about the user that call the API
+
+To generate this token you can use the 'generateAuth' middleware.
+You can use it in a '/login' route for example.
+
+This will check in your DB if a user with username/password match.
+In case of match that will create a new token and return it.
+
+This token will have to be send in every request that need authentication. 
+
 ## <a name="controllers"></a>Controllers
 Docs comming soon...
 ## <a name="models"></a> Models
