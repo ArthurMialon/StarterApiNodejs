@@ -1,4 +1,4 @@
-# <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEASWyqZ07TYXnQs76ulBj1ppt8ogpVPFr926PMzL7ragdMJwjA" width="50"> StarterApiNodejs
+# StarterApiNodejs
 
 Create your own ReST API with Nodejs and MongoDB with realtime socket.
 Upapi give you an architecture to create quickly your api.
@@ -36,7 +36,7 @@ Soon Upapi will be accessible from an npm package.
 
 * Soon Upapi will be accessible from an npm package.
 
-## <img src="http://www.google.fr/url?source=imglanding&ct=img&q=http://www.vector15.com/img/icons/128/Folder%20Structure%20128x128%20vCharc.png&sa=X&ei=ofRdVYJkhapT2PeA-As&ved=0CAkQ8wc&usg=AFQjCNHmKsQUUzN3txKOdfOFxzS5rsdFWw" width="50"> <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architecture
 
 This is the project architecture after an `$ upapi new blog`
 
@@ -84,7 +84,7 @@ blog
 
 ```
 
-## <img src="http://www.google.fr/url?source=imglanding&ct=img&q=http://cdns2.freepik.com/photos-libre/_318-9479.jpg&sa=X&ei=FfVdVdCOH4LXUeacgKgM&ved=0CAkQ8wc&usg=AFQjCNFgtRMT18Jrm7StZeyoj-_IkblHcw" width="50">  <a name="configuration"></a>Configuration
+## <a name="configuration"></a>Configuration
 You can specify a lot of configurations.
 All configurations are in lib/config/configuration.js
 This is a simple object. Some of variables are necessary but you can add everything you want
@@ -95,7 +95,7 @@ In your files just require this configuration and you have access to then.
   var title = configuration.title;
 ```
 
-## <img src="http://www.google.fr/url?source=imglanding&ct=img&q=https://www.neustar.biz/base/img/icon-routing-big-gry.png&sa=X&ei=TfVdVe7JBMiuU_6egYAD&ved=0CAkQ8wc&usg=AFQjCNFtPItDfyVkHaO3cor6gYg-sZ58LQ" width="50"><a name="routing"></a>Routing
+## <a name="routing"></a>Routing
 ### Create a new route
 To configure your routes go in folder lib/config/routes
 You will find multiple module where you can define you routes.
@@ -110,9 +110,9 @@ Create new routes module in the folder then add them to default.js
 | controller       | String               | controller name                    |
 | action           | String or function   | action name                        |
 | parameter        | Array                | required parameter                 |
-| auth             | Boolean              | route need auth                    |
+| auth             | Boolean OR String    | route need auth OR your auth strategy                   |
 | socket           | Boolean              | route send socket                  |
-| need             | Boolean              | what user need to be               |
+| need             | Boolean              | what user need to be (policies)               |
 | uses             | String               | controller@action instead of both  |
 
 Here some examples.
@@ -181,10 +181,15 @@ Here some examples.
   // These parameters will be search req.body.X
   // Else you will receive a error in JSON return
   // That will return a socket to know when a todo will be create
+  // Adding policies
   '/todos/create': {
     method : 'POST',
     uses   : 'todoController@post',
     parameters : ['todo'],
+    need: {
+      administrator: true,
+      age: "> 18"
+    }
     socket : true,
   },
 
@@ -220,7 +225,7 @@ ressources: [{
   }]
 ```
 
-## <img src="http://icons.iconarchive.com/icons/custom-icon-design/mono-general-4/512/padlock-lock-icon.png" width="50"> <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentication
 Docs comming soon...
 ## <a name="controllers"></a>Controllers
 Docs comming soon...
@@ -228,16 +233,28 @@ Docs comming soon...
 Docs comming soon...
 ## <a name="middleware"></a>Middleware
 Docs comming soon...
-## <img src="http://www.pubnub.com/blog/wp-content/uploads/2014/07/SOCKETIOICON.gif" width="40" style="margin-right: 10px;"><a name="socket"></a>  Socket
+## <a name="socket"></a>  Socket
 Docs comming soon...
-## <img src="http://png-3.findicons.com/files/icons/2711/free_icons_for_windows8_metro/512/command_line.png" width="50">  <a name="cli"></a>CLI
-_Upapi is a temporary name and it is not on npm yet._
+## <a name="cli"></a>CLI
+Upapi is a temporary name and it is not on npm yet._
 ```shell
   $ npm i -g upapi
   $ upapi new blog
   $ cd blog
   $ upapi generate post
   $ npm start
+```
+
+Available CLI :
+```shell
+  $ upapi generate <ressource name>
+  $ upapi routes
+  $ upapi new
+```
+Coming soon
+```shell
+  $ upapi up
+  $ upapi doc
 ```
 
 #### For developers working on the CLI:
@@ -276,6 +293,7 @@ And in an other tab
 - Add more options in parameter array
 - Automatic documentation system
 - Better upload system
-- Best socket options
+- Best socket architecture
+- Refactor all scripts
 - Multiple Database type (mysql, mariaDB, etc..) --> Waterline
 - Add the package on npm :)

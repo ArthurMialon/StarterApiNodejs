@@ -6,7 +6,7 @@ var exec = require('child_process').exec;
 var res = path.resolve;
 
 module.exports = {
-  description: 'Your route list',
+  description: 'Your routes list',
   logs: {
   },
 
