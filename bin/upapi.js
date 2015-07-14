@@ -1,5 +1,16 @@
 #! /usr/bin/env node
 
+
+// var program = require('commander');
+//
+// program
+//   .version('0.0.1')
+//   .usage('[command] [options]')
+//   .command('new <appname>', 'Create an new app in a new repo')
+//   .command('generate <ressource>', 'Create a new CRUD for <ressource>')
+//   .command('routes', 'List your api routes')
+//   .parse(process.argv);
+
 var exec = require('child_process').exec;
 var args = process.argv.splice(2);
 var path = require('path');

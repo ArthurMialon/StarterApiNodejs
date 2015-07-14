@@ -270,13 +270,12 @@ And in an other tab
 
 
 # Todos
-- Continu the documentation
+- Finish the documentation
 - Unit test - clean [WIP]
 - CLI - clean [WIP]
 - Add more options in parameter array
-- Multiple authentication strategies
 - Automatic documentation system
 - Better upload system
 - Best socket options
-- Multiple Database type (mysql, mariaDB, etc..)
+- Multiple Database type (mysql, mariaDB, etc..) --> Waterline
 - Add the package on npm :)

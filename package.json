@@ -14,7 +14,7 @@
   "main": "server.js",
   "repository": "https://github.com/ArthurMialon/StarterApiNodejs",
   "bugs": {
-   "url": "https://github.com/ArthurMialon/StarterApiNodejs/issues"
+    "url": "https://github.com/ArthurMialon/StarterApiNodejs/issues"
   },
   "author": {
     "name": "ArthurMialon",
