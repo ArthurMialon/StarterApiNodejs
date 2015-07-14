@@ -227,8 +227,9 @@ ressources: [{
 
 ## <a name="authentication"></a>Authentication
 This starter come with an JWT (JsonWebToken) authentication.
-How it works.
-All reoutes with that
+
+### How it works ?
+All routes with :
 ```javascript
   auth: true
 ```
@@ -244,7 +245,7 @@ In case of match that will create a new token and return it.
 This token will have to be send in every request that need authentication.
 
 You can specify your own auth strategy if you don't want to use this one.
-Simply change it in configuration.js or directly in your route by passing the name of the strategy.a 
+Simply change it in configuration.js or directly in your route by passing the name of the strategy
 
 ## <a name="controllers"></a>Controllers
 Docs comming soon...
