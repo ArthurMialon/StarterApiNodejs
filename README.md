@@ -227,8 +227,10 @@ ressources: [{
 
 ## <a name="authentication"></a>Authentication
 This starter come with an JWT (JsonWebToken) authentication.
-How it works.
-All reoutes with that
+
+### How it works ?
+All routes with :
+>>>>>>> master
 ```javascript
   auth: true
 ```
@@ -241,7 +243,10 @@ You can use it in a '/login' route for example.
 This will check in your DB if a user with username/password match.
 In case of match that will create a new token and return it.
 
-This token will have to be send in every request that need authentication. 
+This token will have to be send in every request that need authentication.
+
+You can specify your own auth strategy if you don't want to use this one.
+Simply change it in configuration.js or directly in your route by passing the name of the strategy
 
 ## <a name="controllers"></a>Controllers
 Docs comming soon...
@@ -306,8 +311,6 @@ And in an other tab
 - Finish the documentation
 - Unit test - clean [WIP]
 - CLI - clean [WIP]
-- Add more options in parameter array
-- Automatic documentation system
 - Better upload system
 - Best socket architecture
 - Refactor all scripts
