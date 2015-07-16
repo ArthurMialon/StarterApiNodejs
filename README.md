@@ -310,8 +310,6 @@ And in an other tab
 - Finish the documentation
 - Unit test - clean [WIP]
 - CLI - clean [WIP]
-- Add more options in parameter array
-- Automatic documentation system
 - Better upload system
 - Best socket architecture
 - Refactor all scripts
