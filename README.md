@@ -317,5 +317,5 @@ And in an other tab
 - Best socket architecture
 - Multiple Database type (mysql, mariaDB, etc..) --> Waterline
 - Add the package on npm :)
+- Refactor auth middleware
 - Create module Middleware and module Auth
-- Add HTTP Basic Authentication middleware
