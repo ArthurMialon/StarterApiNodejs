@@ -311,8 +311,11 @@ And in an other tab
 - Finish the documentation
 - Unit test - clean [WIP]
 - CLI - clean [WIP]
+- Refactor all scripts
+- Create Middleware module
 - Better upload system
 - Best socket architecture
-- Refactor all scripts
 - Multiple Database type (mysql, mariaDB, etc..) --> Waterline
 - Add the package on npm :)
+- Create module Middleware and module Auth
+- Add HTTP Basic Authentication middleware
