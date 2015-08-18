@@ -17,9 +17,9 @@ module.exports = {
 
     console.log('\x1b[32m%s\x1b[0m: ', " \n===> Your ressources");
     // ressources
-    for (var r in paths_parent['ressources']) {
-      routes = crud.initRoute(paths_parent['ressources'][r]);
-      var name = paths_parent['ressources'][r].data || paths_parent['ressources'][r];
+    for (var r in paths_parent.ressources) {
+      routes = crud.initRoute(paths_parent.ressources[r]);
+      var name = paths_parent.ressources[r].data || paths_parent.ressources[r];
       console.log('\x1b[32m%s\x1b[0m: ', "\n" + capitalize(name));
       for (var i in routes) {
         method = routes[i].method.toUpperCase();
@@ -36,7 +36,7 @@ module.exports = {
       if(p != "default") {
         if(p != "ressources") {
           console.log('\x1b[32m%s\x1b[0m: ', "\n" + capitalize(p));
-          for (var r in paths_parent[p]) {
+          for (r in paths_parent[p]) {
             method = paths_parent[p][r].method || method;
             while(method.length < 6) { method += " "; }
             console.log(method.toUpperCase() + " ---> " + r);
