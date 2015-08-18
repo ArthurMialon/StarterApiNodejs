@@ -35,6 +35,18 @@ module.exports = {
   */
   me: function(req, res, next) {
     res.json(req.user);
+  },
+
+  /**
+  * Get one user by id
+  */
+  get: function(req, res, next) {
+    User.findOne({ _id: req.params.id}, function(err, user) {
+      if (err)
+        res.status(400).send(err);
+      else
+        res.send(user);
+    });
   }
 
 };
