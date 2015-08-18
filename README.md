@@ -110,9 +110,9 @@ Create new routes module in the folder then add them to default.js
 | controller       | String               | controller name                    |
 | action           | String or function   | action name                        |
 | parameter        | Array                | required parameter                 |
-| auth             | Boolean OR String    | route need auth OR your auth strategy                   |
+| auth             | Boolean OR String    | route need auth OR your auth strategy|
 | socket           | Boolean              | route send socket                  |
-| need             | Boolean              | what user need to be (policies)               |
+| need             | Boolean              | what user need to be (policies)    |
 | uses             | String               | controller@action instead of both  |
 
 Here some examples.
@@ -305,17 +305,3 @@ And in an other tab
   $ npm i -g mocha
   $ npm test
 ```
-
-
-# Todos
-- Finish the documentation
-- Unit test - clean [WIP]
-- CLI - clean [WIP]
-- Refactor all scripts
-- Create Middleware module
-- Better upload system
-- Best socket architecture
-- Multiple Database type (mysql, mariaDB, etc..) --> Waterline
-- Add the package on npm :)
-- Refactor auth middleware
-- Create module Middleware and module Auth
