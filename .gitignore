@@ -55,4 +55,4 @@ node_modules
 *.gif
 
 # TODO
-.todo
+*.todo
