@@ -1,9 +1,0 @@
-// Load Model
-var <% print(_.capitalize( ressource )) %> = require('../models/<%= ressource %>');
-
-module.exports = {
-  // You can overwrite default crud methods
-  // read, create, update, delete, all
-
-  // And you can add custom methods
-};

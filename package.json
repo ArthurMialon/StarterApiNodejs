@@ -1,17 +1,15 @@
 {
   "name": "starter-api-nodejs",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "Starter to create ReST API with nodejs and mongodb",
   "homepage": "http://arthurmialon.github.io/StarterApiNodejs",
   "keywords": [
     "nodejs",
     "api",
     "rest",
-    "mongodb",
-    "express",
     "starter"
   ],
-  "main": "server.js",
+  "main": "index.js",
   "repository": "https://github.com/ArthurMialon/StarterApiNodejs",
   "bugs": {
     "url": "https://github.com/ArthurMialon/StarterApiNodejs/issues"
@@ -28,33 +26,20 @@
     }
   ],
   "scripts": {
-    "start": "node server.js",
+    "start": "node index.js",
     "test": "mocha"
   },
   "dependencies": {
-    "base-64": "^0.1.0",
+    "babel": "5.8.23",
     "bcrypt-nodejs": "0.0.3",
-    "body-parser": "~1.5.2",
-    "express": "~4.7.2",
-    "fs-extra": "^0.18.3",
-    "is_js": "^0.7.3",
-    "jsonwebtoken": "^5.0.0",
-    "lodash": "^3.8.0",
-    "method-override": "~2.1.2",
-    "mongo-relation": "^0.5.4",
-    "mongoose": "~3.6.2",
-    "mongoose-paginate": "^4.0.0",
-    "morgan": "~1.2.2",
-    "multer": "^0.1.8",
-    "nodemon": "^1.3.7",
-    "pluralize": "^1.1.2",
-    "socket.io": "^1.3.5",
-    "utf8": "^2.1.0"
-  },
-  "devDependencies": {
-    "request": "^2.55.0"
-  },
-  "bin": {
-    "upapi": "bin/upapi.js"
+    "body-parser": "1.5.2",
+    "express": "4.7.2",
+    "jsonwebtoken": "5.0.0",
+    "method-override": "2.1.2",
+    "morgan": "1.2.2",
+    "nodemon": "1.3.7",
+    "sails-mongo": "0.11.4",
+    "socket.io": "1.3.5",
+    "waterline": "0.10.26"
   }
 }
