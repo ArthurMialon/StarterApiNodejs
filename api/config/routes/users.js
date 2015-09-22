@@ -9,24 +9,41 @@ let users = {
 
   // Configuration
   config: {
-    // Enabled automatic crud
+
+    // Enabled CRUD
     CRUD: [
-      { action: "all", auth: true }
+      { action: "all" },
+      { action: "delete" }
     ],
 
     // GET method routes
-    GET   : [
+    GET: [
+      // Example of a route
       {
-        path: "/",
-        uses: "users@index"
+        path: "/test",
+        uses: "users@index",
+        requires: ["page", "sort"],
+        need: [
+          {
+            administrator: true,
+            age: "> 18"
+          }
+        ],
+        need2: {
+          administrator: true
+        },
+        socket: true,
+        auth: true,
+        auth2: "authService.myFunction",
+        auth3: "myFunction"
       }
     ],
 
     // POST method routes
-    POST  : [],
+    POST: [],
 
     // PUT methods routes
-    PUT   : [],
+    PUT: [],
 
     // DELETE methods routes
     DELETE: []
