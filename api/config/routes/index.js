@@ -10,8 +10,13 @@ let ressources = [
   users
 ];
 
-let routes = [
-
-];
+let routes = {
+  GET: [
+    {
+      path: "/",
+      uses: "base@index"
+    }
+  ]
+};
 
 export {config, ressources, routes};
