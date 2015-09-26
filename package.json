@@ -1,7 +1,7 @@
 {
   "name": "starter-api-nodejs",
-  "version": "1.0.0",
-  "description": "Starter to create ReST API with nodejs and mongodb",
+  "version": "2.0.0",
+  "description": "API Framework based on Express and Socket.io written in ECMA2015.",
   "homepage": "http://arthurmialon.github.io/StarterApiNodejs",
   "keywords": [
     "nodejs",
