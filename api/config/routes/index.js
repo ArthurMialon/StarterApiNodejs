@@ -1,6 +1,6 @@
 import {users} from './users';
 
-// Default configuration for ressources
+// Default configuration for routes and ressources
 let config = {
 
 };
@@ -10,4 +10,8 @@ let ressources = [
   users
 ];
 
-export {config, ressources};
+let routes = [
+
+];
+
+export {config, ressources, routes};
