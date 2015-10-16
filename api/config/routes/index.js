@@ -14,7 +14,8 @@ let routes = {
   GET: [
     {
       path: "/",
-      uses: "base@index"
+      uses: "base@index",
+      auth: true
     }
   ]
 };

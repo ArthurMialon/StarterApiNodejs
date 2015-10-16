@@ -9,4 +9,4 @@ let App = new Application({
 App.listen(3000);
 
 // Set the Application in global
-global.Application = this;
+App.setGlobals();

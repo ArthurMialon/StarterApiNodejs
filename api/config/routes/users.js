@@ -17,30 +17,21 @@ let users = {
     ],
 
     // GET method routes
-    GET: [
-      // Example of a route
-      {
-        path: "/test",
-        uses: "users@index",
-        requires: ["page", "sort"],
-        need: [
-          {
-            administrator: true,
-            age: "> 18"
-          }
-        ],
-        need2: {
-          administrator: true
-        },
-        socket: true,
-        auth: true,
-        auth2: "authService.myFunction",
-        auth3: "myFunction"
-      }
-    ],
+    GET: [],
 
     // POST method routes
-    POST: [],
+    POST: [
+      {
+        path: "/signup",
+        uses: "users@signup"
+      },
+
+      {
+        path: "/login",
+        uses: "users@login",
+        middleware: ["auth.generateAuthToken"]
+      }
+    ],
 
     // PUT methods routes
     PUT: [],

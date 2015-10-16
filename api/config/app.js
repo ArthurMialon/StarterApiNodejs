@@ -12,12 +12,10 @@ import methodOverride from 'method-override';
 
 export default function init(app) {
 
+  app.use(morgan('dev'));
   app.use(bodyParser.urlencoded({'extended':'true'}));
-  app.use(bodyParser.urlencoded({'extended':'true'}));
-  app.use(bodyParser.json());
   app.use(bodyParser.json({type: 'application/vnd.api+json'}));
   app.use(methodOverride());
-  app.use(morgan('dev'));
 
   return app;
 }

@@ -13,13 +13,51 @@ export default class User extends Controller {
   }
 
   /**
-  * Index route
+  * Sign up route
   * @param {object} req
   * @param {object} res
   * @param {function} next
   */
-  index(req, res) {
-    res.send('ok');
+  signup(req, res) {
+    if (!req.body.username || !req.body.password) {
+      res.json({message: 'Missing credentials username'});
+      return;
+    }
+
+    /* User send in the body */
+    let user_send = {
+      username  : req.body.username,
+      password  : req.body.password,
+      first_name: req.body.first_name,
+      last_name : req.body.last_name
+    };
+
+    this.User
+    .findOne({username: user_send.username})
+    .then( (user) => {
+      if (user)
+        return res.status(401).json({message: 'Username already exist'});
+      return this.User.create(user_send);
+    })
+    .then( (user) => {
+      if (!res.headersSent)
+        return res.json(user);
+    })
+    .catch( (err) => {
+      console.log(err);
+      res.status(400).send({message: "Something went wrong. You maybe missing some arguments"});
+    });
+  }
+
+
+  /**
+  * Login user route
+  * @param {object} req
+  * @param {object} res
+  * @param {function} next
+  */
+  login(req, res) {
+    res.send(req.token);
   }
 
 }
