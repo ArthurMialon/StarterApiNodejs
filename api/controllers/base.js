@@ -16,7 +16,7 @@ export default class Base extends Controller {
   * @param {function} next
   */
   index(req, res) {
-    res.send('ok');
+    res.send("prout");
   }
 
 }

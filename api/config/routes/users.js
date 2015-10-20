@@ -11,25 +11,37 @@ let users = {
   config: {
 
     // Enabled CRUD
-    CRUD: [
-      { action: "all" },
-      { action: "delete" }
-    ],
+    CRUD: false,
 
     // GET method routes
-    GET: [],
+    GET: [
+      {
+        path: "/",
+        action: (req, res, next) => {
+          res.send("ok");
+        },
+        need: true
+      },
+      {
+        path: "/test",
+        action: (req, res, next) => {
+          res.send("ok");
+        },
+        need: false
+      }
+    ],
 
     // POST method routes
     POST: [
       {
         path: "/signup",
-        uses: "users@signup"
+        uses: "users@signup",
       },
 
       {
         path: "/login",
         uses: "users@login",
-        middleware: ["auth.generateAuthToken"]
+        middleware: ["auth.generateAuthToken"],
       }
     ],
 
