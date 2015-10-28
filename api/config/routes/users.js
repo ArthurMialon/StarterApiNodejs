@@ -7,7 +7,7 @@ let users = {
   // Name of the ressource
   name: "users",
 
-  // Configuration
+  // Default ressource Configuration
   config: {
 
     // Enabled CRUD
@@ -20,15 +20,9 @@ let users = {
         action: (req, res, next) => {
           res.send("ok");
         },
-        need: true
-      },
-      {
-        path: "/test",
-        action: (req, res, next) => {
-          res.send("ok");
-        },
+        middleware: ["auth.generateAuthToken"],
         need: false
-      }
+      },
     ],
 
     // POST method routes

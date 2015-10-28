@@ -16,7 +16,7 @@ export default class Base extends Controller {
   * @param {function} next
   */
   index(req, res) {
-    res.send("prout");
+    res.send("Hello World ! Welcome on your API");
   }
 
 }

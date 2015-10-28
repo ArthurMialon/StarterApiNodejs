@@ -1,15 +1,24 @@
 import {users} from './users';
 
-// Default configuration for routes and ressources
+/*---------------------------------------------/
+| Default configuration w/ all routes in app
+|----------------------------------------------*/
 let config = {
 
 };
 
-// All ressources import
+/*---------------------------------------------/
+| Import your ressources here
+|----------------------------------------------*/
 let ressources = [
   users
 ];
 
+
+/*---------------------------------------------/
+| Default routes configuration
+| Routes not uses with ressources from "/""
+|----------------------------------------------*/
 let routes = {
   GET: [
     {

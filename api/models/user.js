@@ -36,7 +36,7 @@ export default Waterline.Collection.extend({
     },
 
     fullName() {
-      return this.first_name + ' ' + this.last_name;
+      return `${this.first_name} ${this.last_name}`;
     }
   }
 

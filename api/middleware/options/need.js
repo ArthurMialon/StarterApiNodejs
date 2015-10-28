@@ -1,6 +1,7 @@
 import Option from '../../../lib/Option';
 
 export default class Need extends Option {
+  
   /**
   * Constructor
   */
