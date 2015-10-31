@@ -1,5 +1,7 @@
 export default {
 
+  port: process.env.PORT || 3000,
+
   /*---------------------------------------------/
   | Middleware configuration
   | Here you can choose how to sort your Middleware
@@ -10,7 +12,14 @@ export default {
     "auth",
     "need",
     "middleware" // ==> Example: array middleware ["auth.generate"]
-  ], 
+  ],
+
+
+  /*---------------------------------------------/
+  | Default type of authentication
+  |----------------------------------------------*/
+
+  defaultAuthentication: "basic",
 
 
   /*---------------------------------------------/
@@ -18,7 +27,7 @@ export default {
   | Use for authentication
   |----------------------------------------------*/
 
-  token: {
+  jwtConf: {
     secretkey: "mysupersecretkey"
   },
 

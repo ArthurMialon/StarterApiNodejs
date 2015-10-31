@@ -1,4 +1,5 @@
 import Waterline from 'Waterline';
+import bcrypt from 'bcrypt-nodejs';
 
 /*---------------------------------------------/
 | User Model
@@ -9,6 +10,7 @@ import Waterline from 'Waterline';
 export default Waterline.Collection.extend({
 
   identity: 'user',
+
   connection: 'myMongo',
 
   attributes: {
@@ -35,9 +37,29 @@ export default Waterline.Collection.extend({
       maxLength: 20
     },
 
+    /**
+    * Get fullname
+    */
     fullName() {
       return `${this.first_name} ${this.last_name}`;
+    },
+
+    /**
+    * Compare password and validate
+    */
+    validPassword(password) {
+      return bcrypt.compareSync(password, this.password);
     }
-  }
+  },
+
+  /**
+  * Before create the user
+  */
+  beforeCreate(user, next) {
+    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(8), null);
+    next();
+  },
+
+
 
 });

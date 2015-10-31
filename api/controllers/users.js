@@ -45,7 +45,7 @@ export default class User extends Controller {
     })
     .catch( (err) => {
       console.log(err);
-      res.status(400).send({message: "Something went wrong. You maybe missing some arguments"});
+      res.status(400).send({message: "Something went wrong. Arguments are missing"});
     });
   }
 

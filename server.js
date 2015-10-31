@@ -1,12 +1,13 @@
 import Application from './lib/Application';
 import {adapters, connections} from './api/config/database';
+import configuration from './api/config/configuration';
 
 let App = new Application({
   adapters,
   connections
 });
 
-App.listen(3000);
+App.listen(configuration.port);
 
-// Set the Application in global
+/* Set the Application in global */
 App.setGlobals();

@@ -5,15 +5,22 @@
 | https://github.com/balderdashy/waterline
 |----------------------------------------------*/
 
-// All your adapters
+/**
+ *  Your adapters
+ *  @type {object}
+ */
 let adapters = {
   mongo: require('sails-mongo')
 };
 
-// All your databaes
+
+/**
+ *  Your connections
+ *  @type {Object}
+ */
 let connections = {
 
-    // Simple mongo connections
+    /* Simple mongo connections */
     myMongo: {
       adapter: 'mongo',
       host: '127.0.0.1',
