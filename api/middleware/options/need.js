@@ -1,7 +1,7 @@
 import Option from '../../../lib/Option';
 
 export default class Need extends Option {
-  
+
   /**
   * Constructor
   */
@@ -17,8 +17,9 @@ export default class Need extends Option {
    *  @param  {object} value [the parameter in the route definition]
    *  @return {function}     [the middleware]
    */
-  forObject(value) {
+  forObject(parameter) {
     return function(req, res, next) {
+      console.log(parameter);
       next();
     };
   }
@@ -29,9 +30,7 @@ export default class Need extends Option {
    *  @return {function}     [the middleware]
    */
   forBoolean(parameter) {
-    // Bind with this --> Need Options
     return function(req, res, next) {
-      // do something with parameters
       console.log(parameter);
       next();
     };

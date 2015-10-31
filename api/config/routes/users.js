@@ -20,7 +20,7 @@ let users = {
     GET: [
       {
         path: "/test",
-        action(req, res, next) {
+        action(req, res) {
           res.send("ok");
         },
         auth: true

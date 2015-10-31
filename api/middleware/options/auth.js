@@ -63,7 +63,7 @@ export default class Need extends Option {
    * @return {boolean}
    */
   authExist(type) {
-    return typeof this[this.defaultAuth] == "function";
+    return typeof this[type] === "function";
   }
 
 
@@ -89,12 +89,12 @@ export default class Need extends Option {
     else
       authorization = req.headers.authorization.split(' ');
 
-    if (authorization[0] != "Basic")
+    if (authorization[0] !== "Basic")
       return res.status(401).send({status: 401, message: 'Unauthorized', infos: 'You need Basic http Authorization'});
 
     var credentials = utf8.decode(base64.decode(authorization[1])).split(':');
 
-    if(credentials.length == 1) {
+    if(credentials.length === 1) {
       return res.status(401).send({status: 400, message: 'Invalid credentials'});
     }
 
