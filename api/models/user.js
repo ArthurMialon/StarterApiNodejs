@@ -17,12 +17,12 @@ export default Waterline.Collection.extend({
 
     username: {
       type: 'string',
-      required: true,
+      required: true
     },
 
     password: {
       type: 'string',
-      required: true,
+      required: true
     },
 
     first_name:  {

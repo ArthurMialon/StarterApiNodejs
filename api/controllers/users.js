@@ -12,6 +12,7 @@ export default class User extends Controller {
     this.User = this.loadModel('user');
   }
 
+
   /**
   * Sign up route
   * @param {object} req
@@ -45,7 +46,7 @@ export default class User extends Controller {
     })
     .catch( (err) => {
       console.log(err);
-      res.status(400).send({message: "Something went wrong. Arguments are missing"});
+      res.status(400).json({message: "Something went wrong. Arguments are missing"});
     });
   }
 
@@ -57,7 +58,7 @@ export default class User extends Controller {
   * @param {function} next
   */
   login(req, res) {
-    res.send(req.token);
+    res.json({token: req.token, user: req.user});
   }
 
 }

@@ -9,8 +9,8 @@ export default {
   |----------------------------------------------*/
 
   sortMiddleware: [
-    "auth",
-    "need",
+    "auth", // First middleware option
+    "need", // Second middleware option
     "middleware" // ==> Example: array middleware ["auth.generate"]
   ],
 
@@ -29,7 +29,7 @@ export default {
 
   jwtConf: {
     secretkey: "mysupersecretkey"
-  },
+  }
 
 
 };

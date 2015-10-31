@@ -1,7 +1,7 @@
 import {users} from './users';
 
 /*---------------------------------------------/
-| Default configuration w/ all routes in app
+| Default configuration for all routes in app
 ! NOT AVAILABLE YET !
 |----------------------------------------------*/
 let config = {
@@ -18,7 +18,8 @@ let ressources = [
 
 /*---------------------------------------------/
 | Default routes configuration
-| Routes not uses with ressources from "/""
+| Routes not uses with ressources
+| accessible from "/"
 |----------------------------------------------*/
 let routes = {
   GET: [

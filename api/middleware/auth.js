@@ -1,5 +1,3 @@
-import base64 from 'base-64';
-import utf8 from 'utf8';
 import jwt from  'jsonwebtoken';
 import Database from '../../lib/Database';
 import {jwtConf} from '../config/configuration';
