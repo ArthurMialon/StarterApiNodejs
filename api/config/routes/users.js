@@ -11,18 +11,13 @@ let users = {
   config: {
 
     // Enabled CRUD
-    CRUD: false,
+    CRUD: [
+      { action: "all" },
+      { action: "read" }
+    ],
 
     // GET method routes
     GET: [
-      {
-        path: "/",
-        action: (req, res, next) => {
-          res.send("ok");
-        },
-        middleware: ["auth.generateAuthToken"],
-        need: false
-      },
     ],
 
     // POST method routes
