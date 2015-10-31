@@ -2,6 +2,7 @@ import {users} from './users';
 
 /*---------------------------------------------/
 | Default configuration w/ all routes in app
+! NOT AVAILABLE YET !
 |----------------------------------------------*/
 let config = {
 
