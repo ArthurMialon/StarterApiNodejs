@@ -2,10 +2,12 @@ import {users} from './users';
 
 /*---------------------------------------------/
 | Default configuration for all routes in app
-! NOT AVAILABLE YET !
 |----------------------------------------------*/
 let config = {
-
+  auth: true,
+  need: {
+    admin: false
+  }
 };
 
 /*---------------------------------------------/

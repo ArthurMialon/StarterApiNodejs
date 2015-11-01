@@ -8,7 +8,8 @@ export default class Need extends Option {
   constructor() {
     super();
     this.accept = [
-      this.types.BOOLEAN
+      this.types.BOOLEAN,
+      this.types.OBJECT
     ];
   }
 

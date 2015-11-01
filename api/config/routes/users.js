@@ -10,6 +10,13 @@ let users = {
   // Default ressource configuration
   config: {
 
+    // Default config for all ressource endpoint
+    default : {
+      need: {
+        admin: true
+      }
+    },
+
     // Enabled CRUD
     CRUD: [
       { action: "all" },
@@ -23,7 +30,7 @@ let users = {
         action(req, res) {
           res.send("ok");
         },
-        auth: true
+        auth: false
       }
     ],
 
