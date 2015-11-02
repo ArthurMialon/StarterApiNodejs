@@ -1,16 +1,6 @@
 import {users} from './users';
 
 /*---------------------------------------------/
-| Default configuration for all routes in app
-|----------------------------------------------*/
-let config = {
-  auth: true,
-  need: {
-    admin: false
-  }
-};
-
-/*---------------------------------------------/
 | Import your ressources here
 |----------------------------------------------*/
 let ressources = [
@@ -32,4 +22,4 @@ let routes = {
   ]
 };
 
-export {config, ressources, routes};
+export {ressources, routes};

@@ -4,7 +4,7 @@
 
 let users = {
 
-  // Name of the ressource
+  // (plurial) )Name of the ressource
   name: 'users',
 
   // Default ressource configuration

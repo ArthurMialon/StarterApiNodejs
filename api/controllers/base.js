@@ -13,7 +13,6 @@ export default class Base extends Controller {
   * Index route
   * @param {object} req
   * @param {object} res
-  * @param {function} next
   */
   index(req, res) {
     res.send("Hello World ! Welcome on your API");

@@ -20,7 +20,7 @@ let adapters = {
  */
 let connections = {
 
-    /* Simple mongo connections */
+    /* Simple mongo connection */
     myMongo: {
       adapter: 'mongo',
       host: '127.0.0.1',

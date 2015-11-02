@@ -90,3 +90,9 @@ App
 ...
 ## <a name="cli"></a>CLI
 ...
+
+## TODOs
+- [x] Add default configuration for ressources
+- [ ] Add Socket.io system --> How use it ?
+- [ ] Unit Testing
+- [ ] Write documentation
