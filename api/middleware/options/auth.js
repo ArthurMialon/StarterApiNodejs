@@ -135,7 +135,7 @@ export default class Need extends Option {
 
   jwt(req, res, next) {
 
-    let token = req.body.token || req.param('token') || req.headers['x-access-token'];
+    let token = req.body.token || req.param(jwtConf.param) || req.headers[jwtConf.header];
 
     if (!token)
       return res.status(401).send({status: 401, message: 'Unauthorized'});

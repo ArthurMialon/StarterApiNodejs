@@ -28,8 +28,17 @@ export default {
   |----------------------------------------------*/
 
   jwtConf: {
-    secretkey: "mysupersecretkey"
-  }
+    secretkey: "mysupersecretkey",
+    header   : "x-access-token",
+    param    : "token"
+  },
+
+  /*---------------------------------------------/
+  | Default pagination for CRUD routes
+  |----------------------------------------------*/
+
+  // Default limit
+  limit: 10
 
 
 };
