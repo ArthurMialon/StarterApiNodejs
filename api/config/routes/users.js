@@ -4,16 +4,16 @@
 
 let users = {
 
-  // (plurial) )Name of the ressource
+  // Name of the ressource (plurial)
   name: 'users',
 
-  // Default ressource configuration
+  // Ressource configuration
   config: {
 
-    // Default config for all ressource endpoint
+    // Default configuration for all ressource endpoints
     default : {
       need: {
-        admin: true
+        admin: false
       }
     },
 
@@ -30,7 +30,7 @@ let users = {
         action(req, res) {
           res.send("ok");
         },
-        auth: false
+        auth: "jwt"
       }
     ],
 

@@ -1,6 +1,8 @@
 export default {
 
+  /* Listen port */
   port: process.env.PORT || 3000,
+
 
   /*---------------------------------------------/
   | Middleware configuration
@@ -9,8 +11,8 @@ export default {
   |----------------------------------------------*/
 
   sortMiddleware: [
-    "auth", // First middleware option
-    "need", // Second middleware option
+    "auth",      // First middleware option
+    "need",      // Second middleware option
     "middleware" // ==> Example: array middleware ["auth.generate"]
   ],
 
@@ -33,11 +35,12 @@ export default {
     param    : "token"
   },
 
+
   /*---------------------------------------------/
   | Default pagination for CRUD routes
   |----------------------------------------------*/
 
-  // Default limit
+  /* Default limit */
   limit: 10
 
 

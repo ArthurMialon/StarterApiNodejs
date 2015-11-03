@@ -19,6 +19,23 @@ export default class Need extends Option {
    *  @return {function}     [the middleware]
    */
   forObject(parameter) {
+
+    // Examples
+    // {
+    //  "age": ">= 18"
+    //  "age": "> 18"
+    //  "age": "< 18"
+    //  "age": "<= 18"
+    //  "administrator": true
+    //  "jobs": "developer"
+    //  "skills": ["php", "js", "html"]
+    //  "something": {
+    //    "thing": true
+    //    "thing": false
+    //    etc...
+    //  }
+    // }
+
     return function(req, res, next) {
       console.log(parameter);
       next();
@@ -32,7 +49,6 @@ export default class Need extends Option {
    */
   forBoolean(parameter) {
     return function(req, res, next) {
-      console.log(parameter);
       next();
     };
   }
