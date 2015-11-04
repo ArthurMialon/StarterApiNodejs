@@ -27,7 +27,7 @@ Ideas and contributions are appreciated.
 * Clone the repo
 
 ```shell
-$ cd /path/to/dir
+$ cd /path/to/StarterApiNodejs
 $ npm install
 $ node index.js
 ```
@@ -63,6 +63,7 @@ App
 |    |      └───options
 |    |            |  auth.js
 |    |            |  need.js
+|    |            |  parameter.js
 |    |            |  index.js
 |    |
 |    └───socket (coming soon...)
@@ -70,20 +71,38 @@ App
 ```
 
 ## <a name="configuration"></a>Configuration
+  - The express App
+  - Config folder
 ...
 ## <a name="routing"></a>Routing
+ - Create a simple route
+ - Add option to a route
+ - Create a simple ressource
+ - CRUD route
+
 ...
 ## <a name="controllers"></a>Controllers
+  - Create a controller
+  - Methods from controller parent
 ...
 ## <a name="model"></a>Models
+  - Model folder
+  - Waterline redirection to doc
 ...
 ## <a name="middleware"></a>Middleware
 
 - Simple
+  - Create simple middleware (in an object or a function)
 
 - Options
+  - How to use Options
+  - Native Options
+  - How to create a new option
+  - Sorting middleware execution
 
 - Authentication
+  - Types of authentication
+  - Configuration
   ...
 
 ## <a name="socket"></a>Socket
