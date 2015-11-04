@@ -30,7 +30,8 @@ let users = {
         action(req, res) {
           res.send("ok");
         },
-        auth: "jwt"
+        parameter: ["test", "retest"],
+        auth: false
       }
     ],
 
