@@ -15,12 +15,14 @@ let ressources = [
 |----------------------------------------------*/
 let routes = {
   GET: [
+
+    /* Root of the api */
     {
       path: "/",
       uses: "base@index"
     },
 
-    /* Redirection when 404 not found */
+    /* Redirection when route not found */
     {
       path: "*",
       uses: "base@notFound"
