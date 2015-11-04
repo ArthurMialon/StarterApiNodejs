@@ -75,45 +75,48 @@ App
   - Config folder
 ...
 ## <a name="routing"></a>Routing
- - Create a simple route
- - Add option to a route
- - Create a simple ressource
- - CRUD route
+   - Create a simple route
+   - Add option to a route
+   - Create a simple ressource
+   - CRUD route
 
-...
+
 ## <a name="controllers"></a>Controllers
   - Create a controller
   - Methods from controller parent
-...
+
+
 ## <a name="model"></a>Models
   - Model folder
   - Waterline redirection to doc
-...
+
+
 ## <a name="middleware"></a>Middleware
 
-- Simple
-  - Create simple middleware (in an object or a function)
+  - Simple
+    - Create simple middleware (in an object or a function)
 
-- Options
-  - How to use Options
-  - Native Options
-  - How to create a new option
-  - Sorting middleware execution
+  - Options
+    - How to use Options
+    - Native Options
+    - How to create a new option
+    - Sorting middleware execution
 
-- Authentication
-  - Types of authentication
-  - Configuration
+  - Authentication
+    - Types of authentication
+    - Configuration
   ...
 
 ## <a name="socket"></a>Socket
-...
+  ...
+  
 ## <a name="cli"></a>CLI
-...
+  ...
 
 ## TODOs
-- [x] Add default configuration for ressources
-- [x] Add require parameter option
-- [x] Add 'need' option
-- [ ] Add Socket.io system --> How use it ?
-- [ ] Unit Testing
-- [ ] Write documentation
+  - [x] Add default configuration for ressources
+  - [x] Add require parameter option
+  - [x] Add 'need' option
+  - [ ] Add Socket.io system --> How use it ?
+  - [ ] Unit Testing
+  - [ ] Write documentation
