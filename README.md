@@ -73,7 +73,8 @@ App
 ## <a name="configuration"></a>Configuration
   - The express App
   - Config folder
-...
+
+
 ## <a name="routing"></a>Routing
    - Create a simple route
    - Add option to a route
@@ -109,7 +110,7 @@ App
 
 ## <a name="socket"></a>Socket
   ...
-  
+
 ## <a name="cli"></a>CLI
   ...
 
