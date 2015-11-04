@@ -7,6 +7,7 @@ let App = new Application({
   connections
 });
 
+/* Listen server */
 App.listen(configuration.port);
 
 /* Set the Application in global */
