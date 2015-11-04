@@ -27,6 +27,8 @@ let connections = {
       database: 'test'
     }
 
+    /* Others connections go here :) */
+
 };
 
 export {connections, adapters};

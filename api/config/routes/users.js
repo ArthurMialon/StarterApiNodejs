@@ -12,15 +12,16 @@ let users = {
 
     // Default configuration for all ressource endpoints
     default : {
-      need: {
-        admin: false
-      }
+      auth: true
     },
 
     // Enabled CRUD
     CRUD: [
       { action: "all" },
-      { action: "read" }
+      // { action: "create" },
+      { action: "read" },
+      { action: "update" },
+      { action: "delete" }
     ],
 
     // GET method routes
@@ -30,7 +31,6 @@ let users = {
         action(req, res) {
           res.send("ok");
         },
-        parameter: ["test", "retest"],
         auth: false
       }
     ],
@@ -39,13 +39,15 @@ let users = {
     POST: [
       {
         path: "/signup",
-        uses: "users@signup"
+        uses: "users@signup",
+        parameters: ["first_name", "last_name", "username", "password"]
       },
 
       {
         path: "/login",
         uses: "users@login",
-        middleware: ["auth.generateAuthToken"]
+        middleware: ["auth.generateAuthToken"],
+        parameters: ["username", "password"]
       }
     ],
 

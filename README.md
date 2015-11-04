@@ -122,5 +122,4 @@ App
   - [ ] Unit Testing
   - [ ] Write documentation
   - [ ] Create Simple CLI to generate a project
-  - [ ] Export lib in a node_modules package
   - [ ] Publish on npm

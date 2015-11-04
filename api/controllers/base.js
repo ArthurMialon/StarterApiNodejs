@@ -11,11 +11,23 @@ export default class Base extends Controller {
 
   /**
   * Index route
-  * @param {object} req
-  * @param {object} res
+  * @param {object} request
+  * @param {object} response
   */
   index(req, res) {
     res.send("Hello World ! Welcome on your API");
+  }
+
+  /**
+  * Error 404
+  * @param {object} request
+  * @param {object} response
+  */
+  notFound(req, res) {
+    res.status(404).send({
+      status: 404,
+      message: "No found"
+    });
   }
 
 }

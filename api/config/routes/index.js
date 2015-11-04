@@ -18,6 +18,12 @@ let routes = {
     {
       path: "/",
       uses: "base@index"
+    },
+
+    /* Redirection when 404 not found */
+    {
+      path: "*",
+      uses: "base@notFound"
     }
   ]
 };
