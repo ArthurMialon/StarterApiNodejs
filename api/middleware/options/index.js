@@ -5,6 +5,7 @@
 |----------------------------------------------*/
 
 export default {
-  "need": require('./need'),
-  "auth": require('./auth')
+  "need"     : require('./need'),
+  "auth"     : require('./auth'),
+  "parameter": require('./parameter'),
 };
