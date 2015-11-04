@@ -40,14 +40,16 @@ let users = {
       {
         path: "/signup",
         uses: "users@signup",
-        parameters: ["first_name", "last_name", "username", "password"]
+        parameters: ["first_name", "last_name", "username", "password"],
+        auth: false
       },
 
       {
         path: "/login",
         uses: "users@login",
         middleware: ["auth.generateAuthToken"],
-        parameters: ["username", "password"]
+        parameters: ["username", "password"],
+        auth: false
       }
     ],
 
