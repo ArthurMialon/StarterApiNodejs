@@ -93,6 +93,8 @@ App
 
 ## TODOs
 - [x] Add default configuration for ressources
+- [x] Add require parameter option
+- [x] Add 'need' option
 - [ ] Add Socket.io system --> How use it ?
 - [ ] Unit Testing
 - [ ] Write documentation
