@@ -3,6 +3,9 @@ export default {
   /* Listen port */
   port: process.env.PORT || 8080,
 
+  /* Name of your application */
+  name: "My awesome API",
+
 
   /*---------------------------------------------/
   | Middleware configuration
