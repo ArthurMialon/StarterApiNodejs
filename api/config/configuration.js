@@ -1,7 +1,7 @@
 export default {
 
   /* Listen port */
-  port: process.env.PORT || 3000,
+  port: process.env.PORT || 8080,
 
 
   /*---------------------------------------------/
@@ -12,7 +12,8 @@ export default {
 
   sortMiddleware: [
     "auth",      // First middleware option
-    "need",      // Second middleware option
+    "parameter", // Second middleware option
+    "need",      // Third middleware option
     "middleware" // ==> Example: array middleware ["auth.generate"]
   ],
 
