@@ -7,6 +7,8 @@ let users = {
   // Name of the ressource (plurial)
   name: 'users',
 
+  model: 'user',
+
   // Ressource configuration
   config: {
 
