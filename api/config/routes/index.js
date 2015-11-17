@@ -27,6 +27,30 @@ let routes = {
       path: "*",
       uses: "base@notFound"
     }
+  ],
+  
+  POST: [
+    /* Redirection when route not found */
+    {
+      path: "*",
+      uses: "base@notFound"
+    }
+  ],
+
+  PUT: [
+    /* Redirection when route not found */
+    {
+      path: "*",
+      uses: "base@notFound"
+    }
+  ],
+
+  DELETE: [
+    /* Redirection when route not found */
+    {
+      path: "*",
+      uses: "base@notFound"
+    }
   ]
 };
 
