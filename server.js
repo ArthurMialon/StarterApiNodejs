@@ -5,6 +5,8 @@ import configuration from './api/config/configuration';
 let App = new Application({
   adapters,
   connections
+}, () => {
+
 });
 
 /* Listen server */
