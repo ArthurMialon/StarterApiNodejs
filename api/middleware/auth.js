@@ -14,7 +14,7 @@ export default {
   | ---------------------------------------------------------------
   |
   | Generate a token for the future request
-  | Your user send his credentials
+  | Your user send his or her credentials
   |
   | ==> username
   | ==> password
